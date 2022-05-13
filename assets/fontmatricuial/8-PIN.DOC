@@ -1,0 +1,546 @@
+8-Pin Matrix FONT
+
+This font looks very much like the output of an 8-Pin dot-matrix printer.
+It must be distributed under the archive name
+8PINM-T1 (8PN-T1 on Compuserve) for the PostScript format
+8PINM-TT (8PN-TT on Compuserve) for the TrueType format
+together with all it's accompanying files.
+
+This font is shareware. If you like it, and decide to continue to use it, you
+must register. See following chapters about details. See also "Great Fonts
+Offer" document and discover how, by registering, you will get 50 exclusive
+fonts to thank-you for paying the very low registration an usage fee.
+
+A bit of nostalgy
+
+Back in 1987, I was working with a now antique Apple IIe and a then brand new
+Apple IIc, as well as an IBM-PC clone (Panasonic Senior Partner) on a project
+that was to become MatchFont. That software allowed machines of the time to
+use fonts on dot-matrix printers, such as the good old Epson FX-80 I had then,
+or the Apple Imagewriter.  Eventualy, MatchFont helped people to use fonts on
+these rather slow printers, and to get unusual fonts, at least for these 
+character-based computers. Eventually, the printers got even slower, but the 
+results where, at least at the time, better than even a Mac.
+
+To-day, these technological monsters are gone. But I still remember the long
+hours passed on the 9x18 matrix of the MatchFont editor. I then created some 
+great marvels, such as Japanese, or a sideways font.
+
+8-Pin Matrix reminded me of that good'ol time, as while creating it, I found
+back the familiar limitations of that format.
+
+I hope you will find interesting this little font, looking very much like the 
+FX-80 outputs.
+
+As this is meant to really look like the output from an old dot-matrix
+printer, do not be surprised if you do not find kerninbg or proportional
+characters spacing. All this was still science fiction, at the time. So, this
+font offers monospace, and no kerning. Incidently, it means it will work as
+well a did, before, monospaced printed output, especially for numbers and
+spreadsheet.
+
+Thank-you in advance for any comment and suggestions you may have. In
+particular, if you have a favorite written or printed representation you may
+want to have made as a font, please send it along with your registration. It
+will take place in the project file folder, and if I follow-up on your
+suggestion, you will get this brand new font for free !
+
+Michel Bujardet
+
+INSTALLATION
+""""""""""""
+1) TRUETYPE
+After de-compacting the archive, copy the file *.TTF in the
+WINDOWS\SYSTEM directory. Then, use the standard Microsoft Control
+Panel to install the new font.
+
+For more details about how to install new fonts under Windows 3.1
+and more recent, or under compatible environments, refer to the
+Microsoft Windows manual, or Microsoft technical support.
+
+2 ) POSTSCRIPT TYPE 1
+
+Copy the appropriate files in the corresponding directories :*.PFM in \PFM,
+and so on. Then, use the Adobe Type Manager control panel to add the new
+installed font.
+
+If you need any help with PostScript fonts installation in windows, please
+refer to your Adobe Type Manager manual, or Adobe technical support.
+
+DEFINITION OF SHAREWARE
+
+Shareware distribution gives users a chance to try software before buying it. 
+If you try a Shareware program and continue using it, you are expected to 
+register. Individual programs differ on details -- some request registration 
+while others require it, some specify a maximum trial period. With 
+registration, you get anything from the simple right to continue using the 
+software to an updated program with printed manual.
+
+Copyright laws apply to both Shareware and commercial software, and the 
+copyright holder retains all rights, with a few specific exceptions as stated 
+below. Shareware authors are accomplished programmers, just like 
+commercial authors, and the programs are of comparable quality. (In both 
+cases, there are good programs and bad ones!) The main difference is in the 
+method of distribution. The author specifically grants the right to copy and 
+distribute the software, either to all and sundry or to a specific group. For 
+example, some authors require written permission before a commercial disk 
+vendor may copy their Shareware (see enclosed VENDOR.DOC).
+
+Shareware is a distribution method, not a type of software. You should find 
+software that suits your needs and pocketbook, whether it's commercial or 
+Shareware. The Shareware system makes fitting your needs easier, because 
+you can try before you buy. And because the overhead is low, prices are low 
+also. Shareware has the ultimate money-back guarantee -- if you don't use the 
+product, you don't pay for it.
+
+DISCLAIMER - AGREEMENT
+
+Users of MATCH SOFTWARE FONTS must accept this disclaimer of 
+warranty:"DINOSOTYPE FONT is supplied as is. The author disclaims all 
+warranties, expressed or implied, including, without limitation, the warranties 
+of merchantability and of fitness for any purpose. The author assumes no 
+liability for damages, direct or consequential, which may result from the use 
+of DINOSOTYPE FONT"
+
+These fonts are "shareware program" and are provided at no charge to the 
+user for evaluation.  Feel free to share it with your friends, but please do not 
+give it away altered or as part of another system. The essence of "user-
+supported" software is to provide personal computer users with quality 
+software without high prices, and yet to provide incentive for programmers to
+continue to develop new products. If you find this program useful and find
+that you are using this font and continue to use this font after a reasonable trial
+period, you must make a registration payment of $20 (in US funds) to Match
+Software. See order form at the end of this document.
+
+This small $20 fee is intended to pay for this font usage licensing. It is agreed
+the user had plenty of time to evaluate it in any way he wanted, and to decide
+to register for it. The fonts included with the registered version of this font are
+indeed a complementary gift, and do not constitute a new acquisition. It is
+understood user will not be entitled for any money back, if for any reason he
+did not like one or several of them.
+
+This registration fee will license one copy for use on any one computer at any
+one time.  You must treat this software just like a book.  An example is that
+this software may be used by any number of people and may be freely moved
+from one computer location to another, so long as there is no possibility of it
+being used at one location while it's being used at another. Just as a book
+cannot be read by two different persons at the same time.
+
+=============================================================================
+
+                          REGISTRATION/ORDER FORM
+                          -------------------------
+
+Register to-day, and you can receive 50 exclusive fonts from the Match
+Software Collection, or any of our disk fonts pack, for the basic price of $20
+registration And you can have any additional pack for $10 only. It is a 50%
+discount off the regular price !
+For more information about our products, see the files OFFER_50.WRI, or
+Great fonts offer ! )
+
+Name:_______________________________________________________________
+Address:_____________________________________________________________
+City, State : _________________________________________________________
+Zip Code:_______________________________
+Country
+(Outside North America, please add $5 post. and hand.):_________________
+
+Daytime Phone: (_____)__________________ (in case of missing details)
+E-MAIL address ________________________
+
+I found this order form with the following font : _8-PIN Win
+Which I got from __________________________________________________
+If BBS, access number is ____________________________________________
+address _____________________________________________________________
+_________________________________________________________________
+(Thank-you for providing us the address or access number of your  
+shareware source. It will help us get in touch, and make sure you always  
+find the most recent version, through your preferred shareware provider)
+
+Font/Disks type. For the basic registration price of $20, you can get any  one 
+of these packs : 50 fonts, Russian fonts, or Kid's font, as a  complementary 
+thank-you for acquiring the usage licensing. If you want  any extra pack, it 
+will then be only $10, which is half it's regular  price !  Check desired order.
+
+** The 50 FONTS PACK **
+TTM [] Macintosh TrueType
+T1M [] Macintosh PostScript Type 1
+TTW [] Windows TrueType
+T1W [] Windows PostScript Type 1 (requires Adobe Type Manager for 
+Windows)
+
+*** The CYRILLIC FONTS PACK ***
+RDTTM [] Macintosh TrueType
+RDT1M [] Macintosh PostScript Type 1
+RDTTW [] Windows TrueType
+RDT1W [] Windows PostScript Type 1 (requires Adobe Type Manager 
+Windows)
+
+*** The KID'S TREASURE FONT PACK ***
+KDTTM [] Macintosh TrueType
+KDT1M [] Macintosh PostScript Type 1
+KDTTW [] Windows TrueType
+KDT1W [] Windows PostScript Type 1 (requires Adobe Type Manager 
+Windows)
+
+Yes ! I want to take advantage of that great fonts offer. I have read and 
+understand all disclaimers and warranties.
+[] I order one pack for the basic registration price of $20
+[] I add a pack for $10 only, total will be $30 instead of $40
+[] I order three packs, total will be $20+$10+$10 = $40 instead of $60
+
+Please find enclosed []$20 []$25 []$30 []$35 []$40
+                     []Cash [] Check [] Money Order [] Credit card (see below)
+
+Date : ______________ Signature : ______________________________________
+
+
+                           CREDIT CARD PURCHASE FORM
+                            -------------------------
+
+NAME OF THE CARDHOLDER : ________________________________________
+CARD TYPE : [] VISA [] MASTERCHARGE [] AMEX
+CARD NUMBER : _____________________________________________________
+EXPIRATION DATE : __________________________________________________
+Please charge my above card for the amount of $____.__
+Date : ______________ Signature : ______________________________________
+
+
+"Allow 3-6 weeks for delivery"
+
+What kind of fonts would you like to see created by us ?________
+________________________________________________________________
+________________________________________________________________
+
+                    PRINT, FILL OUT AND SEND TO :
+            ---------------------------------------------
+
+                           MATCH SOFTWARE
+                    8205 SANTA MONICA BLVD. # 1-205
+                    WEST HOLLYWOOD, CA 90046-5912
+                            UNITED STATES
+
+
+Compuserve 73267,1701
+Phone # (818) 784-3737
+      # (213) 878-5629
+Fax   # (818) 784-8877
+
+                          ON-LINE REGISTRATION
+                          ---------------------
+On Compuserve, you can register electronically by typing at the prompt :
+GO SWREG
+
+Then, use the keyword MATCH to find all our shareware fonts, and "shop
+on-line".
+
+Note : if you cannot find this font, register any of our font for the  desired
+computer and font format. You will receive the same 50 fonts pack.
+
+To register for the Russian Disk Pack, simply register for one of the
+shareware Russian font, for instance SHADDOCK HOLLOW.
+
+Important message to our foreign customers :
+-----------------------------------------
+
+Please DO NOT SEND US ANYTHING ELSE THAN US DOLLARS, OR 
+TRAVELER CHECKS IN DOLLARS.
+The price of money exchange or foreign check cashing are so high, they  
+would exceed this small $20 price.
+
+LIMITED WARRANTY
+----------------
+
+This font is shareware. You had all the time you wanted to experiment  with 
+it in any way you wanted to, and for as long as you wanted to, before 
+deciding to register. It means you found it satisfactory enough to pay the 
+small usage fee.
+
+Therefore, Match Software cannot accept any claim for money back, for any 
+reason, after you have decided to, and did register.
+
+If for any reason the registered version of the font was provided to you  on a 
+defective media (disk), it will be exchanged for a new one at no  cost.
+
+If you have suggestions for improving this font, we appreciate your 
+comments.  It does not mean we will fix or modify the font in the way you  
+wish in a given time, or that we must do it in any way. However, if we feel 
+the suggestion is appropriate, next version of the font may be inspired from 
+these advises.
+
+We decline any responsibility if for any reason this font is put to bad use in 
+any way. It worked fine on a regular configuration, and on a regular printer, 
+with the most usual software packages. If, for any reason, it could not work 
+on your specific configuration, Match Software cannot be held responsible. 
+As technical combinations are almost infinite, and because systems evoluate 
+in ways we cannot predict, it might happen a new system, or a particular 
+configuration,  does not work with a font. For instance, because a new 
+version of the system requires a new font format. In general, we will try to 
+keep up with the system versions, and eventually offer upgrades, if possible, 
+but it does not constitute an obligation, nor would it be the case if you 
+acquired a set of seats cover for your specific car, and require they fit any 
+new car you may decide to buy later on.
+
+Hardware characteristics may also pose problems. For instance, it appears 
+that some ink-jet printers or dot-matrix printers, used with Windows, cannot 
+print accurately some complex fonts. It could happen with  "dingbats" fonts, 
+made out of small pictures, like Nahkt Hieroglyphs, or  Dinosotype, for 
+instance. For some reason, sometimes some sizes show on  the screen as 
+little square boxes, and print fine. Or the opposite ; it  shows fine on the 
+screen and never prints. Or worse, it does not print either on the screen, nor 
+on the printer.  We found no explanation to this phenomenon. It looks very 
+much like a solid glitch either in Windows itself, either in the printer's 
+drivers. Until His Majesty Microsoft fixes the problem, we are sorry to admit 
+we cannot find any way to directly circumvent it (at least easily ; see Q & A in 
+OFFER_50.WRI).
+
+Some printers have also some very strange limitations concerning TrueType 
+fonts. We had some nightmares with HP-Compatible printers which are not, 
+in their native mode, capable of accommodating more than, say, 5 TT fonts. 
+If configured as HP clones, however, they would print fine hundreds of 
+beautiful TrueType fonts. Think about this kind of glitches, before accusing 
+our fonts of not functioning properly.
+
+Another bad use of a font may be generation of counterfeit documents, or any 
+kind of falsified printing. We decline any responsibility in such and event.  
+Please do not use our fonts for any illegal purpose.
+
+USAGE LICENSING REGISTRATION
+----------------------------
+
+If you got this font from a commercial shareware distributor, like  on-disk 
+vendors, CD compilations or on-line service, the price you eventually paid 
+does not include usage licensing. Commercial distributors  charge you for 
+their time spent in selecting, promoting and shipping the  shareware, or any 
+other weird reason they might think of, but in no case  for usage fees. In 
+other words, should you decide to use this font on  regular or publishing 
+purposes, you still must acquire usage licensing by  registering, before doing
+so.
+
+This applies especially to desktop publishing, or any kind of publishing.  If
+you should use this font in any publishing activity, you must  register, and
+also mention in the copyright notices name and origin of  the Match Software
+fonts you used. For instance "Bujardet Freres fonts  from Match Software".
+
+Thank-you for complying with these simple rules. If you publish books or
+any other intellectual creation, would they be records, software, videos  or
+any other creation, you probably want to get recognized for it. Please  do not
+deprive us from our small share of it, minuscule registration fee  included.
+Thank-you !
+
+                                 Q & A
+                                 -----
+
+Here are some questions frequently asked about our fonts, and the answers we
+where able to come up at the time. You may want to read, even though you did
+not experience any problem. Some of these answers could help you get the best
+out of other fonts, by often circumventing difficulties otherwise baffling to
+other font houses. This list of questions and answers will be regularly
+updated, in order to spare as much as possible aggravation for our customers.
+After reading them, please contact us, if anything was still bothering you. We
+will do what we can to help you the best way we can. Thank-you for all your
+reports.
+
+Q : Under Windows, some fonts do not print at all sizes, or show only on
+screen, or the opposite. This happens most often with complex fonts, such as
+DinosoType, Bujardet Vignettes of Nahkt Hieroglyphs. Some characters print as
+squares, when they appear fine on the screen, or the opposite, or both. It
+happens most often when the output is to be made on a dot-matrix printer,
+would it be impact or ink-jet.
+A : The problem seems to reside within Windows itself, and we where unable to
+get any explanation from Microsoft which could help us understand how to solve
+the problem. However, as in general this type of fonts are most used on 
+isolated basis (letterheads, titles, etc.), it is possible to use another 
+approach :
+- Create a new document under Windows Paint
+- With the TEXT tool, enter the appropriate message
+- Copy the image, and paste it into your word processor or desktop publishing
+software. Of course, if you use more sophisticated tools than Windows Paint,
+like Corel Draw on the PC, the result may be better.
+
+Q : On the Macintosh, I tried to install your TrueType font, but it shows only
+as a sort of Helvetica, or Geneva. What's going on ?
+A : You probably ran into a font number conflict. In other words, the newly
+installed font has probably the same number as some other already installed in
+the system. You may want to use a utility to check the numbers of the fonts
+installed in your system, maybe FontMaster, which is available in the
+shareware circuit, or another more recent.  The way to make sure a font is OK:
+- BEFORE a font is installed (if you installed it, remove it from the system
+and restart your computer before proceeding), open the suitcase, and in ther,
+double-click on the font itself. You should normaly get a little windows,
+showing the expected characters.
+- Install the font, through the regular procedure you are acustomed to ;
+Suitcase if you are lucky, or by placing the suitcase in the system.
+- Do the same manipulation as before (opening the font suitcase, then the font
+inside). If the font shows OK, it means it should work properly.
+If the sample text is showing some sort of Geneva, it means something is
+wrong, and the font has the same number as a one installed before.  The only
+way to go, if you do not have a special utility to renumber the font, is to
+remove any "non system" fonts, and out them aside in another folder, then
+restart the computer (when installed, the system contains only Chicago,
+Courier, Geneva, Monaco, New York, Symbol, Times. They are the only ones which
+should remain).
+At this point, you should be able to re-install the new font with no problem.
+You can then add the fonts previously set aside, one at a time, until one will
+actually do the same as before : show as Geneva. Here is the posing-problem
+font. You can get a utilty which can change the fonts numbers, or simply avoid
+using the two fonts at the same time
+
+Q : I do not find the promised accented characters. They are not  available
+through my regular keyboard. Why is that ?
+A : For historical reasons, as computers originated in America, and also
+because no one at the beginning thought of using electronic calculators  to
+write poems, invitations or books, the ASCII standard did not support
+accented characters. Then, as more and more aborigines from France like
+Michel Bujardet, or other remote picturesque small countries, started to trade
+their usual goose quill for more modern means, they asked for accents. And
+also for their own weird keyboards. If you use a Macintosh, use the Keyboard
+desk accessory to see what key combinations give you access to the desired
+characters.  On the PC, you may want to try all combinations, in conjunction
+with the Alt Gr key. You can also load in your word processor the ASCII
+document usually provided with our foreign fonts. It will allow you to check
+what number punch in on the numeric keypad, while depressing the Alt key, then
+release Alt, to get the desired symbol (for instance, Alt-65 generates an
+"A").
+Under Windows, you have two key combinations doing different things : Alt-XXX
+(where XXX represents three digits), and Alt-0XXX where the three digits are
+preceded by a 0 (zero). You may want to load in Windows Write the file
+WINKEYS.WRI which shows for every code three or four digits the resulting
+character.
+
+Q : Why in hell did you choose the same number for one of your fonts than  one
+of mine ?
+A : This especially goes for the Macintosh, but could happen with Windows or
+ ATM as well. Each font has it's own specific number, which the system uses to
+ recognize it, and communicate with the printer. If two fonts in the system
+ have the same number, strange things will happen : the font may look fine on
+ the screen, but print different on the printer. Or the opposite. Look very
+ different on the screen than what you expected. This kind of conflict is
+ automatically solved by utilities such as Suitcase, an excellent font
+ manager, available for Macintosh and Windows. We strongly recommend it's use. 
+ Our problem is like Sea Battle : whatever number we choose, there is always a 
+ chance some other font designer may have chosen the same. Utilities which can 
+ list fonts numbers, and eventually change them, will solve your problem.  If 
+ you discover one of our fonts have the same number as one provided by a big 
+ company, or, worse, regularly in the system, like Arial under Windows or 
+ Chicago on th Mac (which has already been checked for, but one never knows), 
+ please report it ASAP. We will change the number at once.
+
+Q : One font crashes the system.
+A : Check if the file was not corrupted. A disk error, or some unexpected
+manipulations, like switching off the computer with applications still active,
+may be the cause. Use the original copy of the font, which you received in
+your shareware or registered package. If the problem still persists, please
+contact us.
+
+Q : Since I installed your fonts on my Macintosh computer, Suitcase does not
+work. The extension is in place, but it does not work.
+A : Adding a new set of fonts cannot damage Suitcase. However, a system
+crash, or switching off the computer without first doing shut-down in the
+special menu, can damage Suitcase. Simply make a new copy from the  original 
+Suitcase disk, restart, and it should work again. Some other  inits may 
+conflict. We have noticed the same glitch with a scanner  Photoshop add-in, 
+which seems to fire bullets at Suitcase, anytime it is  run, and 
+systematically destroy it.
+
+
+Q : I need a font in a language not yet available.
+A : Creating fonts for new languages is not only challenging, it is also
+culturally very rewarding, very inspiring. We do not always know the language
+you plan to use. But if you provide us with the proper information, we will
+use it to create a new font. Basically, what we need is a representation as 
+detailed as possible of the desired alphabet, along, if it is not a Roman one, 
+with the pronounciation of every character. Call us for more details.
+
+Q : I want a font made according to my specifications.
+A : If you already have a printout of the desired font, or any graphic
+representation that we can use to draw the characters, our regular price for
+designing a new font is very reasonable. If you want a creation from scratch,
+it will be more difficult. Please call us for a quotation.
+
+Q : How can I obtain a printout of all of your fonts ?
+A : You already have a pretty good idea of our fonts from this very document.
+However, just send us your complete address, and we will gladly send you a 
+sample sheet showing the diversity of Match Software fonts. You may also want 
+to look around for a file named 50FNTDEMO.ZIP, or 50FNTDEMO.SIT, which are 
+currently available on Compuserve (50FNTDEM) DTP forum, or the equivalent 
+forums on America Online. We can also fax you a sample sheet of any specific 
+font you want to see. However, if you wish more than 3 fonts, we will still 
+send the requested by mail, to avoid excessive phone charges.
+
+Q : You must provide thorough phone hot line support for any brand and type of
+computer. If Adobe and others can, why not you ? You should be able to be
+reached 24 hours a day, 7 days a week !
+A : We are sorry, with our small operation, not to be able to compete with
+giants who see more money in 10 minutes than we may be able to earn in one
+year. However, our prices are lower beyond comparison.  That is also because
+you are not paying for million dollars advertisement, and plethoric staffs.
+Besides, we are prepared to fix glitches if any, and  gladly accept advises
+from our customers. Remember, however, that a font  is somewhat equivalent to
+a bumper sticker to an automobile. Please do  not ask us to solve the problems 
+generated by your system, no more than  you would think about requiring drive 
+lessons from a stickers publisher.   We do our best for our fonts to work 
+properly on STANDARD configurations,  including STANDARD printers, STANDARD 
+system versions, STANDARD  applications, when our fonts are installed through 
+STANDARD procedures.
+
+Q : I have a brand new Epson laser printer, and Word 6 for Windows. I followed
+all installation procedures for the printer, and it works beautifully. I
+installed your fonts with the Windows Fonts control panel and they seem to be
+OK, but they never appear in the application's font menu. What's wrong ?
+A : Nothing is wrong, expect the fact that your printer is probably set up in
+native mode. It then can accept only a limited number of fonts. If your 
+printer is able to support HP emulation (see manual), set it up as an HP 
+printer. Setup Windows with the HP printer driver. You should then be happy to 
+see our fonts appear in the Word fonts menu next time you run the application.
+
+Q : In your Martian font, you placed a dot above the glipnol character,  and
+forgot to put an accent above the weirdoo. It is unforgettable. I am  furious
+and you are just as stupid as a bunch of lunar dogs ! You should  be whipped,
+and give me my money back, too, plus maybe a little extra,  because I suffered
+incredible damage to my much sophisticated sense of  intellectual properness
+and inherent graceful sophistication.
+A : We are sorry not to know Martian as well as such a refined literate as
+your highness.  Please do not blow your desintegrator at us, poor ridiculous 
+clumsy uneducated filthy computer groomers. Please consider that ignorance may 
+not be such a crime, after all, and have mercy for the less taught. If for any 
+reason we committed a mistake in transcribing your native language, be assured 
+it is not intentional. Please courteously provide us with the proper 
+information, and we will make sure appropriate updates are made. All we know 
+of, as humble and insignificant artisans, is the fonts craftsmanship. It is 
+not our fault, then, if the subtleties of a foreign language do not strike us 
+like light over the saint's head. However, we are bending our knees to the 
+more educated. Thank you for  helping us improve.  At the present time, our 
+foreign fonts have been  thoroughly reviewed, so they satisfy our customers. 
+Some have helped  perfect already very nice fonts. But we will appreciate any 
+additional  help !
+
+Q : When I use too many fonts, my printer crashes.
+A : Try setting the option "Print TrueType fonts as graphics" in the Windows
+Control panel. On the Macintosh, set "Unlimited Downloadable Fonts" in the
+Printer Options.
+
+Q : Why do you ask for money for your fonts ? They should be free !
+A : There is a strange curse around computer software, these days. Nobody
+would ever consider getting a movie for nothing, or walking into a book store 
+and require a sample for free. For programs, however, the matter is quite 
+different. So many people consider computer software piracy as a light little 
+mistake, that eventually, some may indeed start considering software authors 
+as thieves, because they pretend to get a small reward for their job. Some 
+luminaries (noticeably around GNU project) even have the nerve to play with 
+the very strange notion that computer software should only come free, and that 
+any commercial distribution, including shareware, has some analogy to a 
+rip-off. Fine and good, then, but why do they at the same time insist to get 
+paid for their conferencing, or to get royalties from their books ? Match 
+Software is a small business based on shareware distribution. Anyone can 
+browse at our productions in the same way a reader could read a book as many 
+times and as c mpletely as wished, before actually paying for it. Please do 
+not pirate us. If you feel a font is really of use, please register. That
+small usage fee will help us continue creating new original, exclusive and
+fine fonts for you. We sincerely thank all users who have, through their
+registration, helped pay the rent, the phone, and the electricity which powers
+our equipment while creating all these fonts. Please continue to support the
+shareware concept. It is the only way out of the commercial monopolies. Small
+software companies are as much a liberty warrant as small book publishers are: 
+without them, big companies would have their way, culturally and
+financially. Nobody would ever want that to happen !
