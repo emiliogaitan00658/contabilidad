@@ -3,7 +3,6 @@
 if (!$_SESSION){
     echo '<script> location.href="login" </script>';
 }
-$indusuario=datos_clientes::generar_ind_cliente($mysqli);
 if ($_POST) {
 
     if(!empty($_POST['textnombre'])){
@@ -18,7 +17,7 @@ if ($_POST) {
     $varficar_nombres = datos_clientes::verificar_nombre_apellido($nombre, $apellido, $mysqli);
     if ($varficar_nombres == false) {
         $indusuario=datos_clientes::generar_ind_cliente($mysqli);
-        $recues=datos_clientes::nuevo_usuario($indusuario+1, $nombre, $direccion1,$direccion2, $cedula, $telefono, $sucursale, $apellido, $mysqli);
+        $recues=datos_clientes::nuevo_usuario($indusuario, $nombre, $direccion1,$direccion2, $cedula, $telefono, $sucursale, $apellido, $mysqli);
         if($recues==true){
             echo '<script>
  swal({
@@ -61,11 +60,8 @@ if ($_POST) {
 ?>
 
 <div class="container z-depth-1 rounded white">
-    <div class="modal-header white rounded">
-        <h4 class="modal-title blue-grey-text unoem"><i class="icon-user-plus" size="80%"></i> Registro de Clientes Nuevos</h4>
-    </div>
-    <p class="red-text"> Si van a hacer registro de una empresa deben de registar el nombre de la empresa y despues en el campo siguente el numero ruc de la empresa.</p>
-    <br>
+        <h4 class="modal-title blue-grey-text alert alert-primary"><i class="icon-user-plus" size="80%"></i> Registro Clientes Nuevos</h4>
+    <hr>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <section class="row">
             <div class="control-pares col-md-5">
@@ -143,9 +139,6 @@ if ($_POST) {
                        } ?>">
             </div>
         </section>
-        <hr>
-        <p class="red-text">No duplicar cliente el sistema no puede crear o generarlas.</p>
-        <br>
         <div class="modal-footer">
             <input type="submit" value="Nuevo Cliente" class="btn white-text blue-grey btn-primary"/>
         </div>

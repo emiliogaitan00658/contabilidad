@@ -33,7 +33,7 @@ if ($_GET) {
 ?>
 <div class="container white rounded z-depth-2" style="border-radius: 6px;">
     <div style="padding: 1em">
-        <h5>Buscar producto<a href="crear_factura.php" class="right btn btn-info">Regresar</a></h5>
+        <h5 class="alert alert-primary">Buscar producto<a href="crear_factura.php" class="right btn btn-info">Regresar</a></h5>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">
@@ -45,13 +45,13 @@ if ($_GET) {
                 </div>
             </section>
         </form>
-        <br>
-        <p>Si desea buscar el producto por marca debe de asignar el codigo mas ( - ) ejemplo=(MAQUIRA-)</p>
+<!--        <br>-->
+<!--        <p>Si desea buscar el producto por marca debe de asignar el codigo mas ( - ) ejemplo=(MAQUIRA-)</p>-->
         <hr>
     </div>
 </div>
 <hr>
-<div class="container z-depth-1 rounded white">
+<div class="z-depth-1 rounded white center-block" style="width: 85%!important;">
     <table class="table table-striped table-bordered" style="padding: 1em;">
         <thead>
         <tr style="border-bottom: 1px solid black;" class="alert alert-primary">

@@ -7,7 +7,7 @@ if (!$_SESSION) {
 <div class="container white rounded z-depth-2" style="border-radius: 6px;">
     <div style="padding: 1em">
         <br>
-        <h5>Buscar producto</h5>
+        <h5 class="alert alert-primary">Buscar producto</h5>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">

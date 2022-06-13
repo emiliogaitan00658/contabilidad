@@ -4,10 +4,9 @@ if (!$_SESSION) {
     echo '<script> location.href="login" </script>';
 }
 ?>
-    <div class="container white rounded z-depth-1">
+    <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5>Factura Generadas<a href="temporal/cliente_manual.php" class="right btn btn-info">Factura Manual</a></h5>
-
+            <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-dark blue-grey right" href="temporal/cliente_manual.php" class="right btn btn-info">Factura Manual</a></h5>
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
@@ -118,7 +117,7 @@ if (!$_SESSION) {
                     </div>
                 </section>
             </form>
-<!--            <hr>-->
+           <hr>
 <!--            <p class="red-text">Las facturas anuladas deben de ser reportadas en el sistema, es una obligación  del personal reportarlas, igual registrar todas las facturas  realizadas</p>-->
 <!--            <hr>-->
         </div>

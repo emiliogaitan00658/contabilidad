@@ -31,13 +31,11 @@ if ($_POST){
 
 ?>
 
-<div class="container z-depth-1 rounded white">
-    <div class="modal-header white rounded">
-        <h4 class="modal-title blue-grey-text unoem">Registro Factura</h4>
-    </div>
+<div class="container z-depth-1 rounded white" style="width: 60%;border-radius: 6px">
+
+        <h4 class="modal-title blue-grey-text alert alert-info">Registro Factura</h4>
     <br>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <section class="row">
             <div class="control-pares col-md-4">
                 <label for="" class="control-label">Cambio numero numero de facturar:</label>
                 <input type="text" name="texttalonario" class="form-control" value=" <?php
@@ -51,14 +49,11 @@ if ($_POST){
                 }
                 ?>" placeholder="Agregar numero de factura"  required>
             </div>
-        </section>
         <br>
         <div class="modal-footer">
-            <input type="submit" value="Agregar numero de factura" class="btn white-text blue-grey btn-primary"/>
+            <input type="submit" value="Guardar Cambios" class="btn white-text blue-grey btn-primary"/>
         </div>
     </form>
-    <p>De de cambiar el numero de factura es su responsabilidad de cada sucursal.</p>
-    <br>
 </div>
 
 <?php include "header/footer.php" ?>

@@ -75,40 +75,27 @@ class datos_clientes
         return $hora;
     }
 
-   /* public static function generar_ind_cliente($mysqli)
+    /* public static function generar_ind_cliente($mysqli)
+     {
+         $result = $mysqli->query("SELECT COUNT(indcliente) as contador FROM `clientes`");
+         $row = $result->fetch_array(MYSQLI_ASSOC);
+
+         if (!empty($row)) {
+             $pinunico = $row['contador']*3;
+             $pin = $pinunico * 3;
+             return $pin;
+         }
+
+         return 0;
+     }
+ */
+    public static function generar_ind_cliente($mysqli)
     {
-        $result = $mysqli->query("SELECT COUNT(indcliente) as contador FROM `clientes`");
-        $row = $result->fetch_array(MYSQLI_ASSOC);
-
-        if (!empty($row)) {
-            $pinunico = $row['contador']*3;
-            $pin = $pinunico * 3;
-            return $pin;
-        }
-
-        return 0;
+        $limit = 6;
+        $resultado= random_int(10 ** ($limit - 1), (10 ** $limit) - 1);
+        return $resultado;
     }
-*/
-public static function generar_ind_cliente($mysqli)
-    {
-        $result = $mysqli->query("SELECT COUNT(indcliente) as contador FROM `clientes`");
-        $row = $result->fetch_array(MYSQLI_ASSOC);
 
-        if (!empty($row)) {
-            $pinunico = $row['contador']+20;
-            $pin = $pinunico + 56;
-
-            $result2 = $mysqli->query("SELECT * FROM `clientes` WHERE indcliente='$pin'");
-            $row2 = $result2->fetch_array(MYSQLI_ASSOC);
-            if (!empty($row2)) {
-             return $pin+5;
-            }else{
-                return $pin;
-            }
-        }
-
-        return 0;
-    }
     public static function generar_ind_cuota_pago($mysqli)
     {
         $result = $mysqli->query("SELECT COUNT(indcredito) as contador FROM `credito`");
@@ -301,7 +288,8 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
             return "error";
         }
     }
-    public static function total_deuda_faltante($indtemp,$mysqli)
+
+    public static function total_deuda_faltante($indtemp, $mysqli)
     {
         $result = $mysqli->query("SELECT SUM(pago) as total FROM `creditos_pago` WHERE indtemp= '$indtemp'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
@@ -311,15 +299,16 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
             return "error";
         }
     }
-    public static function total_deuda_faltante22($indtemp,$mysqli)
+
+    public static function total_deuda_faltante22($indtemp, $mysqli)
     {
         $result = $mysqli->query("SELECT SUM(pago) as total FROM `creditos_pago` WHERE indcredito= '$indtemp'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
 
         $result2 = $mysqli->query("SELECT totalCredito FROM `credito` WHERE indcredito= '$indtemp'");
-        $row2= $result2->fetch_array(MYSQLI_ASSOC);
+        $row2 = $result2->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
-            return $row2["totalCredito"]-$row["total"];
+            return $row2["totalCredito"] - $row["total"];
         } else {
             return "error";
         }
@@ -423,7 +412,8 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         $query = mysqli_query($mysqli, $insert);
         return true;
     }
-    public static function bandera_credito_cancelado($indtemp,$mysqli)
+
+    public static function bandera_credito_cancelado($indtemp, $mysqli)
     {
         $insert = "UPDATE `credito` SET `status` = '0' WHERE `credito`.`indtemp` = '$indtemp';";
         $query = mysqli_query($mysqli, $insert);
@@ -479,6 +469,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
             return "0";
         }
     }
+
     public static function conteo_total_facturas_cleintes($indcliente, $mysqli)
     {
         $result = $mysqli->query("SELECT COUNT(indcliente) as suma FROM `total_factura` WHERE indcliente='$indcliente'");
@@ -560,16 +551,17 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "";
     }
 
-    public static function nombre_empleado($indempleado,$mysqli)
+    public static function nombre_empleado($indempleado, $mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `empleado` WHERE indempleado='$indempleado'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
-            return $row3["nombre_empleado"]." ".$row3["apellido_empleado"];
+            return $row3["nombre_empleado"] . " " . $row3["apellido_empleado"];
         }
         return "";
     }
-    public static function datos_empleado($indempleado,$mysqli)
+
+    public static function datos_empleado($indempleado, $mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `empleado` WHERE indempleado='$indempleado'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
@@ -668,6 +660,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         }
         return "0";
     }
+
     public static function ultima_factura_credito($indsucursal, $fecha1, $fecha2, $mysqli)
     {
         //$result = $mysqli->query(" IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario desc limit 1");
@@ -964,7 +957,7 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
         }
     }
 
-    public static function datos_credito_generale($key,$mysqli)
+    public static function datos_credito_generale($key, $mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `credito` WHERE indtemp='$key'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
@@ -974,7 +967,8 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
             return "false";
         }
     }
-    public static function datos_credito_generale_pago($indpago,$mysqli)
+
+    public static function datos_credito_generale_pago($indpago, $mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `creditos_pago` WHERE indpago='$indpago'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
@@ -1031,7 +1025,6 @@ VALUES (NULL, '$nombre', '$apellido', '$user', '$pas', '$sucursal');";
         $query = mysqli_query($mysqli, $insert3);
 
 
-
         $insert5 = "DELETE FROM `credito` WHERE `credito`.`indtemp`='$key' ";
         $insert4 = "DELETE FROM `creditos_pago` WHERE `creditos_pago`.`indtemp` ='$key' ";
 
@@ -1047,9 +1040,10 @@ VALUES (NULL, '$nombre', '$apellido', '$user', '$pas', '$sucursal');";
         $query = mysqli_query($mysqli, $insert1);
         return true;
     }
-    public static function ingresar_credito_pago($indcredito,$indtemp,$indsucursal,$recibo,$detalle,$total,$fecha,$mysqli)
+
+    public static function ingresar_credito_pago($indcredito, $indtemp, $indsucursal, $recibo, $detalle, $total, $fecha, $mysqli)
     {
-        $fecha=self::fecha_get_pc_MYSQL();
+        $fecha = self::fecha_get_pc_MYSQL();
         $insert1 = "INSERT INTO `creditos_pago` (`indpago`, `indcredito`, `indrecibo`, `pago`, `fechapago`, `status`, `bandera`, `indsucursal`, `detalles_factura`, `indtemp`) 
 VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsucursal', '$detalle', '$indtemp') ";
         $query = mysqli_query($mysqli, $insert1);
@@ -1065,7 +1059,7 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
     }
 
 
-    public static function eliminar_credito($temp,$mysqli)
+    public static function eliminar_credito($temp, $mysqli)
     {
         $insert1 = "DELETE FROM `creditos_pago` WHERE `creditos_pago`.`indtemp` ='$temp' ";
         $query = mysqli_query($mysqli, $insert1);
@@ -1082,7 +1076,8 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
         $query = mysqli_query($mysqli, $insert1);
         return true;
     }
-public static function cambio_taza_dolar($mysqli,$dolar_nuevo)
+
+    public static function cambio_taza_dolar($mysqli, $dolar_nuevo)
     {
         $insert1 = "UPDATE `tasa` SET `dolar` = '$dolar_nuevo' WHERE `tasa`.`indcambio` = 1;";
         $query = mysqli_query($mysqli, $insert1);

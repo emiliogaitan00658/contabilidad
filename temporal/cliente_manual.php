@@ -10,7 +10,7 @@ $nombre ="0";
 ?>
 <div class="container white rounded z-depth-1" style="border-radius: 6px;">
     <div style="padding: 1em">
-        <h5 class="red-text" style="border: 1px solid red;padding: 1em">Buscardor de Clientes (Registro de Factura Manual)</h5>
+        <h5 class="alert alert-primary">Buscardor de Clientes (Registro de Factura Manual)</h5>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">
@@ -27,9 +27,9 @@ $nombre ="0";
 </div>
 <br>
 <div class="container z-depth-1 rounded white">
-    <table class="table table-hover table-bordered" style="padding: 1em;">
-        <thead class="thead-light">
-        <tr style="border-bottom: 1px solid black">
+    <table class="table table-responsive-sm table-bordered" style="padding: 1em;">
+        <thead>
+        <tr style="border-bottom: 1px solid black;" class="alert alert-info">
             <th scope="col"># ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
