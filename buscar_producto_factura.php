@@ -22,7 +22,7 @@ if ($_GET) {
 </script>';
     } else {
         echo '<script>
-    swal("Producto existe en la factura.")
+        swal("Repetiste Producto!", "Error", "warning")
 .then((value) => {
   location.href="buscar_producto_factura.php";
 });

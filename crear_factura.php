@@ -229,7 +229,7 @@ if ($_SESSION["Key"] == "") {
                        value="" placeholder="Pago en cordobas">
             </div>
             <div class="control-pares col-md-2">
-                <label for="" class="control-label"><b>$ Dolar Total:</b></label>
+                <label for="" class="control-label"><b>Dolar Total: $</b></label>
                 <input type="text" name="textotaldolar" id="textotaldolar" class="form-control"
                        value="<?php
                        $res = datos_clientes::sumatotal_factursa($Key, $mysqli);
@@ -238,7 +238,7 @@ if ($_SESSION["Key"] == "") {
                        readonly=readonly required>
             </div>
             <div class="control-pares col-md-3">
-                <label for="" class="control-label"><b>Sub Total:</b></label>
+                <label for="" class="control-label"><b>Sub Total: C$</b></label>
                 <input type="text" name="textsubtotal" id="textsubtotal" disabled class="form-control"
                        value="<?php $codo = datos_clientes::sumatotal_factursa_subfactura($Key, $mysqli);
                        $RES = $codo;
@@ -246,7 +246,7 @@ if ($_SESSION["Key"] == "") {
                        readonly=readonly>
             </div>
             <div class="control-pares col-md-3">
-                <label for="" class="control-label"><b>Total:</b></label>
+                <label for="" class="control-label"><b>Total: C$</b></label>
                 <input type="text" name="textotal33" id="textotal33" class="form-control"
                        value="<?php $res3 = datos_clientes::sumatotal_factursa($Key, $mysqli);
                        $sum = $res3;

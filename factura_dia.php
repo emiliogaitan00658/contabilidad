@@ -22,7 +22,7 @@ if (!$_SESSION) {
                         ?>" required>
                     </div>
                     <div class="control-pares col-md-2">
-                        <input type="number" name="textfactura" class="form-control" placeholder="No Factura" value="">
+                        <input type="number" name="textfactura" class="form-control input_modificado" placeholder="No Factura" value="">
                     </div>
                     <div class="control-pares col-md-3">
                         <select name="textsucursal" class="form-control" required>
