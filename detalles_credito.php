@@ -38,9 +38,9 @@ if ($_POST) {
 }
 ?>
     <div class="container white z-depth-1 rounded">
-        <div class="modal-header white rounded">
-            <h4 class="modal-title blue-grey-text unoem">Registro Nuevos Credito</h4>
-        </div>
+    <div class="modal-header white rounded">
+            <h4 class="modal-title blue-grey-text unoem alert alert-info">Registro nuevos credito</h4>
+    </div>
         <p class="red-text">* Recordar que el monto minimo es de 15 dolares para credito (Si preguntar asu superiores acerca de credito)</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?indcliente=<?php echo $nombre; ?>&key=<?php echo $key; ?>&total=<?php echo $total; ?>"
               method="post">

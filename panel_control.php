@@ -40,7 +40,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body">
@@ -107,7 +106,7 @@
 </div>
 <br>
 <div class="container">
-    <h5>Modulo Ing.Emilio Gaitan</h5>
+    <h5>Modulo Configuraciones</h5>
     <hr>
     <div class="row">
         <div class="col-sm-3">
@@ -119,6 +118,16 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body center-align">
+                    <h5 class="card-title">Configuraciones Generales</h5>
+                    <p class="card-text">Configuraciones de empresa.</p>
+                    <a href="configuraciones/empresa.php" class="btn btn-secondary">ir</a>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
 <?php include "header/footer.php" ?>

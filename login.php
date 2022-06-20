@@ -1,4 +1,4 @@
-<div style='background-image: url("assets/img/logo3.png");
+<div style='background-image: url("assets/img/logo4.png");
 background-size: cover;
 background-position: center;
 height: 100vh;
@@ -167,7 +167,7 @@ if ($_POST) {
                 <div class="container-fluid">
                     <div>
                         <br>
-                        <h2>SISTEMA DE FACTURACIÒN</h2>
+                        <h2>SISTEMA DE FACTURACIÓN</h2>
                         <hr>
                     </div>
                     <div>
@@ -183,7 +183,7 @@ if ($_POST) {
                                 <input type="submit" value="INGRESAR" class="btn">
                             </div>
                         </form>
-                        <p class="center-align">Este sistema es creado Ing. Emilio Gaitán</p>
+                        <p class="center-align alert alert-info">Este sistema es creado Ing. Emilio Gaitán</p>
                     </div>
                 </div>
             </div>

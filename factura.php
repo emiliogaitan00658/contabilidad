@@ -53,14 +53,16 @@ if (!empty($_POST["textnombre"])) {
         </thead>
         <tbody>
         <?php
+        $contador=0;
         if ($_POST) {
             $result4 = $mysqli->query("SELECT * FROM clientes 
          WHERE (nombre LIKE _utf8  '%%$nombre%%' 
          OR apellido LIKE _utf8  '%%$nombre%%') and status='1' ORDER BY nombre");
             while ($resultado = $result4->fetch_assoc()) {
+                $contador=1+$contador;
                 ?>
                 <tr>
-                    <th scope="row"><?php echo $resultado['indcliente']; ?></th>
+                    <th scope="row"><?php echo $contador; ?></th>
                     <td><?php echo $resultado['nombre']; ?></td>
                     <td><?php echo $resultado['apellido']; ?></td>
                     <td><?php

@@ -79,7 +79,7 @@ if ($_GET) {
 ?>
 <div class="container z-depth-1 rounded white">
     <div class="modal-header white rounded">
-        <h4 class="modal-title blue-grey-text unoem">Lista de Creditos</h4>
+        <h4 class="modal-title blue-grey-text unoem alert alert-info">Lista de Creditos</h4>
     </div>
     <table class="table table-bordered" style="padding: 1em;">
         <thead>

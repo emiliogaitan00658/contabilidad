@@ -12,7 +12,7 @@ if (!$_SESSION) {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">
                 <div class="control-pares col-md-4">
-                    <input type="text" name="textproducto" class="form-control" placeholder="Buscar ....." required>
+                    <input type="text" name="textproducto" class="form-control input_modificado" placeholder="Buscar ....." required>
                 </div>
                 <div class="control-pares col-md-4">
                     <input type="submit" value="Buscar producto" class="btn white-text blue-grey btn-primary"/>
@@ -37,7 +37,7 @@ if (!$_SESSION) {
     </div>
 </div>
 <hr>
-<div class="container z-depth-1 rounded white">
+<div class="container z-depth-1 rounded white" style="border-radius: 6px">
     <table class="table table-responsive-sm table-bordered" style="padding: 1em;">
         <thead>
         <tr style="border-bottom: 1px solid black;" class="alert alert-info">

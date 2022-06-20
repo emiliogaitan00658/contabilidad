@@ -38,7 +38,7 @@ if ($_GET) {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">
                 <div class="control-pares col-md-4">
-                    <input type="text" name="textproducto" class="form-control" placeholder="Buscar ....." required>
+                    <input type="text" name="textproducto" class="form-control input_modificado" placeholder="Buscar ....." required>
                 </div>
                 <div class="control-pares col-md-4">
                     <input type="submit" value="Buscar producto" class="btn white-text blue-grey btn-primary"/>
