@@ -41,6 +41,7 @@ if (!empty($_SESSION)) {
     $nombre_empleado=datos_clientes::nombre_empleado($_SESSION["indempleado"],$mysqli);
     $dolar = datos_clientes::cambio_dolar($mysqli);
     $indempleado=$_SESSION["indempleado"];
+    $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
 }
 
 ?>

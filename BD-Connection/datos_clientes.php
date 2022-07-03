@@ -92,7 +92,7 @@ class datos_clientes
     public static function generar_ind_cliente($mysqli)
     {
         $limit = 6;
-        $resultado= random_int(10 ** ($limit - 1), (10 ** $limit) - 1);
+        $resultado = random_int(10 ** ($limit - 1), (10 ** $limit) - 1);
         return $resultado;
     }
 
@@ -333,6 +333,16 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
             return $row["nombre"] . " " . $row["apellido"];
         } else {
             return "error";
+        }
+    }
+    public static function mostrar_detalle_empresa($mysqli)
+    {
+        $result = $mysqli->query("SELECT * FROM `empresa`");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            return $row;
+        } else {
+            return "";
         }
     }
 
@@ -1009,8 +1019,16 @@ WHERE `producto`.`indproducto` = '$indproducto'";
     public static function registro_usuario_mysql($nombre, $apellido, $user, $pas, $sucursal, $mysqli)
     {
 
-        $insert = "INSERT INTO `empleado` (`indempleado`, `nombre_empleado`, `apellido_empleado`, `user`, `pass`, `indsucursal`) 
-VALUES (NULL, '$nombre', '$apellido', '$user', '$pas', '$sucursal');";
+        $insert = "INSERT INTO `sucursal` (`indsucursal`, `nombre_sucursal`, `direccion`, `telefono`, `celular`) VALUES ('1', '22', '222', '22', '22')";
+        $query = mysqli_query($mysqli, $insert);
+        return true;
+    }
+
+    public static function ingresar_empresa_datos($nombre_empresa, $ruc, $detalles_empresa, $url_logo, $mysqli)
+    {
+
+        $insert = "INSERT INTO `empresa` (`indempresa`, `nombre_empresa`, `numero_ruc`, `detalles`, `logo_url`, `bandera`)
+VALUES (NULL, '$nombre_empresa', '$ruc','$detalles_empresa' , '$url_logo', '1');";
         $query = mysqli_query($mysqli, $insert);
         return true;
     }

@@ -1,4 +1,4 @@
-<div style='background-image: url("assets/img/logo4.png");
+<div style='background-image: url("assets/img/img.png");
 background-size: cover;
 background-position: center;
 height: 100vh;

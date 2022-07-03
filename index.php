@@ -59,19 +59,19 @@ if ($_POST) {
 }
 ?>
 
-<div class="container z-depth-1 rounded white">
+<div class="container z-depth-1 rounded white" style="border-radius: 6px">
         <h4 class="modal-title blue-grey-text alert alert-primary"><i class="icon-user-plus" size="80%"></i> Registro Clientes Nuevos</h4>
     <hr>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <section class="row">
             <div class="control-pares col-md-5">
-                <label for="" class="control-label">Nombres o Empresa: *</label>
+                <label for="" class="control-label"><u>Nombres o Empresa: *</u></label>
                 <input type="text" name="textnombre" class="form-control" value="<?php if (!empty($_POST['textnombre'])) {
                     echo $_POST['textnombre'];
                 } ?>" placeholder="Nombres" required>
             </div>
             <div class="control-pares col-md-5">
-                <label for="" class="control-label">Apellidos  o No RUC: *</label>
+                <label for="" class="control-label"><u>Apellidos  o No RUC: *</u></label>
                 <input type="text" name="textapellido" class="form-control" value="<?php if(!empty($_POST['textapellido'])) {
                     echo $_POST['textapellido'];
                 } ?>" placeholder="Apellidos" required>

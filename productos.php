@@ -42,7 +42,7 @@ if (!$_SESSION) {
         <thead>
         <tr style="border-bottom: 1px solid black;" class="alert alert-info">
             <th scope="col">#Codigo</th>
-            <th scope="col">Producto</th>
+            <th scope="col">Detalles de producto</th>
             <th scope="col">Precio 1</th>
             <th scope="col">Precio 2</th>
             <th scope="col">Precio 3</th>

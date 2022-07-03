@@ -122,7 +122,8 @@ $cliente = datos_clientes::datos_clientes_generales($booos["indcliente"], $mysql
     <div class="text-center" style="width: 100%!important;">
         <br>
         <img src="../imgbanco.png" width="15%" alt=""><h2 class="text-center" style="position: center!important;margin-bottom: 0!important;">ORTHODENTAL S.A</h2>
-        <p class="red-text text-center " style="font-style: normal;margin-top: 0!important;">COTIZACION PRODUCTO</p>
+        <p class="red-text text-center " style="font-style: normal;margin-top: 0!important;">Ruc: J0310000193134</p>
+        <p class="red-text text-center " style="font-style: normal;margin-top: 0!important;">COTIZACIÓN PRODUCTO</p>
     </div>
 </div>
 <div style="margin-left: 1em;">

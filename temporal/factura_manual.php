@@ -57,7 +57,7 @@ if ($_POST) {
 
 ?>
 
-<div class="container z-depth-1 rounded white">
+<div class="container z-depth-1 rounded white" style="border-radius: 6px">
     <div class="modal-header white rounded">
         <h4 class="modal-title blue-grey-text unoem"> Registro de Factura
             Manual</h4>

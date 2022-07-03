@@ -54,7 +54,7 @@ if ($_GET) {
 <div class="z-depth-1 rounded white center-block" style="width: 85%!important;">
     <table class="table table-striped table-bordered" style="padding: 1em;">
         <thead>
-        <tr style="border-bottom: 1px solid black;" class="alert alert-primary">
+        <tr style="border-bottom: 1px solid black;" class="alert alert-info">
             <th scope="col">No# Codigo</th>
             <th scope="col">Detalles Producto</th>
             <th scope="col">Precio 1</th>
