@@ -71,7 +71,7 @@ if (!empty($_SESSION)) {
                             class="icon-coin-dollar "> </i> <?php echo $dolar ?> Cordobas</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link bg-red" href="historial_acceso.php" style="padding: 0;margin: 0"><i class="icon-profile indigo-text" style="font-size: 30px"></i></a>
+                <a class="nav-link alert alert-dark" href="chat/">Chat</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link bg-red" href="talonario_cambio"> <?php if (!empty($_SESSION)) {

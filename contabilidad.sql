@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2021 a las 01:53:26
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Tiempo de generación: 03-07-2022 a las 13:29:24
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,14 +56,18 @@ INSERT INTO `clientes` (`indcliente`, `nombre`, `apellido`, `direccion1`, `direc
 (9, 'RICARDO', 'GAITAN', 'LEON', 'LEON', '4010407970007J', '7864788967', 1, 1),
 (10, 'RICARDO', 'GAITAN', 'LEON', 'LEON', '4010407970007J', '7864788967', 1, 1),
 (11, 'TANIA', 'REYNOZA', 'MANAGUA', 'F', '401-04071997-0007J', '89101524', 1, 1),
-(12, 'EMILIO ANTONIO', 'GAITAN FUENTES', 'LEóN NICARAGUA', '', '401-04071997-0007J', '77231730', 1, 1),
+(12, 'EMILIO ANTONIO', 'GAITAN FUENTES', 'LEON NICARAGUA', '', '401-04071997-0007J', '77231730', 1, 1),
 (13, 'ROBERTO ', 'GAITAN', 'SDADASD', 'ASDASDASD', '', '85456222', 1, 1),
 (14, 'EMILIO ANTOWWWW', 'FUENTES', 'MANAGUA', 'F', '', '89101524', 1, 1),
 (15, 'ORTHO', 'DENTAL', 'CALLE PRINCIPAL DE ALTAMIRA, DE SINSA PROYECTO 1 12 C ABAJO, CASA #396', '', '', '22206871', 1, 1),
 (16, 'RESERVA NATURAL JUAN', 'LEóN', 'LA ISLA JUAN VENADO, LOCALIZADA EN FRENTE DEL POBLADO DE LAS PEN', '', '', '86222082', 7, 1),
 (17, 'ANTONIO DANIEL', 'FUENTES CARRANZA', 'MANAGUA', 'F', '', '89101524', 7, 1),
 (18, 'SALUD SIN FRONTERAS ', 'RUC:J0310000227713', 'ASD', '', '', '323232323234234', 1, 1),
-(20, '.', 'GAITAN FUENTES', '55', '55', '445', '45', 1, 1);
+(20, '.', 'GAITAN FUENTES', '55', '55', '445', '45', 1, 1),
+(128856, 'TTT', 'TT', '', '', '', '', 1, 1),
+(282034, 'SDF', 'DSFSDF', 'SDFSDF', '', '', '', 1, 1),
+(294056, 'AWEQWE', 'QWEQWE', '', '', '', '', 1, 1),
+(824730, 'DSDASD', 'ASDASD', '', '', '', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +104,36 @@ INSERT INTO `control` (`indcontrol`, `indfactura`, `indsucursal`, `indtemp`, `ti
 (16, 914, 1, 'vs1za2xj4e3xv4c4tedrac920vllskewvz12rxw68sl7h05dschwdh4whm0njl975ke5i053ifgf76w62m4e33jzgcx6adkdqjgl', 'PX', '2021-08-09', '09:52:32', 1),
 (17, 915, 1, 'ixlqbacd8mld6yb191cann3lypbcez6zqef3nwve43xz6qt85gpdgxcfs3t55hbjs3hu2zerg30ll08h8amz8g9eq7gb86lqeho9', 'PX', '2021-08-09', '10:01:21', 0),
 (18, 916, 1, 'yk70qfzatlp5hp2vyb0qg29msjkpuav3i8y6rfq3e11hykshplt74z30u06swqv7bpnp3l7fd9nx5jx0g8k59zskp7ps9rzxgrq1', 'PX', '2021-08-09', '10:02:17', 0),
-(19, 917, 1, 'v5woisuk60tll7ysfxmef0ae4f75991b0p2jej3oz7kvihnl2467wvlt9wpku6gavgotcl6vyrbal9rrisjnfkniq4a4dr6ak6le', 'PX', '2021-08-09', '12:01:13', 0);
+(19, 917, 1, 'v5woisuk60tll7ysfxmef0ae4f75991b0p2jej3oz7kvihnl2467wvlt9wpku6gavgotcl6vyrbal9rrisjnfkniq4a4dr6ak6le', 'PX', '2021-08-09', '12:01:13', 0),
+(20, 920, 1, '40na0j31lladikg6a7cfy9sz6mefkm4sxku2kgyh2gzys0uk4ccgvhc1mhxjsn4uxgy35qwvlnqft1xfsa962tvgu62rheuwe7nw', 'PX', '2021-12-25', '02:20:17', 0),
+(21, 918, 1, 's89nbtzyd5hq6th0l7jyhzkbycgiutlpe3ol3i2a074b415qkwrptdbyzdnjilphi41ikeg7oo5ftxvda5sa0puuvv3cga7kzn0f', 'PX', '2021-12-25', '02:20:49', 0),
+(24, NULL, 1, '', 'PX', '2021-12-26', '08:43:03', 0),
+(25, NULL, 1, 'tsdu8160xz1yj72ex5805g98rk0xom8kuwxjqa4kzhb0fqhnivwf8nw5ck6r54xbuh0fmly1mcqi2dbk1losufd4gyu5emckwar9', 'PX', '2021-12-26', '08:44:37', 0),
+(26, NULL, 1, 'gyzpf09781r3gi42owwkaf6cjdqinoct6wwulwfg9sllocb8h11u5kdt44110z4oxj10tyi1kidnec5q2lwaxr74k6o0xv6cahzd', 'PX', '2021-12-26', '08:45:06', 0),
+(27, NULL, 1, 'ei8uvstqygv4xhfjx0s032x4tsq7zzbwf3ml679503lr6wy1u9sxu48mczmjwf31v6tw9pz5mlog0gt46yra2bryzsa2pwi5rern', 'PX', '2021-12-26', '08:45:47', 0),
+(28, NULL, 1, 'gf94v1t8xa1tms4s57djofx01l2sou3w7ux3wr08090xnnxqs94bowq2t99af8rxc6ex15bc4mk71z9judtx7gyyh44a250zllag', 'PX', '2021-12-26', '08:46:15', 0),
+(31, NULL, 1, 'vs0qwm0kp52hhl64apdng1n5w2n0vvf18cdzz4krpalc4dkf13d54jyvm2ju65f4bh6e3juzwwgwgrsh08xo54kpn4ato58x9s6v', 'PX', '2021-12-26', '08:47:11', 0),
+(32, NULL, 1, '2c8sn0hv1a37wmyjp4qscudzpveka2clhujivuzgse6cywycddojcsc3f6j4nmx07hdclegom3e7gd32060mwvr7h2xwgat7r2cg', 'PX', '2021-12-26', '08:47:35', 0),
+(33, NULL, 1, 'mgmeuyrga28kwccepvwozs7hy9amth81cy4r5lzapyc471n388url5k7fvgqftx0rp059gwf2lsrlxgd71ocx0rb69c5p1qz4gsh', 'PX', '2021-12-26', '08:47:51', 0),
+(34, NULL, 1, '4am3peqpo0cewgz0hyia9hhkellhhj190xaafd0d3uzkn48lqw5931d8ewbbx19hiepom521l8gsbwyml053jrka4btlapchkph5', 'PX', '2021-12-26', '08:48:49', 0),
+(35, NULL, 1, 'n1a0p3mbks8nj51ofrfh2dwaa8xoows48wcqh4epf5gtxf5zzy461r1hleaj3rh7fn335dzqyvy2ju5qn2ebx63a2vh23hk8iof5', 'PX', '2021-12-26', '08:49:03', 0),
+(36, NULL, 1, 'hpmw7d47decz2wlv3w7qmglh5w0du5ho4fyqev6hu7w7zisowygb7cy3iicn404dg0006n1fcw0a2cmqixd3o9mw5qqjw1fae86b', 'PX', '2021-12-26', '08:50:21', 0),
+(37, NULL, 1, 'cgkcqhnd38ohwnqrxsl6ytwmemr9yvpq1jbv5kyy466y1stef7znw96eyxsmaqn0b5uuruum6yxqbhog0r118dgn5ldzx2rne6eb', 'PX', '2021-12-26', '09:00:48', 0),
+(38, NULL, 1, 'ovu8qad89ayfeyxnme1eaipevz1vjhdga8byqqm61l7vyytb4xhs0r1ikjpoctdydmdwlbk5hk3rzq9hxc1gqw3vsivosves3xej', 'PX', '2021-12-26', '09:02:00', 0),
+(39, NULL, 1, 'ppjx0w6frnem097vtlc9ibcf4q4i0tnf08pugyck8trydjz47zsoe81u4ttfotfjn19xof7iqpfldexhcwaz2nflgj7r93d51e5z', 'PX', '2021-12-26', '09:02:27', 0),
+(40, NULL, 1, 'vxy05kwxh9ras1y2b7wf7nt6ommzjhkrnqz8yb3uxb26neozzqtwu3kldn98d5bswcccrm5sji4p5afcqvpb3wxcy8rdzsowcffn', 'PX', '2021-12-26', '09:05:25', 0),
+(41, NULL, 1, '9wtj73iyki1ap7n2egz9uqr5be00lz29qq37n5k8j83jnreq4oi6ud1veh62fna7we9452tcib2hpmqem9tfmnqp0dpqj1emh2el', 'PX', '2021-12-26', '09:06:39', 0),
+(43, NULL, 1, 'xxidm7pib9pweiq64h2734z3snr0vqbf5ekhwyubh2kif85gd591mx1pid3zsht49gdw95qjjfq9ka5bzxgrihz994v673bzn2n8', 'PX', '2022-02-02', '08:24:06', 0),
+(44, NULL, 1, '4fibjf2xtkhp0nrqe9m03n5eaowj1tdpmnj2kvxh98gp4ykdrj9ry3acw6ezkltbb53h2680qj021dli7a20s5tt8epr2p66yylo', 'PX', '2022-02-26', '04:46:07', 0),
+(45, NULL, 1, 'qken1powv42ft6w7qtbg56c4q4r6ibieegd48ubv6z5g0i5q1wzcr1cnkxg7bruio4yrqaur328q66irz9nq5a3gmyo2j37cj3a2', 'PX', '2022-05-07', '08:44:02', 0),
+(46, NULL, 1, 'iklv6ywprw6oy41wo1np11k0kd2mli5m1hy8be0toyrhc4lldi3q9jvtfr74hmyhmjtunmkkj0xjc6xqqy7bjh01x2nyerhbcrij', 'PX', '2022-05-07', '08:51:45', 0),
+(47, NULL, 1, '0o6a28et9xo31jfadh1k5cb47amjxw5rso1sz6xzv82zj82mpjz1ta92iitw3ptityo85cnip6zq9b2csvue4lpdc05986rd9mkk', 'PX', '2022-05-11', '09:39:54', 0),
+(48, NULL, 1, 'ihnixw5z2q0qjth2n6ubgy5fxvc8z0rbmnrpnlsm4m7vemi4qwrzlugdoo86epw18gakpqgecsrtj2n8g61ze1jq4u5gx5jh2tev', 'PX', '2022-05-11', '09:40:16', 0),
+(49, NULL, 1, 'topke4hltg2cyzmdw6j1doqpfizbbrrxew6p5f7s5tsibxxyzpnrujeardv7132eyc5s66u98llp6s58dt6396hsplzq05g2t343', 'PX', '2022-05-11', '09:40:59', 0),
+(50, NULL, 1, '60hyn2g29f74essre248qq92zf5r3m1afk219lb8pjpqf6tsoj1harl3razso3ac2ohocfsuwwonchdougw7a2aatsaqu9tfcl3m', 'PX', '2022-05-30', '10:27:26', 0),
+(51, NULL, 1, '9eiar76p0u4cv5xyspb8lc1uf7qszfluyedlf1ceznnvikk4m6ohizsnits19e52yz6214wqnkt6hx4p0r4mlvmdnab1hlmf7po2', 'PX', '2022-06-09', '05:30:19', 0),
+(52, NULL, 1, 'lf16ws3wg40d8c58tiprx7cpcoyh5ssypxl7aeku3neh0nmlij73ukq8bagq6230610olquvdnt7eu71fvf7o9hqs90z0j0rjan3', 'PX', '2022-07-03', '02:38:44', 0),
+(53, NULL, 1, 'xfk03ey4oj7wfohzvayszpn8a3ii6gpb4kfitlfvvfos2cr1luskdxuav4e65nx30gskxvhfs89uqb6xzpk1ryt58elgt0e5pn8r', 'PX', '2022-07-03', '05:17:17', 0);
 
 -- --------------------------------------------------------
 
@@ -126,11 +159,10 @@ CREATE TABLE `credito` (
 --
 
 INSERT INTO `credito` (`indcredito`, `indsucursal`, `indcliente`, `producto`, `totalCredito`, `numeroCuotas`, `fechaInicio`, `status`, `prima`, `indtemp`) VALUES
-(1, 1, 3, NULL, 40, 15, '2021-07-07', '1', 0, '6nm7mxqsfapeimg66krwh8lttvphh90biwkp67kax4zjihyktbpbog6i2lbvoqnxw0m1y7sijxceaayfignf7fvxiuzakcpeto0k'),
-(2, 1, 3, NULL, 40, 2, '2021-07-07', '1', 200, '6nm7mxqsfapeimg66krwh8lttvphh90biwkp67kax4zjihyktbpbog6i2lbvoqnxw0m1y7sijxceaayfignf7fvxiuzakcpeto0k'),
+(1, 1, 3, NULL, 40, 15, '2021-07-07', '0', 0, '6nm7mxqsfapeimg66krwh8lttvphh90biwkp67kax4zjihyktbpbog6i2lbvoqnxw0m1y7sijxceaayfignf7fvxiuzakcpeto0k'),
+(2, 1, 3, NULL, 40, 2, '2021-07-07', '0', 200, '6nm7mxqsfapeimg66krwh8lttvphh90biwkp67kax4zjihyktbpbog6i2lbvoqnxw0m1y7sijxceaayfignf7fvxiuzakcpeto0k'),
 (3, 1, 13, NULL, 19.5, 3, '2021-08-01', '1', 0, 'ncuk1douryeiygchazamfgfchzbzpmu9di928r0dxv057b4uqtoxxlnluxjge76vyydrqtysy1yo1jijtj3mmpua5d1l2m879r4b'),
-(4, 1, 3, NULL, 6, 15, '2021-08-06', '1', 200, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(5, 1, 3, NULL, 6, 3, '2021-08-06', '1', 3, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u');
+(6, 1, 3, NULL, 12, 0, '2022-07-03', '1', 0, 'lf16ws3wg40d8c58tiprx7cpcoyh5ssypxl7aeku3neh0nmlij73ukq8bagq6230610olquvdnt7eu71fvf7o9hqs90z0j0rjan3');
 
 -- --------------------------------------------------------
 
@@ -159,25 +191,7 @@ INSERT INTO `creditos_pago` (`indpago`, `indcredito`, `indfactura`, `pago`, `fec
 (77, 1, '45445', 20, '2021-09-07', 'true', 1, 1, '6nm7mxqsfapeimg66krwh8lttvphh90biwkp67kax4zjihyktbpbog6i2lbvoqnxw0m1y7sijxceaayfignf7fvxiuzakcpeto0k'),
 (78, 3, NULL, 6.5, '2021-09-01', 'false', 0, 1, 'ncuk1douryeiygchazamfgfchzbzpmu9di928r0dxv057b4uqtoxxlnluxjge76vyydrqtysy1yo1jijtj3mmpua5d1l2m879r4b'),
 (79, 3, NULL, 6.5, '2021-10-01', 'false', 0, 1, 'ncuk1douryeiygchazamfgfchzbzpmu9di928r0dxv057b4uqtoxxlnluxjge76vyydrqtysy1yo1jijtj3mmpua5d1l2m879r4b'),
-(80, 3, NULL, 6.5, '2021-11-01', 'false', 1, 1, 'ncuk1douryeiygchazamfgfchzbzpmu9di928r0dxv057b4uqtoxxlnluxjge76vyydrqtysy1yo1jijtj3mmpua5d1l2m879r4b'),
-(81, 4, NULL, 0.4, '2021-09-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(82, 4, NULL, 0.4, '2021-10-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(83, 4, NULL, 0.4, '2021-11-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(84, 4, NULL, 0.4, '2021-12-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(85, 4, NULL, 0.4, '2022-01-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(86, 4, NULL, 0.4, '2022-02-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(87, 4, NULL, 0.4, '2022-03-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(88, 4, NULL, 0.4, '2022-04-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(89, 4, NULL, 0.4, '2022-05-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(90, 4, NULL, 0.4, '2022-06-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(91, 4, NULL, 0.4, '2022-07-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(92, 4, NULL, 0.4, '2022-08-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(93, 4, NULL, 0.4, '2022-09-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(94, 4, NULL, 0.4, '2022-10-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(95, 4, NULL, 0.4, '2022-11-06', 'false', 1, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(96, 4, NULL, 2, '2021-09-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(97, 4, NULL, 2, '2021-10-06', 'false', 0, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u'),
-(98, 4, NULL, 2, '2021-11-06', 'false', 1, 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u');
+(80, 3, NULL, 6.5, '2021-11-01', 'false', 1, 1, 'ncuk1douryeiygchazamfgfchzbzpmu9di928r0dxv057b4uqtoxxlnluxjge76vyydrqtysy1yo1jijtj3mmpua5d1l2m879r4b');
 
 -- --------------------------------------------------------
 
@@ -200,7 +214,30 @@ CREATE TABLE `empleado` (
 
 INSERT INTO `empleado` (`indempleado`, `nombre_empleado`, `apellido_empleado`, `user`, `pass`, `indsucursal`) VALUES
 (1, 'Emilio ', 'Gaitan', 'root', 'root', 1),
-(3, 'EMILIO ANTONIO', 'FUENTES', 'root', 'root', 3);
+(3, 'EMILIO ANTONIO', 'FUENTES', 'root', 'root', 3),
+(6, 'CHONTALES', 'CHONTALES', 'chontales', '123456', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `indempresa` int(11) NOT NULL,
+  `nombre_empresa` varchar(50) DEFAULT NULL,
+  `numero_ruc` varchar(25) DEFAULT NULL,
+  `detalles` varchar(70) DEFAULT NULL,
+  `logo_url` varchar(50) DEFAULT NULL,
+  `bandera` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`indempresa`, `nombre_empresa`, `numero_ruc`, `detalles`, `logo_url`, `bandera`) VALUES
+(1, 'ORTHODENTAL S.A', 'J0310000193134', NULL, 'imgbanco.png', 1);
 
 -- --------------------------------------------------------
 
@@ -289,7 +326,58 @@ INSERT INTO `factura` (`indfactura`, `indtalonario`, `codigo_producto`, `nombre_
 (76, 915, 'MORELLI-107', 'ABREBOCA DE ALAMBRE DE NIÑOS MORELLI', 1, 264.375, 264.375, 35.25, 0, 0, 0, 3, 1, 0, 'ixlqbacd8mld6yb191cann3lypbcez6zqef3nwve43xz6qt85gpdgxcfs3t55hbjs3hu2zerg30ll08h8amz8g9eq7gb86lqeho9'),
 (77, 915, 'VALDI-100', 'ACETATO FLEXIBLE 0 ,60 PAQUETE', 1, 1057.5, 1057.5, 35.25, 0, 0, 0, 3, 1, 0, 'ixlqbacd8mld6yb191cann3lypbcez6zqef3nwve43xz6qt85gpdgxcfs3t55hbjs3hu2zerg30ll08h8amz8g9eq7gb86lqeho9'),
 (78, 916, 'MORELLI-106', 'ABREBOCA DE ALAMBRE ADULTO MORELLI', 1, 352.5, 352.5, 35.25, 0, 0, 0, 17, 1, 0, 'yk70qfzatlp5hp2vyb0qg29msjkpuav3i8y6rfq3e11hykshplt74z30u06swqv7bpnp3l7fd9nx5jx0g8k59zskp7ps9rzxgrq1'),
-(79, 917, 'RAX-489', 'BIMAXILAR CON LECTURA', 1, 4935, 4935, 35.25, 0, 0, 0, 3, 1, 0, 'v5woisuk60tll7ysfxmef0ae4f75991b0p2jej3oz7kvihnl2467wvlt9wpku6gavgotcl6vyrbal9rrisjnfkniq4a4dr6ak6le');
+(79, 917, 'RAX-489', 'BIMAXILAR CON LECTURA', 1, 4935, 4935, 35.25, 0, 0, 0, 3, 1, 0, 'v5woisuk60tll7ysfxmef0ae4f75991b0p2jej3oz7kvihnl2467wvlt9wpku6gavgotcl6vyrbal9rrisjnfkniq4a4dr6ak6le'),
+(80, 919, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, '40na0j31lladikg6a7cfy9sz6mefkm4sxku2kgyh2gzys0uk4ccgvhc1mhxjsn4uxgy35qwvlnqft1xfsa962tvgu62rheuwe7nw'),
+(81, 919, 'MAQUIRA-142', 'ABREBOCA LATERAL EN U O V', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, '40na0j31lladikg6a7cfy9sz6mefkm4sxku2kgyh2gzys0uk4ccgvhc1mhxjsn4uxgy35qwvlnqft1xfsa962tvgu62rheuwe7nw'),
+(82, 918, 'BIOART-127', 'ACETATO  BLANDO 2 ,00 O 0 ,80 MM PAQUETE X 10', 1, 528.75, 528.75, 35.25, 0, 0, 0, 3, 1, 0, 's89nbtzyd5hq6th0l7jyhzkbycgiutlpe3ol3i2a074b415qkwrptdbyzdnjilphi41ikeg7oo5ftxvda5sa0puuvv3cga7kzn0f'),
+(83, 918, 'VIPI-107', 'ABRILLANTADOR DE ACRILICO', 1, 176.25, 176.25, 35.25, 0, 0, 0, 3, 1, 0, 's89nbtzyd5hq6th0l7jyhzkbycgiutlpe3ol3i2a074b415qkwrptdbyzdnjilphi41ikeg7oo5ftxvda5sa0puuvv3cga7kzn0f'),
+(84, 918, 'MAQUIRA-194', 'ABREBOCA DE ADULTOS FLEX', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, 's89nbtzyd5hq6th0l7jyhzkbycgiutlpe3ol3i2a074b415qkwrptdbyzdnjilphi41ikeg7oo5ftxvda5sa0puuvv3cga7kzn0f'),
+(87, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, 'tsdu8160xz1yj72ex5805g98rk0xom8kuwxjqa4kzhb0fqhnivwf8nw5ck6r54xbuh0fmly1mcqi2dbk1losufd4gyu5emckwar9'),
+(88, NULL, 'VIPI-107', 'ABRILLANTADOR DE ACRILICO', 1, 176.25, 176.25, 35.25, 0, 0, 0, 3, 1, 0, 'tsdu8160xz1yj72ex5805g98rk0xom8kuwxjqa4kzhb0fqhnivwf8nw5ck6r54xbuh0fmly1mcqi2dbk1losufd4gyu5emckwar9'),
+(89, NULL, 'MAQUIRA-140', 'ABREBOCA DE NIÑOS FLEX', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, 'gyzpf09781r3gi42owwkaf6cjdqinoct6wwulwfg9sllocb8h11u5kdt44110z4oxj10tyi1kidnec5q2lwaxr74k6o0xv6cahzd'),
+(90, NULL, 'BIOART-113', 'ACETATO  RIGIDO 1 ,00 O 0 ,40 MM PAQUETE  X 5', 1, 299.625, 299.625, 35.25, 0, 0, 0, 3, 1, 0, 'gyzpf09781r3gi42owwkaf6cjdqinoct6wwulwfg9sllocb8h11u5kdt44110z4oxj10tyi1kidnec5q2lwaxr74k6o0xv6cahzd'),
+(91, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, 'ei8uvstqygv4xhfjx0s032x4tsq7zzbwf3ml679503lr6wy1u9sxu48mczmjwf31v6tw9pz5mlog0gt46yra2bryzsa2pwi5rern'),
+(92, NULL, 'BIOART-112', 'ACETATO  BLANDO  1 ,00 O 0 ,40 MM PAQUETE  X 10', 1, 352.5, 352.5, 35.25, 0, 0, 0, 3, 1, 0, 'ei8uvstqygv4xhfjx0s032x4tsq7zzbwf3ml679503lr6wy1u9sxu48mczmjwf31v6tw9pz5mlog0gt46yra2bryzsa2pwi5rern'),
+(93, NULL, 'VIPI-194', 'ACLILICO  TERMOCURABLE  POLVO MEDIA LIBRA  ROSA', 1, 193.875, 193.875, 35.25, 0, 0, 0, 3, 1, 0, 'gf94v1t8xa1tms4s57djofx01l2sou3w7ux3wr08090xnnxqs94bowq2t99af8rxc6ex15bc4mk71z9judtx7gyyh44a250zllag'),
+(95, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 12, 1, 0, 'vs0qwm0kp52hhl64apdng1n5w2n0vvf18cdzz4krpalc4dkf13d54jyvm2ju65f4bh6e3juzwwgwgrsh08xo54kpn4ato58x9s6v'),
+(96, NULL, 'VALDI-100', 'ACETATO FLEXIBLE 0 ,60 PAQUETE', 1, 1057.5, 1057.5, 35.25, 0, 0, 0, 14, 1, 0, '2c8sn0hv1a37wmyjp4qscudzpveka2clhujivuzgse6cywycddojcsc3f6j4nmx07hdclegom3e7gd32060mwvr7h2xwgat7r2cg'),
+(97, NULL, 'VIPI-107', 'ABRILLANTADOR DE ACRILICO', 1, 176.25, 176.25, 35.25, 0, 0, 0, 3, 1, 0, 'mgmeuyrga28kwccepvwozs7hy9amth81cy4r5lzapyc471n388url5k7fvgqftx0rp059gwf2lsrlxgd71ocx0rb69c5p1qz4gsh'),
+(98, NULL, 'MAQUIRA-142', 'ABREBOCA LATERAL EN U O V', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, '4am3peqpo0cewgz0hyia9hhkellhhj190xaafd0d3uzkn48lqw5931d8ewbbx19hiepom521l8gsbwyml053jrka4btlapchkph5'),
+(99, NULL, 'MAQUIRA-194', 'ABREBOCA DE ADULTOS FLEX', 1, 211.5, 211.5, 35.25, 0, 0, 0, 12, 1, 0, 'n1a0p3mbks8nj51ofrfh2dwaa8xoows48wcqh4epf5gtxf5zzy461r1hleaj3rh7fn335dzqyvy2ju5qn2ebx63a2vh23hk8iof5'),
+(100, NULL, 'Generico', 'compro cepillo de proxilaxi', 1, 1, 0, 35.25, 0, 0, 0, 12, 1, 0, 'cgkcqhnd38ohwnqrxsl6ytwmemr9yvpq1jbv5kyy466y1stef7znw96eyxsmaqn0b5uuruum6yxqbhog0r118dgn5ldzx2rne6eb'),
+(101, NULL, 'Generico', 'compro cepillo de proxilaxi', 1, 33, 0, 35.25, 0, 0, 0, 12, 1, 0, 'ovu8qad89ayfeyxnme1eaipevz1vjhdga8byqqm61l7vyytb4xhs0r1ikjpoctdydmdwlbk5hk3rzq9hxc1gqw3vsivosves3xej'),
+(102, NULL, 'Generico', 'compro cepillo de proxilaxi', 1, 33, 33, 35.25, 0, 0, 0, 12, 1, 0, 'ppjx0w6frnem097vtlc9ibcf4q4i0tnf08pugyck8trydjz47zsoe81u4ttfotfjn19xof7iqpfldexhcwaz2nflgj7r93d51e5z'),
+(103, NULL, 'Generico', 'COMPRO CEPILLO DE PROXILAXI', 1, 22, 22, 35.25, 0, 0, 0, 12, 1, 0, 'vxy05kwxh9ras1y2b7wf7nt6ommzjhkrnqz8yb3uxb26neozzqtwu3kldn98d5bswcccrm5sji4p5afcqvpb3wxcy8rdzsowcffn'),
+(104, NULL, 'MORELLI-107', 'ABREBOCA DE ALAMBRE DE NIÑOS MORELLI', 1, 264.375, 264.375, 35.25, 0, 0, 0, 3, 1, 0, '9wtj73iyki1ap7n2egz9uqr5be00lz29qq37n5k8j83jnreq4oi6ud1veh62fna7we9452tcib2hpmqem9tfmnqp0dpqj1emh2el'),
+(105, NULL, 'MAQUIRA-173', 'ACIDO  GEL  FLUORIHIDRICO  PARA  PORCELANA', 1, 282, 282, 35.25, 0, 0, 0, 3, 1, 0, '9wtj73iyki1ap7n2egz9uqr5be00lz29qq37n5k8j83jnreq4oi6ud1veh62fna7we9452tcib2hpmqem9tfmnqp0dpqj1emh2el'),
+(106, NULL, 'BIOART-112', 'ACETATO  BLANDO  1 ,00 O 0 ,40 MM PAQUETE  X 10', 1, 352.5, 352.5, 35.25, 0, 0, 0, 3, 1, 0, '9wtj73iyki1ap7n2egz9uqr5be00lz29qq37n5k8j83jnreq4oi6ud1veh62fna7we9452tcib2hpmqem9tfmnqp0dpqj1emh2el'),
+(107, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, 'xxidm7pib9pweiq64h2734z3snr0vqbf5ekhwyubh2kif85gd591mx1pid3zsht49gdw95qjjfq9ka5bzxgrihz994v673bzn2n8'),
+(108, NULL, 'ULTRA-110', 'ABREBOCA Y PROTECTOR LINGUAL', 1, 246.75, 246.75, 35.25, 0, 0, 0, 3, 1, 0, 'xxidm7pib9pweiq64h2734z3snr0vqbf5ekhwyubh2kif85gd591mx1pid3zsht49gdw95qjjfq9ka5bzxgrihz994v673bzn2n8'),
+(109, NULL, 'ANELSAM-219', 'ACUTRAX', 1, 1057.5, 1057.5, 35.25, 0, 0, 0, 3, 1, 0, 'xxidm7pib9pweiq64h2734z3snr0vqbf5ekhwyubh2kif85gd591mx1pid3zsht49gdw95qjjfq9ka5bzxgrihz994v673bzn2n8'),
+(110, NULL, 'VIPI-109', 'ACRILICO DE COLORES   PARA  ORTODONCIA', 1, 229.125, 229.125, 35.25, 0, 0, 0, 3, 1, 0, 'mdh1ypd90hqbo9hlew5kobsv5lg9ria9032oi4oljwhcm46j5wwnry2koi0i2l0tcb49hk1pcf4mra9n1kykv13tqdprjixc6j81'),
+(111, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, '4fibjf2xtkhp0nrqe9m03n5eaowj1tdpmnj2kvxh98gp4ykdrj9ry3acw6ezkltbb53h2680qj021dli7a20s5tt8epr2p66yylo'),
+(112, NULL, 'BIOART-116', 'ACETATO DE  COLORES  3 ,00 MM', 1, 528.75, 528.75, 35.25, 0, 0, 0, 3, 1, 0, '4fibjf2xtkhp0nrqe9m03n5eaowj1tdpmnj2kvxh98gp4ykdrj9ry3acw6ezkltbb53h2680qj021dli7a20s5tt8epr2p66yylo'),
+(113, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 211.5, 211.5, 35.25, 0, 0, 0, 3, 1, 0, 'qken1powv42ft6w7qtbg56c4q4r6ibieegd48ubv6z5g0i5q1wzcr1cnkxg7bruio4yrqaur328q66irz9nq5a3gmyo2j37cj3a2'),
+(114, NULL, 'BIOART-112', 'ACETATO  BLANDO  1 ,00 O 0 ,40 MM PAQUETE  X 10', 1, 352.5, 352.5, 35.25, 0, 0, 0, 12, 1, 0, 'iklv6ywprw6oy41wo1np11k0kd2mli5m1hy8be0toyrhc4lldi3q9jvtfr74hmyhmjtunmkkj0xjc6xqqy7bjh01x2nyerhbcrij'),
+(115, NULL, 'BIOART-115', 'ACETATO RIGIDO 2 ,00 O  0 ,80 MM PAQUETE  X5', 1, 299.625, 299.625, 35.25, 0, 0, 0, 12, 1, 0, 'iklv6ywprw6oy41wo1np11k0kd2mli5m1hy8be0toyrhc4lldi3q9jvtfr74hmyhmjtunmkkj0xjc6xqqy7bjh01x2nyerhbcrij'),
+(116, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 216, 216, 36, 0, 0, 0, 3, 1, 0, '0o6a28et9xo31jfadh1k5cb47amjxw5rso1sz6xzv82zj82mpjz1ta92iitw3ptityo85cnip6zq9b2csvue4lpdc05986rd9mkk'),
+(117, NULL, 'ULTRA-110', 'ABREBOCA Y PROTECTOR LINGUAL', 1, 252, 252, 36, 0, 0, 0, 3, 1, 0, '0o6a28et9xo31jfadh1k5cb47amjxw5rso1sz6xzv82zj82mpjz1ta92iitw3ptityo85cnip6zq9b2csvue4lpdc05986rd9mkk'),
+(118, NULL, 'BIOART-114', 'ACETATO RIGIDO 1 ,5 O 0 ,60 MM PAQUETE  X5', 1, 306, 306, 36, 0, 0, 0, 3, 1, 0, '0o6a28et9xo31jfadh1k5cb47amjxw5rso1sz6xzv82zj82mpjz1ta92iitw3ptityo85cnip6zq9b2csvue4lpdc05986rd9mkk'),
+(119, NULL, 'BIOART-116', 'ACETATO DE  COLORES  3 ,00 MM', 1, 540, 540, 36, 0, 0, 0, 3, 1, 0, 'ihnixw5z2q0qjth2n6ubgy5fxvc8z0rbmnrpnlsm4m7vemi4qwrzlugdoo86epw18gakpqgecsrtj2n8g61ze1jq4u5gx5jh2tev'),
+(120, NULL, 'MAQUIRA-174', 'ACIDO GRABADOR  37%', 1, 216, 216, 36, 0, 0, 0, 3, 1, 0, 'ihnixw5z2q0qjth2n6ubgy5fxvc8z0rbmnrpnlsm4m7vemi4qwrzlugdoo86epw18gakpqgecsrtj2n8g61ze1jq4u5gx5jh2tev'),
+(121, NULL, 'MAQUIRA-173', 'ACIDO  GEL  FLUORIHIDRICO  PARA  PORCELANA', 1, 288, 288, 36, 0, 0, 0, 12, 1, 0, 'topke4hltg2cyzmdw6j1doqpfizbbrrxew6p5f7s5tsibxxyzpnrujeardv7132eyc5s66u98llp6s58dt6396hsplzq05g2t343'),
+(122, NULL, 'BIOART-115', 'ACETATO RIGIDO 2 ,00 O  0 ,80 MM PAQUETE  X5', 1, 306, 306, 36, 0, 0, 0, 12, 1, 0, 'topke4hltg2cyzmdw6j1doqpfizbbrrxew6p5f7s5tsibxxyzpnrujeardv7132eyc5s66u98llp6s58dt6396hsplzq05g2t343'),
+(123, NULL, 'VIPI-198', 'ACRILICO  DE  PROTESIS  62,65,66,60 ,77 ,81', 1, 234, 234, 36, 0, 0, 0, 12, 1, 0, 'topke4hltg2cyzmdw6j1doqpfizbbrrxew6p5f7s5tsibxxyzpnrujeardv7132eyc5s66u98llp6s58dt6396hsplzq05g2t343'),
+(129, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 219, 219, 36.5, 0, 0, 0, 128856, 1, 0, '60hyn2g29f74essre248qq92zf5r3m1afk219lb8pjpqf6tsoj1harl3razso3ac2ohocfsuwwonchdougw7a2aatsaqu9tfcl3m'),
+(130, NULL, 'MORELLI-106', 'ABREBOCA DE ALAMBRE ADULTO MORELLI', 1, 365, 365, 36.5, 0, 0, 0, 128856, 1, 0, '60hyn2g29f74essre248qq92zf5r3m1afk219lb8pjpqf6tsoj1harl3razso3ac2ohocfsuwwonchdougw7a2aatsaqu9tfcl3m'),
+(131, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 210, 210, 35, 0, 0, 0, 3, 1, 0, '9eiar76p0u4cv5xyspb8lc1uf7qszfluyedlf1ceznnvikk4m6ohizsnits19e52yz6214wqnkt6hx4p0r4mlvmdnab1hlmf7po2'),
+(132, NULL, 'BIOART-127', 'ACETATO  BLANDO 2 ,00 O 0 ,80 MM PAQUETE X 10', 1, 525, 525, 35, 0, 0, 0, 3, 1, 0, '9eiar76p0u4cv5xyspb8lc1uf7qszfluyedlf1ceznnvikk4m6ohizsnits19e52yz6214wqnkt6hx4p0r4mlvmdnab1hlmf7po2'),
+(133, NULL, 'MAQUIRA-174', 'ACIDO GRABADOR  37%', 1, 210, 210, 35, 0, 0, 0, 3, 1, 0, '9eiar76p0u4cv5xyspb8lc1uf7qszfluyedlf1ceznnvikk4m6ohizsnits19e52yz6214wqnkt6hx4p0r4mlvmdnab1hlmf7po2'),
+(134, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 1, 210, 210, 35, 0, 0, 0, 3, 1, 0, 'lf16ws3wg40d8c58tiprx7cpcoyh5ssypxl7aeku3neh0nmlij73ukq8bagq6230610olquvdnt7eu71fvf7o9hqs90z0j0rjan3'),
+(135, NULL, 'MAQUIRA-194', 'ABREBOCA DE ADULTOS FLEX', 1, 210, 210, 35, 0, 0, 0, 3, 1, 0, 'lf16ws3wg40d8c58tiprx7cpcoyh5ssypxl7aeku3neh0nmlij73ukq8bagq6230610olquvdnt7eu71fvf7o9hqs90z0j0rjan3'),
+(136, NULL, 'MAQUIRA-111', 'ABREBOCA CON BAJA LENGUA', 3, 210, 630, 35, 3, 611.1, 0, 3, 1, 0, 'xfk03ey4oj7wfohzvayszpn8a3ii6gpb4kfitlfvvfos2cr1luskdxuav4e65nx30gskxvhfs89uqb6xzpk1ryt58elgt0e5pn8r'),
+(137, NULL, 'BIOART-113', 'ACETATO  RIGIDO 1 ,00 O 0 ,40 MM PAQUETE  X 5', 2, 297.5, 595, 35, 0, 595, 0, 3, 1, 0, 'xfk03ey4oj7wfohzvayszpn8a3ii6gpb4kfitlfvvfos2cr1luskdxuav4e65nx30gskxvhfs89uqb6xzpk1ryt58elgt0e5pn8r'),
+(138, NULL, 'VIPI-196', 'ACRILICO TERMOCURABLE  INCOLORO  MEDIA LIBRA', 2, 192.5, 385, 35, 0, 385, 0, 3, 1, 0, 'xfk03ey4oj7wfohzvayszpn8a3ii6gpb4kfitlfvvfos2cr1luskdxuav4e65nx30gskxvhfs89uqb6xzpk1ryt58elgt0e5pn8r');
 
 -- --------------------------------------------------------
 
@@ -361,7 +449,65 @@ INSERT INTO `historial_acceso` (`indacceso`, `descripcion_acceso`, `ip_acceso`, 
 (47, 'acceso', '127.0.0.1', '2021-08-09', '09:52:32', 1, 1),
 (48, 'acceso', '127.0.0.1', '2021-08-09', '10:01:21', 1, 1),
 (49, 'acceso', '127.0.0.1', '2021-08-09', '10:02:17', 1, 1),
-(50, 'acceso', '127.0.0.1', '2021-08-09', '12:01:13', 1, 1);
+(50, 'acceso', '127.0.0.1', '2021-08-09', '12:01:13', 1, 1),
+(51, 'acceso', '127.0.0.1', '2021-12-24', '05:59:01', 1, 1),
+(52, 'acceso', '127.0.0.1', '2021-12-24', '06:08:01', 1, 1),
+(53, 'acceso', '127.0.0.1', '2021-12-25', '02:08:49', 1, 1),
+(54, 'acceso', '127.0.0.1', '2021-12-25', '02:20:18', 1, 1),
+(55, 'acceso', '127.0.0.1', '2021-12-25', '02:20:49', 1, 1),
+(56, 'acceso', '127.0.0.1', '2021-12-25', '03:15:16', 1, 1),
+(57, 'acceso', '127.0.0.1', '2021-12-25', '05:18:36', 1, 1),
+(58, 'acceso', '127.0.0.1', '2021-12-26', '02:50:54', 1, 1),
+(59, 'acceso', '127.0.0.1', '2021-12-26', '07:49:37', 1, 1),
+(60, 'acceso', '127.0.0.1', '2021-12-26', '08:11:04', 1, 1),
+(61, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:43:03', 1, 1),
+(62, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:43:04', 1, 1),
+(63, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:44:37', 1, 1),
+(64, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:45:06', 1, 1),
+(65, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:45:47', 1, 1),
+(66, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:46:15', 1, 1),
+(67, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:46:32', 1, 1),
+(68, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:46:53', 1, 1),
+(69, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:47:12', 1, 1),
+(70, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:47:36', 1, 1),
+(71, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:47:51', 1, 1),
+(72, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:48:49', 1, 1),
+(73, 'Creo Factura', '127.0.0.1', '2021-12-26', '08:49:03', 1, 1),
+(74, 'Creo Factura', '127.0.0.1', '2021-12-26', '09:06:39', 1, 1),
+(75, 'Login', '127.0.0.1', '2022-01-22', '08:27:04', 1, 1),
+(76, 'Login', '127.0.0.1', '2022-01-22', '08:30:12', 1, 1),
+(77, 'Login', '127.0.0.1', '2022-01-30', '02:36:56', 1, 1),
+(78, 'acceso', '127.0.0.1', '2022-02-02', '08:08:48', 1, 1),
+(79, 'acceso', '127.0.0.1', '2022-02-02', '08:14:53', 1, 1),
+(80, 'acceso', '127.0.0.1', '2022-02-02', '08:24:07', 1, 1),
+(81, 'acceso', '127.0.0.1', '2022-02-03', '05:02:57', 1, 1),
+(82, 'acceso', '127.0.0.1', '2022-02-26', '04:45:01', 1, 1),
+(83, 'acceso', '127.0.0.1', '2022-02-26', '04:46:07', 1, 1),
+(84, 'acceso', '127.0.0.1', '2022-04-05', '07:21:17', 1, 1),
+(85, 'acceso', '127.0.0.1', '2022-05-02', '06:37:59', 1, 1),
+(86, 'acceso', '127.0.0.1', '2022-05-07', '01:16:01', 1, 1),
+(87, 'acceso', '127.0.0.1', '2022-05-07', '08:44:02', 1, 1),
+(88, 'acceso', '127.0.0.1', '2022-05-07', '08:51:45', 1, 1),
+(89, 'acceso', '127.0.0.1', '2022-05-07', '11:31:44', 1, 1),
+(90, 'acceso', '127.0.0.1', '2022-05-08', '02:15:37', 1, 1),
+(91, 'acceso', '127.0.0.1', '2022-05-11', '08:30:24', 1, 1),
+(92, 'acceso', '127.0.0.1', '2022-05-11', '09:39:55', 1, 1),
+(93, 'acceso', '127.0.0.1', '2022-05-11', '09:40:17', 1, 1),
+(94, 'acceso', '127.0.0.1', '2022-05-11', '09:40:59', 1, 1),
+(95, 'acceso', '127.0.0.1', '2022-05-12', '05:28:18', 1, 1),
+(96, 'acceso', '127.0.0.1', '2022-05-15', '07:16:15', 1, 1),
+(97, 'acceso', '127.0.0.1', '2022-05-30', '07:47:36', 1, 1),
+(98, 'acceso', '127.0.0.1', '2022-05-30', '10:27:27', 1, 1),
+(99, 'acceso', '127.0.0.1', '2022-05-31', '04:52:21', 1, 1),
+(100, 'acceso', '127.0.0.1', '2022-06-09', '05:11:19', 1, 1),
+(101, 'acceso', '127.0.0.1', '2022-06-09', '05:30:19', 1, 1),
+(102, 'acceso', '127.0.0.1', '2022-06-09', '05:31:52', 1, 1),
+(103, 'acceso', '127.0.0.1', '2022-06-26', '04:55:25', 1, 1),
+(104, 'acceso', '127.0.0.1', '2022-06-26', '05:16:13', 1, 1),
+(105, 'acceso', '127.0.0.1', '2022-06-26', '05:22:36', 1, 1),
+(106, 'acceso', '127.0.0.1', '2022-07-03', '02:25:13', 1, 1),
+(107, 'acceso', '127.0.0.1', '2022-07-03', '02:38:44', 1, 1),
+(108, 'acceso', '127.0.0.1', '2022-07-03', '05:17:17', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1958,7 +2104,8 @@ CREATE TABLE `radiografia_conteo` (
 INSERT INTO `radiografia_conteo` (`indconteo`, `indcliente`, `nombre_completo`, `indsucursal`, `indtemp`, `factura`, `fecha`, `hora`) VALUES
 (1, 12, 'aSFddassadas\r\nasdasdasdas', 7, 'temp', 2115525225, '2021-07-19', '34:30:14'),
 (2, 3, '. GAITAN FUENTES', 1, 'soqb83v4unyjt4prz9zk2wwhaq0835iu7t1fhyfk3gz7xeqju7utbz22ah4l73i3ce2o1sfiiu6y72uvnudg5y966pb8m443trp3', 0, '2021-07-19', '07:36:19'),
-(3, 0, 'EMILIO ANTONIO FUENTES', 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u', 0, '2021-08-06', '07:31:33');
+(3, 0, 'EMILIO ANTONIO FUENTES', 1, 'rj2x3lzh6col648ynzwb46pplwpip7uix1jbx1zj19ofix4img6zws0i6g3ha0wi11tiav4a25imx9lrno95xg3rj02de3xftc5u', 0, '2021-08-06', '07:31:33'),
+(4, 0, 'EMILIO ANTONIO FUENTES', 1, 'uo0oveogcxrxlw7jinhrldcqgdiwleu1kx4zkoyt1oucabzmhizny5azmqow1rduksafd7c7gplphlky8mqp32cd3u0pfxod5cax', 0, '2021-12-26', '08:34:52');
 
 -- --------------------------------------------------------
 
@@ -2007,7 +2154,7 @@ CREATE TABLE `talonario` (
 --
 
 INSERT INTO `talonario` (`indtalonario`, `numero`, `indsucursal`, `indtemp`) VALUES
-(1, 918, 1, ''),
+(1, 223, 1, ''),
 (234, 23, 6, '');
 
 -- --------------------------------------------------------
@@ -2026,7 +2173,7 @@ CREATE TABLE `tasa` (
 --
 
 INSERT INTO `tasa` (`indcambio`, `dolar`) VALUES
-(1, 35.25);
+(1, 35);
 
 -- --------------------------------------------------------
 
@@ -2093,7 +2240,29 @@ INSERT INTO `total_factura` (`indtotalfactura`, `indcliente`, `indsucursal`, `in
 (34, 3, 1, 914, 211.5, 211.5, 22, 0, 0, 0, 1, 0, 0, 0, 0, 0, '2021-08-09', '09:52:32', 'vs1za2xj4e3xv4c4tedrac920vllskewvz12rxw68sl7h05dschwdh4whm0njl975ke5i053ifgf76w62m4e33jzgcx6adkdqjgl', 0),
 (35, 3, 1, 915, 1533.38, 1533.38, 0, 2332, 0, 0, 1, 0, 0, 0, 0, 0, '2021-08-09', '10:01:21', 'ixlqbacd8mld6yb191cann3lypbcez6zqef3nwve43xz6qt85gpdgxcfs3t55hbjs3hu2zerg30ll08h8amz8g9eq7gb86lqeho9', 1),
 (36, 17, 1, 916, 352.5, 352.5, 0, 22, 0, 0, 1, 0, 0, 0, 0, 0, '2021-08-09', '10:02:17', 'yk70qfzatlp5hp2vyb0qg29msjkpuav3i8y6rfq3e11hykshplt74z30u06swqv7bpnp3l7fd9nx5jx0g8k59zskp7ps9rzxgrq1', 1),
-(37, 3, 1, 917, 4935, 4935, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, '2021-08-09', '12:01:13', 'v5woisuk60tll7ysfxmef0ae4f75991b0p2jej3oz7kvihnl2467wvlt9wpku6gavgotcl6vyrbal9rrisjnfkniq4a4dr6ak6le', 1);
+(37, 3, 1, 917, 4935, 4935, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, '2021-08-09', '12:01:13', 'v5woisuk60tll7ysfxmef0ae4f75991b0p2jej3oz7kvihnl2467wvlt9wpku6gavgotcl6vyrbal9rrisjnfkniq4a4dr6ak6le', 1),
+(38, 3, 1, 919, 423, 423, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-25', '02:20:55', '40na0j31lladikg6a7cfy9sz6mefkm4sxku2kgyh2gzys0uk4ccgvhc1mhxjsn4uxgy35qwvlnqft1xfsa962tvgu62rheuwe7nw', 1),
+(39, 3, 1, 918, 916.5, 916.5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-25', '02:20:53', 's89nbtzyd5hq6th0l7jyhzkbycgiutlpe3ol3i2a074b415qkwrptdbyzdnjilphi41ikeg7oo5ftxvda5sa0puuvv3cga7kzn0f', 1),
+(50, 14, 1, 0, 1057.5, 1057.5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-26', '08:47:36', '2c8sn0hv1a37wmyjp4qscudzpveka2clhujivuzgse6cywycddojcsc3f6j4nmx07hdclegom3e7gd32060mwvr7h2xwgat7r2cg', 1),
+(52, 3, 1, NULL, 211.5, 211.5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-26', '08:48:49', '4am3peqpo0cewgz0hyia9hhkellhhj190xaafd0d3uzkn48lqw5931d8ewbbx19hiepom521l8gsbwyml053jrka4btlapchkph5', 1),
+(53, 12, 1, NULL, 211.5, 211.5, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-26', '08:49:03', 'n1a0p3mbks8nj51ofrfh2dwaa8xoows48wcqh4epf5gtxf5zzy461r1hleaj3rh7fn335dzqyvy2ju5qn2ebx63a2vh23hk8iof5', 1),
+(54, 3, 1, 223, 22333, 3323, 0, 35.25, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-26', '08:50:22', 'hpmw7d47decz2wlv3w7qmglh5w0du5ho4fyqev6hu7w7zisowygb7cy3iicn404dg0006n1fcw0a2cmqixd3o9mw5qqjw1fae86b', 1),
+(55, 3, 1, 22, 1, 1, 0, 35.25, 1, 0, 1, 0, 0, 0, 0, 0, '2021-12-26', '09:00:49', 'cgkcqhnd38ohwnqrxsl6ytwmemr9yvpq1jbv5kyy466y1stef7znw96eyxsmaqn0b5uuruum6yxqbhog0r118dgn5ldzx2rne6eb', 1),
+(56, 3, 1, 1212, 2, 33, 0, 35.25, 1, 1, 1, 0, 0, 1, 0, 0, '2021-12-26', '09:02:00', 'ovu8qad89ayfeyxnme1eaipevz1vjhdga8byqqm61l7vyytb4xhs0r1ikjpoctdydmdwlbk5hk3rzq9hxc1gqw3vsivosves3xej', 1),
+(57, 3, 1, NULL, 2, 33, 0, 35.25, 1, 1, 1, 0, 0, 1, 0, 0, '2021-12-26', '09:02:27', 'ppjx0w6frnem097vtlc9ibcf4q4i0tnf08pugyck8trydjz47zsoe81u4ttfotfjn19xof7iqpfldexhcwaz2nflgj7r93d51e5z', 1),
+(58, 3, 1, 222, 22, 22, 0, 35.25, 1, 1, 1, 0, 0, 1, 0, 0, '2021-12-26', '09:05:25', 'vxy05kwxh9ras1y2b7wf7nt6ommzjhkrnqz8yb3uxb26neozzqtwu3kldn98d5bswcccrm5sji4p5afcqvpb3wxcy8rdzsowcffn', 1),
+(59, 3, 1, NULL, 898.88, 898.88, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, '2021-12-26', '09:06:39', '9wtj73iyki1ap7n2egz9uqr5be00lz29qq37n5k8j83jnreq4oi6ud1veh62fna7we9452tcib2hpmqem9tfmnqp0dpqj1emh2el', 1),
+(61, 3, 1, NULL, 1515.75, 1515.75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2022-02-02', '08:24:07', 'xxidm7pib9pweiq64h2734z3snr0vqbf5ekhwyubh2kif85gd591mx1pid3zsht49gdw95qjjfq9ka5bzxgrihz994v673bzn2n8', 1),
+(62, 3, 1, NULL, 740.25, 740.25, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, '2022-02-26', '04:46:07', '4fibjf2xtkhp0nrqe9m03n5eaowj1tdpmnj2kvxh98gp4ykdrj9ry3acw6ezkltbb53h2680qj021dli7a20s5tt8epr2p66yylo', 1),
+(63, 3, 1, NULL, 211.5, 211.5, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, '2022-05-07', '08:44:02', 'qken1powv42ft6w7qtbg56c4q4r6ibieegd48ubv6z5g0i5q1wzcr1cnkxg7bruio4yrqaur328q66irz9nq5a3gmyo2j37cj3a2', 1),
+(64, 12, 1, NULL, 652.13, 652.13, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, '2022-05-07', '08:51:45', 'iklv6ywprw6oy41wo1np11k0kd2mli5m1hy8be0toyrhc4lldi3q9jvtfr74hmyhmjtunmkkj0xjc6xqqy7bjh01x2nyerhbcrij', 1),
+(65, 3, 1, NULL, 774, 774, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, '2022-05-11', '09:39:55', '0o6a28et9xo31jfadh1k5cb47amjxw5rso1sz6xzv82zj82mpjz1ta92iitw3ptityo85cnip6zq9b2csvue4lpdc05986rd9mkk', 1),
+(66, 3, 1, NULL, 756, 756, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, '2022-05-11', '09:40:17', 'ihnixw5z2q0qjth2n6ubgy5fxvc8z0rbmnrpnlsm4m7vemi4qwrzlugdoo86epw18gakpqgecsrtj2n8g61ze1jq4u5gx5jh2tev', 1),
+(67, 12, 1, NULL, 828, 828, 0, 66, 0, 0, 0, 0, 0, 0, 0, 0, '2022-05-11', '09:40:59', 'topke4hltg2cyzmdw6j1doqpfizbbrrxew6p5f7s5tsibxxyzpnrujeardv7132eyc5s66u98llp6s58dt6396hsplzq05g2t343', 1),
+(68, 128856, 1, NULL, 584, 584, 0, 22, 1, 0, 1, 0, 0, 0, 0, 0, '2022-05-30', '10:27:27', '60hyn2g29f74essre248qq92zf5r3m1afk219lb8pjpqf6tsoj1harl3razso3ac2ohocfsuwwonchdougw7a2aatsaqu9tfcl3m', 1),
+(69, 3, 1, NULL, 945, 945, 0, 222, 0, 0, 0, 0, 0, 0, 0, 0, '2022-06-09', '05:30:19', '9eiar76p0u4cv5xyspb8lc1uf7qszfluyedlf1ceznnvikk4m6ohizsnits19e52yz6214wqnkt6hx4p0r4mlvmdnab1hlmf7po2', 1),
+(70, 3, 1, NULL, 420, 420, 0, 22, 0, 0, 0, 1, 0, 0, 0, 0, '2022-07-03', '02:38:44', 'lf16ws3wg40d8c58tiprx7cpcoyh5ssypxl7aeku3neh0nmlij73ukq8bagq6230610olquvdnt7eu71fvf7o9hqs90z0j0rjan3', 1),
+(71, 3, 1, NULL, 1610, 1591.1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '2022-07-03', '05:17:17', 'xfk03ey4oj7wfohzvayszpn8a3ii6gpb4kfitlfvvfos2cr1luskdxuav4e65nx30gskxvhfs89uqb6xzpk1ryt58elgt0e5pn8r', 1);
 
 --
 -- Índices para tablas volcadas
@@ -2133,6 +2302,12 @@ ALTER TABLE `creditos_pago`
 ALTER TABLE `empleado`
   ADD PRIMARY KEY (`indempleado`),
   ADD KEY `indsucursal` (`indsucursal`);
+
+--
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`indempresa`);
 
 --
 -- Indices de la tabla `factura`
@@ -2199,19 +2374,19 @@ ALTER TABLE `total_factura`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `indcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `indcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=824731;
 
 --
 -- AUTO_INCREMENT de la tabla `control`
 --
 ALTER TABLE `control`
-  MODIFY `indcontrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `indcontrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `credito`
 --
 ALTER TABLE `credito`
-  MODIFY `indcredito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `indcredito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `creditos_pago`
@@ -2223,19 +2398,25 @@ ALTER TABLE `creditos_pago`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `indempleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `indempleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `indempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `indfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `indfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_acceso`
 --
 ALTER TABLE `historial_acceso`
-  MODIFY `indacceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `indacceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -2247,7 +2428,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `radiografia_conteo`
 --
 ALTER TABLE `radiografia_conteo`
-  MODIFY `indconteo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `indconteo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sucursal`
@@ -2271,7 +2452,7 @@ ALTER TABLE `tasa`
 -- AUTO_INCREMENT de la tabla `total_factura`
 --
 ALTER TABLE `total_factura`
-  MODIFY `indtotalfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `indtotalfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- Restricciones para tablas volcadas
