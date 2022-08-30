@@ -59,10 +59,10 @@ if ($_SESSION["Key"] == "") {
 }
 ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" name="myapp"
-      onsubmit="return(appregistro());">
+      onsubmit="return(appregistro());" style="border-radius: 6px;">
     <div class="container z-depth-1 rounded white center-block">
         <br>
-        <br>
+
         <section class="row">
             <div class="control-pares col-md-3">
                 <label for="" class="control-label">Nombres: *</label>
@@ -143,6 +143,7 @@ if ($_SESSION["Key"] == "") {
                 </div>
             </div>
         </section>
+        <a href="detaller_clientes.php?indcliente=<?php echo $indcliente; ?>" class="btn btn-info">Detalles Cliente</a>
         <br>
         <div class="modal-footer">
             <a class="btn white-text black btn-primary"

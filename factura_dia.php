@@ -6,7 +6,9 @@ if (!$_SESSION) {
 ?>
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-dark blue-grey right" href="temporal/cliente_manual.php" class="right btn btn-info">Factura Manual</a></h5>
+            <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-dark blue-grey right"
+                                                                href="temporal/cliente_manual.php"
+                                                                class="right btn btn-info">Factura Manual</a></h5>
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
@@ -22,7 +24,8 @@ if (!$_SESSION) {
                         ?>" required>
                     </div>
                     <div class="control-pares col-md-2">
-                        <input type="number" name="textfactura" class="form-control input_modificado" placeholder="No Factura" value="">
+                        <input type="number" name="textfactura" class="form-control input_modificado"
+                               placeholder="No Factura" value="">
                     </div>
                     <div class="control-pares col-md-3">
                         <select name="textsucursal" class="form-control" required>
@@ -117,9 +120,9 @@ if (!$_SESSION) {
                     </div>
                 </section>
             </form>
-           <hr>
-<!--            <p class="red-text">Las facturas anuladas deben de ser reportadas en el sistema, es una obligación  del personal reportarlas, igual registrar todas las facturas  realizadas</p>-->
-<!--            <hr>-->
+            <hr>
+            <!--            <p class="red-text">Las facturas anuladas deben de ser reportadas en el sistema, es una obligación  del personal reportarlas, igual registrar todas las facturas  realizadas</p>-->
+            <!--            <hr>-->
         </div>
     </div>
     <hr>
@@ -149,9 +152,9 @@ if (!$_SESSION) {
                 $fecha2 = $_POST["textfecha"];
                 $sucursal = $_POST["textsucursal"];
                 $talo = $_POST["textfactura"];
-                if($talo==""){
+                if ($talo == "") {
                     $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE total_factura.fecha='$fecha2' and total_factura.indsucursal='$sucursal' ORDER by indtotalfactura DESC");
-                }else{
+                } else {
                     $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE  indtalonario='$talo' ORDER by indtotalfactura DESC");
                 }
             } else {
@@ -169,10 +172,13 @@ if (!$_SESSION) {
                         <td>
                             <a href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>"><?php echo $resultado["indtalonario"]; ?></a>
                         </td>
-                        <td><a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a></td>
+                        <td>
+                            <a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a>
+                        </td>
                         <td class="center-align"><?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
                         <td class="center-align"><?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
-                        <td class="center-align"><b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>
+                        <td class="center-align">
+                            <b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>
                         <td class="center-align"><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td class="center-align"><?php echo $resultado["hora"]; ?></td>
                         <td class="center-align"><a href="PDF/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
@@ -200,6 +206,7 @@ if (!$_SESSION) {
                         <td class="center-align">
                             <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
                                class="btn btn-primary"><i>%</i></a></td>
+
                     </tr>
                 <?php } else { ?>
                     <tr class="red-text">
@@ -208,7 +215,9 @@ if (!$_SESSION) {
                                     href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>"><?php echo $resultado["indtalonario"]; ?></a>
                             </del>
                         </td>
-                        <td><a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a></td>
+                        <td>
+                            <a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a>
+                        </td>
                         <td class="center-align"><?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
                         <td class="center-align"><?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
                         <td class="center-align"><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></td>

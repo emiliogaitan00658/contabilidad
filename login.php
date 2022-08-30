@@ -161,17 +161,17 @@ if ($_POST) {
     <div class="container-fluid" style="margin-top: 5em;">
         <div class="row main-content bg-success text-center">
             <div class="col-md-4 text-center company__info center-block">
-                <h4 class="company_title center-align"><img src="093b747.png"  class="responsive-img" width="60%" alt=""></h4>
+                <!--<h4 class="company_title center-align"><img src="093b747.png"  class="responsive-img" width="60%" alt=""></h4>-->
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                 <div class="container-fluid">
                     <div>
                         <br>
-                        <h2>SISTEMA DE FACTURACIÓN</h2>
+                        <h3>SISTEMA DE FACTURACIÓN</h3>
                         <hr>
                     </div>
-                    <div>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-group">
+                    <div class="center-block">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-group center-block">
                             <div class="col-md-10">
                                 <input  type="text" name="textuser" id="textuser" class="form__input" placeholder="USUARIO">
                             </div>
