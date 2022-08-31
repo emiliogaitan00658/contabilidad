@@ -15,6 +15,26 @@ class Password
     }
 }
 
+class Extraccion_fecha
+{
+    /** Actual month last day **/
+    public static function _data_primer_fecha_del_mes()
+    {
+        $month = date('m');
+        $year = date('Y');
+        $day = date("d", mktime(0, 0, 0, $month + 1, 0, $year));
+
+        return date('Y-m-d', mktime(0, 0, 0, $month, $day, $year));
+    }
+
+    /** Actual month first day **/
+    public static function _data_ultima_fecha_del_mes()
+    {
+        $month = date('m');
+        $year = date('Y');
+        return date('Y-m-d', mktime(0, 0, 0, $month, 1, $year));
+    }
+}
 
 class incriptar
 {
@@ -335,6 +355,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
             return "error";
         }
     }
+
     public static function mostrar_detalle_empresa($mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `empresa`");
@@ -706,7 +727,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         $result = $mysqli->query("SELECT * FROM `total_factura` WHERE indtalonario='$i'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
-            return "1";
+            return $i;
         }
         return "0";
     }

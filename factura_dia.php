@@ -3,7 +3,73 @@
 if (!$_SESSION) {
     echo '<script> location.href="login" </script>';
 }
-?>
+if ($idsucursal != 1) {
+    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
+    $dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
+    $primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
+    $segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
+
+    for ($i = $primera; $i <= $segunda; $i++) {
+        $res = datos_clientes::busqueda_alerta($i, $mysqli);
+        if ($res == 0) {
+            ?>
+            <div class="container">
+                <p class="alert alert-danger" style="position: center">!Alerta Numero de Factura Falta ingresar:
+                    <b><i><?php echo $i; ?></i></b> (Manualmente o regitras factura).</p>
+            </div>
+            <?php
+        }
+    }
+} ?>
+
+    <style>
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(39, 104, 148, 0.8);
+            min-width: 100px;
+            overflow: auto;
+            color: white!important;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            position: ;
+            color: white!important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #2c3e50;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
             <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-dark blue-grey right"
@@ -126,7 +192,7 @@ if (!$_SESSION) {
         </div>
     </div>
     <hr>
-    <div class="z-depth-1 rounded white center-block" style="width: 98%;border-radius: 6px;padding: 1em;">
+    <div class="z-depth-1 rounded white center-block" style="width: 90%;border-radius: 6px;padding: 1em;">
         <table class="table table-responsive-sm table-bordered  table-hover" style="padding:0em">
             <thead>
             <tr style="border-bottom: 1px solid black;" class="alert alert-info">
@@ -140,9 +206,10 @@ if (!$_SESSION) {
                 <th scope="col">Imprimir</th>
                 <th scope="col">Eliminar</th>
                 <th scope="col">Editar</th>
-                <th scope="col">Anular</th>
-                <th scope="col">Proforma</th>
-                <th scope="col">Retencion</th>
+                <th scope="col">Opciones</th>
+                <!--                <th scope="col">Anular</th>-->
+                <!--                <th scope="col">Proforma</th>-->
+                <!--                <th scope="col">Retencion</th>-->
             </tr>
             </thead>
             <tbody>
@@ -161,16 +228,18 @@ if (!$_SESSION) {
                 $fecha = datos_clientes::fecha_get_pc_MYSQL();
                 $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE total_factura.fecha='$fecha'and total_factura.indsucursal='$indsucursal' ORDER by indtotalfactura DESC");
             }
-
+            $conteo_i = 0;
             while ($resultado = $result4->fetch_assoc()) {
                 $indcliente = $resultado['indcliente'];
                 $_SESSION["sucursal_acceso"] = $indsucursal = $resultado['indsucursal'];
                 $nombre_apelido = datos_clientes::nombre_apellido_cliente($indcliente, $mysqli);
+                $conteo_i = $conteo_i + 1;
                 ?>
                 <?php if ($resultado['bandera'] == "1") { ?>
                     <tr>
                         <td>
-                            <a href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>"><?php echo $resultado["indtalonario"]; ?></a>
+                            <a href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>">
+                                <?php echo $resultado["indtalonario"]; ?></a>
                         </td>
                         <td>
                             <a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a>
@@ -194,18 +263,50 @@ if (!$_SESSION) {
                         <td class="center-align"><a
                                     href="temporal/editar_factura_verificacion.php?temp=<?php echo $resultado['indtemp'] . "&indcliente=" . $indcliente; ?>"
                                     class="btn btn-success">Editar</a></td>
-                        <td class="center-align"><a href="#" onclick="
-                                    var i='<?php echo $resultado['indtemp']; ?>';
-                                    verficar_anulacion(i);"
-                                                    class="btn btn-primary"><i class="icon-blocked"></i></a></td>
+                        <!--                        <td class="center-align"></td>-->
+
+                        <!--                        <td class="center-align"></td>-->
+
+                        <!--                        <td class="center-align"></td>-->
+
 
                         <td class="center-align">
-                            <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
-                               class="btn btn-primary" target="_blank"><i class="icon-insert-template"></i></a></td>
 
-                        <td class="center-align">
-                            <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
-                               class="btn btn-primary"><i>%</i></a></td>
+                            <div class="dropdown">
+                                <button onclick="myFunction<?php echo $conteo_i; ?>()" class="dropbtn">:</button>
+                                <div id="myDropdown<?php echo $conteo_i; ?>" class="dropdown-content">
+                                    <a href="#" onclick="
+                                            var i='<?php echo $resultado['indtemp']; ?>';
+                                            verficar_anulacion(i);">Anular</a>
+                                    <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
+                                       target="_blank">Proforma</a>
+                                    <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
+                                       >Retenciòn</a>
+                                </div>
+                                <script>
+                                    /* When the user clicks on the button,
+                                    toggle between hiding and showing the dropdown content */
+                                    function myFunction<?php echo $conteo_i; ?>() {
+                                        document.getElementById("myDropdown<?php echo $conteo_i; ?>").classList.toggle("show");
+                                    }
+
+                                    // Close the dropdown if the user clicks outside of it
+                                    window.onclick = function (event) {
+                                        if (!event.target.matches('.dropbtn')) {
+                                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                                            var i;
+                                            for (i = 0; i < dropdowns.length; i++) {
+                                                var openDropdown = dropdowns[i];
+                                                if (openDropdown.classList.contains('show')) {
+                                                    openDropdown.classList.remove('show');
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+                            </div>
+
+                        </td>
 
                     </tr>
                 <?php } else { ?>
@@ -233,10 +334,47 @@ if (!$_SESSION) {
                                class="btn btn-success">Editar</a></td>
 
                         <?php ?>
-                        <td><a href="#" class="btn btn-primary">--</a></td>
-                        <td><a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
-                               target="_blank" class="btn btn-primary"><i class="icon-insert-template"></i></a></td>
-                        <td><a href="#" class="btn btn-primary"><i>%</i></a></td>
+                        <!--                        <td><a href="#" class="btn btn-primary">--</a></td>-->
+                        <!--                        <td><a href="temporal/dolar_pregunta.php?key=-->
+                        <?php //echo $resultado['indtemp']; ?><!--"-->
+                        <!--                               target="_blank" class="btn btn-primary"><i class="icon-insert-template"></i></a></td>-->
+                        <!--                        <td><a href="#" class="btn btn-primary"><i>%</i></a></td>-->
+
+                        <td class="center-align">
+
+                            <div class="dropdown">
+                                <button onclick="myFunction<?php echo $conteo_i; ?>()" class="dropbtn">:</button>
+                                <div id="myDropdown<?php echo $conteo_i; ?>" class="dropdown-content">
+                                    <a href="#">--</a>
+                                    <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
+                                       target="_blank">Proforma</a>
+                                    <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>">Retenciòn</a>
+                                </div>
+                            </div>
+                            <script>
+                                /* When the user clicks on the button,
+                                toggle between hiding and showing the dropdown content */
+                                function myFunction<?php echo $conteo_i; ?>() {
+                                    document.getElementById("myDropdown<?php echo $conteo_i; ?>").classList.toggle("show");
+                                }
+
+                                // Close the dropdown if the user clicks outside of it
+                                window.onclick = function (event) {
+                                    if (!event.target.matches('.dropbtn')) {
+                                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                                        var i;
+                                        for (i = 0; i < dropdowns.length; i++) {
+                                            var openDropdown = dropdowns[i];
+                                            if (openDropdown.classList.contains('show')) {
+                                                openDropdown.classList.remove('show');
+                                            }
+                                        }
+                                    }
+                                }
+                            </script>
+                        </td>
+
+
                     </tr>
                     <?php
                 }
@@ -288,6 +426,24 @@ if (!$_SESSION) {
             location.href = "factura_dia.php";
         }
 
-    </script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction2() {
+            document.getElementById("myDropdown2").classList.toggle("show");
+        }
 
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 <?php include "header/footer.php" ?>

@@ -22,33 +22,33 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Reporte Venta Materiales</h5>
-                    <p class="card-text">Reprotes se pueden generar mensual o semana.</p>
-                    <a href="temporal/panel_reporte_rax" class="btn btn-primary">Crear Reporte</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Reporte Radiografia</h5>
-                    <p class="card-text">Reprotes se pueden generar mensual o semana.</p>
-                    <a href="#" class="btn btn-primary">Crear Reporte</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Reporte Cierre de Caja de Materiales</h5>
-                    <p class="card-text">Reprotes se pueden generar mensual o semana.</p>
-                    <a href="temporal/cierre_caja" class="btn btn-primary">Crear Reporte</a>
-                </div>
-            </div>
-        </div>
+<!--        <div class="col-sm-3">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Reporte Venta Materiales</h5>-->
+<!--                    <p class="card-text">Reprotes se pueden generar mensual o semana.</p>-->
+<!--                    <a href="temporal/panel_reporte_rax" class="btn btn-primary">Crear Reporte</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-sm-3">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Reporte Radiografia</h5>-->
+<!--                    <p class="card-text">Reprotes se pueden generar mensual o semana.</p>-->
+<!--                    <a href="#" class="btn btn-primary">Crear Reporte</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-sm-3">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Reporte Cierre de Caja de Materiales</h5>-->
+<!--                    <p class="card-text">Reprotes se pueden generar mensual o semana.</p>-->
+<!--                    <a href="temporal/cierre_caja" class="btn btn-primary">Crear Reporte</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body">
@@ -59,15 +59,15 @@
             </div>
         </div>
         <br>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Entrega de Materiales</h5>
-                    <p class="card-text">Entrega de Materiales.</p>
-                    <a href="temporal/control_panel_entrega_materiales" class="btn btn-primary">Entregar</a>
-                </div>
-            </div>
-        </div>
+<!--        <div class="col-sm-3">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Entrega de Materiales</h5>-->
+<!--                    <p class="card-text">Entrega de Materiales.</p>-->
+<!--                    <a href="temporal/control_panel_entrega_materiales" class="btn btn-primary">Entregar</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
 <br>
