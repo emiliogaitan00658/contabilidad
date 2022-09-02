@@ -70,11 +70,11 @@ if (!empty($_SESSION)) {
                 <a class="nav-link alert alert-primary" href="#"><b> <i
                             class="icon-coin-dollar "> </i> <?php echo $dolar ?> Cordobas</b></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link bg-red" href="talonario_cambio"> <?php if (!empty($_SESSION)) {
-                        echo "No." . $talonario;
-                    } ?></a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link bg-red" href="talonario_cambio"> --><?php //if (!empty($_SESSION)) {
+//                        echo "No." . $talonario;
+//                    } ?><!--</a>-->
+<!--            </li>-->
             <?php
             try {
                 if (!empty($_SESSION['sucursal'])) {

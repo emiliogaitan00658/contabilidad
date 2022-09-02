@@ -234,7 +234,7 @@ if ($_SESSION["Key"] == "") {
                 <input type="text" name="textotaldolar" id="textotaldolar" class="form-control"
                        value="<?php
                        $res = datos_clientes::sumatotal_factursa($Key, $mysqli);
-                       $fac = $res / $dolar;
+                        $fac = $res / $dolar;
                        echo $english_format_number = number_format($fac, 2, '.', ''); ?>" placeholder="Total"
                        readonly=readonly required>
             </div>

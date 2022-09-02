@@ -135,7 +135,7 @@ class datos_clientes
         $result = $mysqli->query("SELECT * FROM `clientes` WHERE nombre='$nombre' and apellido='$apellido'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
-            return true;
+            return $row;
         }
         return false;
     }
@@ -464,9 +464,9 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
     {
         $longitud = 100;
         $key = '';
-        $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+        $pattern = '1234567890abcdefghijklmnopqrstuvwxyz'.self::fecha_get_pc();
         $max = strlen($pattern) - 1;
-        for ($i = 0; $i < $longitud; $i++) $key .= $pattern{mt_rand(0, $max)};
+        for ($i = 0; $i < $longitud; $i++) $key .= $pattern{rand(0, $max)};
 
         $result = $mysqli->query(" SELECT * FROM `factura` WHERE indtemp='$key'");
         $row = $result->fetch_array(MYSQLI_ASSOC);

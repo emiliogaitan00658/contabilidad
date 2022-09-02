@@ -48,14 +48,14 @@ if ($idsucursal != 1) {
             background-color: rgba(39, 104, 148, 0.8);
             min-width: 100px;
             overflow: auto;
-            color: white!important;
+            color: white !important;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
         .dropdown-content a {
             position: ;
-            color: white!important;
+            color: white !important;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -78,7 +78,7 @@ if ($idsucursal != 1) {
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
-                    <div class="control-pares col-md-3">
+                    <div class="control-pares col-md-2">
                         <input type="date" name="textfecha" class="form-control" placeholder="Fecha" value="<?php
                         if ($_POST) {
                             echo $_POST["textfecha"];
@@ -181,9 +181,15 @@ if ($idsucursal != 1) {
                         </select>
                     </div>
 
-                    <div class="control-pares col-md-3">
+                    <div class="control-pares col-md-2">
                         <input type="submit" value="Buscar" class="btn white-text blue-grey btn-primary"/>
                     </div>
+                    <div class="control-pares col-md-2">
+                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio" style="margin: 0"> <b><?php if (!empty($_SESSION)) {
+                                    echo "No." . $talonario;
+                                } ?> <i class="icon-arrow-right2 red-text"></i></b></a>
+                    </div>
+
                 </section>
             </form>
             <hr>
@@ -281,7 +287,7 @@ if ($idsucursal != 1) {
                                     <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
                                        target="_blank">Proforma</a>
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
-                                       >Retenciòn</a>
+                                    >Retenciòn</a>
                                 </div>
                                 <script>
                                     /* When the user clicks on the button,

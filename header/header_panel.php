@@ -70,9 +70,9 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
                 <a class="nav-link alert alert-primary" href="#"><i
                             class="icon-coin-dollar"> </i> <?php echo $dolar ?> Cordobas</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link bg-red" href="historial_acceso.php" style="padding: 0;margin: 0"><i class="icon-profile indigo-text" style="font-size: 30px"></i></a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link bg-red" href="historial_acceso.php" style="padding: 0;margin: 0"><i class="icon-profile indigo-text" style="font-size: 30px"></i></a>-->
+<!--            </li>-->
             <li class="nav-item">
                 <a class="nav-link bg-red" href="../talonario_cambio"> <?php if (!empty($_SESSION)) {
                         echo "No." . $talonario;
