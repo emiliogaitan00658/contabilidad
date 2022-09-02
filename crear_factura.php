@@ -37,19 +37,45 @@ if ($_POST) {
     }
     $exito = datos_clientes::facturafinal($Key, $sucursal, $check_credito, $indcliente, $check_cordoba, $check_dolar, $check_tras, $check_efect, $check_fise, $check_bac, $check_targeta,
         $cordobas, $dolar, $subtotalF, $totalF, $mysqli);
+
     if ($exito == true) {
         $_SESSION["Key"] = "";
         if ($check_credito == 1) {
             echo '<script> location.href="detalles_credito.php?indcliente=' . $indcliente . '&key=' . $ress . '&total= ' . $totalF . '" </script>';
         } else {
             if ($check_rx == 1) {
-                echo '<script> location.href="temporal/buscar_RAX_medico.php?key='. $ress .'" </script>';
+                echo '<script> location.href="temporal/buscar_RAX_medico.php?key=' . $ress . '" </script>';
             } else {
                 echo '<script> location.href="factura_dia.php" </script>';
+//              echo '<script>
+//
+//                swal("Tipo de Factura", {
+//        buttons: {
+//                    cancel: "Credito",
+//            catch: {
+//                        text: "Contado",
+//                value: "catch",
+//            },
+//            defeat: false,
+//        },
+//    })
+//        .then((value) => {
+//                    switch (value) {
+//                        case "defeat":
+//                           // location.href="factura_dia.php";
+//                            break;
+//                        case "catch":
+//                            //location.href="detalles_credito.php?indcliente=' . $indcliente . '&key=' . $ress . '&total= ' . $totalF . ';
+//                            break;
+//                        default:
+//                            //swal("Got away safely!");
+//                    }
+//                });
+//</script>';
             }
         }
     } else {
-        swal("alerta!", "Surgio un problema sistema!", "error");
+        echo '<script>swal("alerta!", "Surgio un problema sistema!", "error");</script>';
     }
     datos_clientes::historial_acceso("Creo Factura", $sucursal, $indempleado, $mysqli);
 }
@@ -234,7 +260,7 @@ if ($_SESSION["Key"] == "") {
                 <input type="text" name="textotaldolar" id="textotaldolar" class="form-control"
                        value="<?php
                        $res = datos_clientes::sumatotal_factursa($Key, $mysqli);
-                        $fac = $res / $dolar;
+                       $fac = $res / $dolar;
                        echo $english_format_number = number_format($fac, 2, '.', ''); ?>" placeholder="Total"
                        readonly=readonly required>
             </div>
