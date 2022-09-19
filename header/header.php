@@ -25,6 +25,12 @@
 
 <body style="background-color: rgb(247,247,249)" id="page-top">
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+error_reporting(E_ALL);
+
 session_start();
 include_once 'BD-Connection/conection.php';
 include_once 'BD-Connection/datos_clientes.php';
