@@ -833,7 +833,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         $precio_cordobas = $dolar * $precio;
         $indcliente = $_SESSION["indcliente"];
         $insert = "INSERT INTO `factura` (`indfactura`, `indtalonario`, `codigo_producto`, `nombre_producto`, `unidad`, `precio_unidad`, `precio_total`, `cordoba`, `descuento`,`total_descuento`, `bandera`, `indcliente`, `indsucursal`, `anular`, `indtemp`)
-VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_cordobas', '$dolar', null, null , '0','$indcliente', '$indsucursal', '', '$indtemp');";
+VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_cordobas', '$dolar', '0', null , '0','$indcliente', '$indsucursal', '', '$indtemp');";
         $query = mysqli_query($mysqli, $insert);
         return true;
     }
