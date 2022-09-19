@@ -4,6 +4,7 @@ if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
 if ($_GET) {
+    echo "<script> alert('detectado')</script>";
     $indproducto = $_GET['codigo'];
     $precio = $_GET['precio'];
     $dato = datos_clientes::buscar_producto_codigo_producto($indproducto, $mysqli);
@@ -39,6 +40,7 @@ if ($_GET) {
     }
 }
 ?>
+
 <div class="container white rounded z-depth-2" style="border-radius: 6px;">
     <div style="padding: 1em">
         <h5 class="alert alert-primary">Buscar producto<a href="crear_factura.php"
