@@ -108,7 +108,10 @@
 <?php
 include_once '../BD-Connection/conection.php';
 include_once '../BD-Connection/datos_clientes.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
+error_reporting(E_ALL);
 $indsucursal = $_SESSION["sucursal"];
 $dolar = datos_clientes::cambio_dolar($mysqli);
 $talonario = datos_clientes::cambio_do($indsucursal, $mysqli);
