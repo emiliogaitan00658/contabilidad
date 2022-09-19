@@ -108,7 +108,7 @@ class datos_clientes
 
          return 0;
      }
- */
+    */
     public static function generar_ind_cliente($mysqli)
     {
         $limit = 6;
@@ -462,12 +462,22 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function Verificar_generador_codigo($mysqli)
     {
-        $longitud = 100;
-        $key = '';
-        $pattern = '1234567890abcdefghijklmnopqrstuvwxyz'.self::fecha_get_pc();
-        $max = strlen($pattern) - 1;
-        for ($i = 0; $i < $longitud; $i++) $key .= $pattern{rand(0, $max)};
 
+
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.self::fecha_get_pc_MYSQL().self::hora_get_pc();
+
+        function generate_string($input, $strength = 16)
+        {
+            $input_length = strlen($input);
+            $random_string = '';
+            for ($i = 0; $i < $strength; $i++) {
+                $random_character = $input[mt_rand(0, $input_length - 1)];
+                $random_string .= $random_character;
+            }
+
+            return $random_string;
+        }
+        $key=generate_string($permitted_chars, 100);
         $result = $mysqli->query(" SELECT * FROM `factura` WHERE indtemp='$key'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
@@ -478,6 +488,44 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         }
     }
 
+    /*public static function Verificar_generador_codigo($mysqli)
+    {
+    $strength = 100;
+    $key = '';
+    $pattern = '1234567890abcdefghijklmnopqrstuvwxyz' . self::fecha_get_pc() . self::hora_get_pc();
+    /* $max = strlen($pattern) - 1;
+    for ($i = 0; $i < $longitud; $i++) $key .= $pattern{rand(0, $max)};
+
+    $result = $mysqli->query(" SELECT * FROM `factura` WHERE indtemp='$key'");
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+    if (!empty($row)) {
+    return "true";
+    self::Verificar_generador_codigo($mysqli);
+    } else {
+    return $key;
+    }
+
+
+    $input = 100;
+    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $input_length = strlen($pattern);
+    $random_string = '';
+    for ($i = 0; $i < $strength; $i++) {
+    $random_character = $input[mt_rand(0, $input_length - 1)];
+    $random_string .= $random_character;
+    }
+    $result = $mysqli->query(" SELECT * FROM `factura` WHERE indtemp='$random_string'");
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+
+    if (!empty($row)) {
+    return "true";
+    self::Verificar_generador_codigo($mysqli);
+    } else {
+    return $key;
+    }
+
+    }
+    */
     public static function verificar_producto_factura($indtemp, $indproducto, $mysqli)
     {
         $result = $mysqli->query(" SELECT * FROM `factura` WHERE factura.indtemp='$indtemp' AND factura.codigo_producto='$indproducto'");
@@ -556,13 +604,13 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function tipo_factura_RAX($indtalonario, $sucursal, $mysqli)
     {
-        //RAX
-        //$result = $mysqli->query("SELECT tipocontrol FROM `control` WHERE indsucursal='' and indfactura='$indtalonario'");
+//RAX
+//$result = $mysqli->query("SELECT tipocontrol FROM `control` WHERE indsucursal='' and indfactura='$indtalonario'");
         $result = $mysqli->query("SELECT codigo_producto FROM `factura` WHERE indtalonario=$indtalonario and indsucursal='$sucursal'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             $temp = $row3["codigo_producto"];
-            //echo var_dump(strpos("$temp", 'RAX'));
+//echo var_dump(strpos("$temp", 'RAX'));
             if (strpos("$temp", 'RAX') !== false) {
                 return "RX";
             } else {
@@ -694,7 +742,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function ultima_factura_credito($indsucursal, $fecha1, $fecha2, $mysqli)
     {
-        //$result = $mysqli->query(" IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario desc limit 1");
+//$result = $mysqli->query(" IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario desc limit 1");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3["indtalonario"];
@@ -784,7 +832,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
     {
         $precio_cordobas = $dolar * $precio;
         $indcliente = $_SESSION["indcliente"];
-        $insert = "INSERT INTO `factura` (`indfactura`, `indtalonario`, `codigo_producto`, `nombre_producto`, `unidad`, `precio_unidad`, `precio_total`, `cordoba`, `descuento`,`total_descuento`, `bandera`, `indcliente`, `indsucursal`, `anular`, `indtemp`) 
+        $insert = "INSERT INTO `factura` (`indfactura`, `indtalonario`, `codigo_producto`, `nombre_producto`, `unidad`, `precio_unidad`, `precio_total`, `cordoba`, `descuento`,`total_descuento`, `bandera`, `indcliente`, `indsucursal`, `anular`, `indtemp`)
 VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_cordobas', '$dolar', '', '' , '0','$indcliente', '$indsucursal', '', '$indtemp');";
         $query = mysqli_query($mysqli, $insert);
         return true;
@@ -817,7 +865,7 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
         $hora = self::hora_get_pc();
         $nombre_completo = self::nombre_apellido_cliente($indcliente, $mysqli);
         $insert = "INSERT INTO `radiografia_conteo` (`indconteo`, `indcliente`, `nombre_completo`, `indsucursal`, `indtemp`, `factura`, `fecha`, `hora`) VALUES
-         (NULL, '$RAX', '$nombre_completo', '$sucursal', '$Key', '', '$fecha', '$hora');";
+(NULL, '$RAX', '$nombre_completo', '$sucursal', '$Key', '', '$fecha', '$hora');";
 
         $query = mysqli_query($mysqli, $insert);
         return true;
@@ -895,9 +943,9 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
         if (!empty($row3)) {
             return false;
         } else {
-            $insert = "INSERT INTO `total_factura` (`indtotalfactura`, `indcliente`, `indsucursal`, `indtalonario`, `subtotal`, `total`, `cordoba_pago`, 
-                             `dolare_pago`, `cordoba`, `dolar`, `efectivo`, `credito`, `trasferencia`, `targeta`, `bac`, `lafise`, `fecha`, `hora`, `indtemp`, `bandera`)
- VALUES (NULL, '$indcliente','$sucursal', NULL, '$subtotalF', '$totalF', '$cordobas', '$dolar', '$check_cordoba', '$check_dolar', '$check_efect', '$check_credito', '$check_tras', '$check_targeta', '$check_bac', '$check_fise', '$fecha', '$hora', '$Key', '1');";
+            $insert = "INSERT INTO `total_factura` (`indtotalfactura`, `indcliente`, `indsucursal`, `indtalonario`, `subtotal`, `total`, `cordoba_pago`,
+`dolare_pago`, `cordoba`, `dolar`, `efectivo`, `credito`, `trasferencia`, `targeta`, `bac`, `lafise`, `fecha`, `hora`, `indtemp`, `bandera`)
+VALUES (NULL, '$indcliente','$sucursal', NULL, '$subtotalF', '$totalF', '$cordobas', '$dolar', '$check_cordoba', '$check_dolar', '$check_efect', '$check_credito', '$check_tras', '$check_targeta', '$check_bac', '$check_fise', '$fecha', '$hora', '$Key', '1');";
             $query = mysqli_query($mysqli, $insert);
             return true;
         }
@@ -918,8 +966,8 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
     {
         $fecha = self::fecha_get_pc_MYSQL();
         $hora = self::hora_get_pc();
-        $insert = "INSERT INTO `control` (`indcontrol`, `indfactura`, `indsucursal`, `indtemp`, `tipocontrol`, `fecha`, `hora`, `anulado`) VALUES 
-                            (NULL, NULL, '$sucursal', '$Key', '$detalle', '$fecha', '$hora', '0');";
+        $insert = "INSERT INTO `control` (`indcontrol`, `indfactura`, `indsucursal`, `indtemp`, `tipocontrol`, `fecha`, `hora`, `anulado`) VALUES
+(NULL, NULL, '$sucursal', '$Key', '$detalle', '$fecha', '$hora', '0');";
         $query = mysqli_query($mysqli, $insert);
         return true;
     }
@@ -936,7 +984,7 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
 
         $fecha = self::fecha_get_pc_MYSQL();
         $insert = "INSERT INTO `producto` (`indproducto`, `codigo_producto`, `nombre_producto`, `precio1`, `precio2`, `precio3`, `fecha_vencimiento`, `bandera`)
-                  VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fecha', '1');";
+VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fecha', '1');";
         $query = mysqli_query($mysqli, $insert);
         return true;
     }
@@ -1021,7 +1069,7 @@ VALUES (NULL, NULL, '$indproducto', '$producto','1','$precio_cordobas','$precio_
     {
         $hora = self::hora_get_pc();
         $fecha = self::fecha_get_pc_MYSQL();
-        $insert = "INSERT INTO `historial_acceso` (`indacceso`, `descripcion_acceso`, `ip_acceso`, `fecha`, `hora`, `indsucursal`, `indempleado`) 
+        $insert = "INSERT INTO `historial_acceso` (`indacceso`, `descripcion_acceso`, `ip_acceso`, `fecha`, `hora`, `indsucursal`, `indempleado`)
 VALUES (NULL, 'acceso', '127.0.0.1', '$fecha', '$hora', '1', '1');";
         $query = mysqli_query($mysqli, $insert);
         return true;
@@ -1083,7 +1131,7 @@ VALUES (NULL, '$nombre_empresa', '$ruc','$detalles_empresa' , '$url_logo', '1');
     public static function ingresar_credito_pago($indcredito, $indtemp, $indsucursal, $recibo, $detalle, $total, $fecha, $mysqli)
     {
         $fecha = self::fecha_get_pc_MYSQL();
-        $insert1 = "INSERT INTO `creditos_pago` (`indpago`, `indcredito`, `indrecibo`, `pago`, `fechapago`, `status`, `bandera`, `indsucursal`, `detalles_factura`, `indtemp`) 
+        $insert1 = "INSERT INTO `creditos_pago` (`indpago`, `indcredito`, `indrecibo`, `pago`, `fechapago`, `status`, `bandera`, `indsucursal`, `detalles_factura`, `indtemp`)
 VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsucursal', '$detalle', '$indtemp') ";
         $query = mysqli_query($mysqli, $insert1);
         return true;
@@ -1152,7 +1200,7 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
         $datos_factura = self::datos_generales_talonario($key, $mysqli);
         $cliente = $datos_factura['indcliente'];
 
-        $insert1 = "INSERT INTO `retencion` (`indretencion`, `indcliente`, `indsucursal`, `indtotalfactura`, `indcontrol`, `norecibo`, `fecha`, `hora`, `bandera`, `indtemp`, `subtotal`, `porsentaje`) 
+        $insert1 = "INSERT INTO `retencion` (`indretencion`, `indcliente`, `indsucursal`, `indtotalfactura`, `indcontrol`, `norecibo`, `fecha`, `hora`, `bandera`, `indtemp`, `subtotal`, `porsentaje`)
 VALUES (NULL, '$cliente', '$sucursal', '$indtotalfactura', '$indtalonario', '$numero_recibo', '$fecha', '$hora', '1', '$key', '$subtotal', '$porsentaje');";
         $query = mysqli_query($mysqli, $insert1);
         return true;

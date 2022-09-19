@@ -51,7 +51,7 @@ if ($_POST) {
 
 
 
-        echo '<script>location.href="factura_dia,php";</script>';
+        echo '<script>location.href="factura_dia.php";</script>';
         }
 
 }
