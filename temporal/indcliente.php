@@ -8,7 +8,7 @@ $Key=datos_clientes::Verificar_generador_codigo($mysqli);
 if(!empty($_GET["indcliente"])) {
 $_SESSION["indcliente"]=$_GET["indcliente"];
 $_SESSION["Key"]=$Key;
-    echo '<script> location.href="../crear_factura" </script>';
+    echo '<script> location.href="../crear_factura.php" </script>';
 }else{
     echo '<script>
  swal({
