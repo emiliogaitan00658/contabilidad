@@ -9,6 +9,11 @@ if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
 if ($_POST) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+
+    error_reporting(E_ALL);
+
     $check_cordoba = isset($_POST['flexCheckCheckedcordoba']) ? 1 : 0;
     $check_dolar = isset($_POST['flexCheckCheckeddolar']) ? 1 : 0;
     $check_tras = isset($_POST['flexCheckCheckedtraferencia']) ? 1 : 0;
