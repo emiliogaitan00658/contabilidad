@@ -55,13 +55,13 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
                         } ?></b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../factura_dia">Facturación</a>
+                <a class="nav-link" href="../factura_dia.php">Facturación</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../factura">Crear Factura</a>
+                <a class="nav-link" href="../factura.php">Crear Factura</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../productos">Productos</a>
+                <a class="nav-link" href="../productos.php">Productos</a>
             </li>
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link" href="../pagos_mora">Credito</a>-->
@@ -74,7 +74,7 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
 <!--                <a class="nav-link bg-red" href="historial_acceso.php" style="padding: 0;margin: 0"><i class="icon-profile indigo-text" style="font-size: 30px"></i></a>-->
 <!--            </li>-->
             <li class="nav-item">
-                <a class="nav-link bg-red" href="../talonario_cambio"> <?php if (!empty($_SESSION)) {
+                <a class="nav-link bg-red" href="../talonario_cambio.php"> <?php if (!empty($_SESSION)) {
                         echo "No." . $talonario;
                     } ?></a>
             </li>
@@ -83,7 +83,7 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
                 if (!empty($_SESSION['sucursal'])) {
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="../panel_control"><i class="icon-cog" size="18dp"></i></a>
+                        <a class="nav-link" href="../panel_control.php"><i class="icon-cog" size="18dp"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn-success white-text" href="../temporal/cerrar_seccion.php"><i

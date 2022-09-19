@@ -4,7 +4,11 @@ if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
 if ($_GET) {
-    echo "<script> alert('detectado')</script>";
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+
+    error_reporting(E_ALL);
     $indproducto = $_GET['codigo'];
     $precio = $_GET['precio'];
     $dato = datos_clientes::buscar_producto_codigo_producto($indproducto, $mysqli);
