@@ -57,7 +57,7 @@ if (!empty($_POST["textnombre"])) {
         if ($_POST) {
             $result4 = $mysqli->query("SELECT * FROM clientes 
          WHERE (nombre LIKE _utf8  '%%$nombre%%' 
-         OR apellido LIKE _utf8  '%%$nombre%%') and status='1' ORDER BY nombre");
+         OR apellido LIKE _utf8  '%%$nombre%%') and status='1' and indsucursal='$idsucursal' ORDER BY nombre");
             while ($resultado = $result4->fetch_assoc()) {
                 $contador=1+$contador;
                 ?>
