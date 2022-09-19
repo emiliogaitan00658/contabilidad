@@ -6,7 +6,7 @@ $_SESSION["Key"] = $Key;
 $sucursal = $_SESSION['sucursal'];
 $row = datos_clientes::buscar($indcliente, $mysqli);
 if (!$_SESSION) {
-    echo '<script> location.href="login" </script>';
+    echo '<script> location.href="login.php" </script>';
 }
 if ($_POST) {
     $check_cordoba = isset($_POST['flexCheckCheckedcordoba']) ? 1 : 0;

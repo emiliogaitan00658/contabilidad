@@ -1,7 +1,7 @@
 <?php include "header/header.php";
 //session_start();
 if (!$_SESSION) {
-    echo '<script> location.href="login" </script>';
+    echo '<script> location.href="login.php" </script>';
 }
 if ($idsucursal != 1) {
     $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
@@ -9,17 +9,17 @@ if ($idsucursal != 1) {
     $primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
     $segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
 
-    for ($i = $primera; $i <= $segunda; $i++) {
-        $res = datos_clientes::busqueda_alerta($i, $mysqli);
-        if ($res == 0) {
-            ?>
-            <div class="container">
-                <p class="alert alert-danger" style="position: center">!Alerta Numero de Factura Falta ingresar:
-                    <b><i><?php echo $i; ?></i></b> (Manualmente o regitras factura).</p>
-            </div>
-            <?php
-        }
-    }
+//    for ($i = $primera; $i <= $segunda; $i++) {
+//        $res = datos_clientes::busqueda_alerta($i, $mysqli);
+//        if ($res == 0) {
+//            ?>
+<!--            <div class="container">-->
+<!--                <p class="alert alert-danger" style="position: center">!Alerta Numero de Factura Falta ingresar:-->
+<!--                    <b><i>--><?php //echo $i; ?><!--</i></b> (Manualmente o regitras factura).</p>-->
+<!--            </div>-->
+<!--            --><?php
+//        }
+//    }
 } ?>
 
     <style>

@@ -55,13 +55,13 @@ if (!empty($_SESSION)) {
                         } ?></b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="factura_dia">Facturación</a>
+                <a class="nav-link" href="factura_dia.php">Facturación</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="factura">Crear Factura</a>
+                <a class="nav-link" href="factura.php">Crear Factura</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="productos">Productos</a>
+                <a class="nav-link" href="productos.php">Productos</a>
             </li>
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link" href="pagos_mora">Credito</a>-->
@@ -81,7 +81,7 @@ if (!empty($_SESSION)) {
                     if ($_SESSION['indempleado']=="1" or $_SESSION['indempleado']=="23") {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="panel_control"><i class="icon-cog" size="18dp"></i></a>
+                            <a class="nav-link" href="panel_control.php"><i class="icon-cog" size="18dp"></i></a>
                         </li>
                         <?php
                     }

@@ -27,6 +27,10 @@ if ($booos["indtalonario"] == null) {
     datos_clientes::Factura_genera_codigo($key, $talonario, $indsucursal, $mysqli);
     //datos_clientes::cambio_fecha_factura();
 }
+if ($booos["indtalonario"] == "") {
+    datos_clientes::Factura_genera_codigo($key, $talonario, $indsucursal, $mysqli);
+    //datos_clientes::cambio_fecha_factura();
+}
 $cliente = datos_clientes::datos_clientes_generales($booos["indcliente"], $mysqli);
 /// verificamos de que se registro el control de la factura
 datos_clientes::update_Control_factura($talonario, $key, $mysqli);

@@ -1,7 +1,7 @@
 <?php include "header/header.php";
 
 if (!$_SESSION) {
-    echo '<script> location.href="login" </script>';
+    echo '<script> location.href="login.php" </script>';
 }
 if ($_POST) {
 

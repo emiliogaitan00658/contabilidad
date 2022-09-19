@@ -1,7 +1,7 @@
 <?php
 include_once "header/header.php";
 if (!$_SESSION) {
-    echo '<script> location.href="login" </script>';
+    echo '<script> location.href="login.php" </script>';
 }
 ?>
 <div class="container white rounded z-depth-2" style="border-radius: 6px;">
