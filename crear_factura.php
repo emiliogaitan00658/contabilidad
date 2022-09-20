@@ -23,8 +23,11 @@ if ($_POST) {
     $check_credito = isset($_POST['flexCheckCheckedcredito']) ? 1 : 0;
     $check_targeta = isset($_POST['flexCheckCheckedtargeta']) ? 1 : 0;
     $check_rx = isset($_POST['flexCheckCheckedrx']) ? 1 : 0;
-    $dolar = $_POST['textcordobas'];
-    $cordobas= $_POST['textdolar'];
+    $co = $_POST['textcordobas'];
+    $do = $_POST['textdolar'];
+
+    $dolar = 0.0;
+    $cordobas = 0.0;
 
     $codo = datos_clientes::sumatotal_factursa_subfactura($Key, $mysqli);
     $RES = $codo;
@@ -253,12 +256,12 @@ if ($_SESSION["Key"] == "") {
             <div class="control-pares col-md-2">
                 <label for="" class="control-label"><b>Pago Dolar:</b></label>
                 <input type="text" name="textdolar" class="form-control"
-                       value="0.0" placeholder="Pago en dolar">
+                       value="" placeholder="Pago en dolar">
             </div>
             <div class="control-pares col-md-2">
                 <label for="" class="control-label"><b>Pago Cordobas:</b></label>
                 <input type="text" name="textcordobas" class="form-control"
-                       value="0.0" placeholder="Pago en cordobas" >
+                       value="" placeholder="Pago en cordobas">
             </div>
             <div class="control-pares col-md-2">
                 <label for="" class="control-label"><b>Dolar Total: $</b></label>
