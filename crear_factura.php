@@ -26,6 +26,14 @@ if ($_POST) {
     $cordobas = $_POST['textcordobas'];
     $dolar = $_POST['textdolar'];
 
+
+    if ($cordobas==""){
+        $cordobas=0;
+    }
+    if ($dolar==""){
+        $cordobas=0;
+    }
+
     $codo = datos_clientes::sumatotal_factursa_subfactura($Key, $mysqli);
     $RES = $codo;
     $subtotalF = number_format($RES, 2, '.', '');
