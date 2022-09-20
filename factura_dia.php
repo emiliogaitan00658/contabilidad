@@ -421,7 +421,7 @@ if ($idsucursal != 1) {
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        location.href = "temporal/eliminar_factura?key=" + codigo;
+                        location.href = "temporal/eliminar_factura.php?key=" + codigo;
                     } else {
                         location.href = "factura_dia.php";
                     }
