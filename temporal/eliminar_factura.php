@@ -4,6 +4,10 @@ include_once '../BD-Connection/conection.php';
 include_once '../BD-Connection/datos_clientes.php';
 $key = $_GET["key"];
 $verificacion = datos_clientes::datos_generales_talonario($key, $mysqli);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+error_reporting(E_ALL);
 if ($verificacion["indtalonario"] == "") {
     datos_clientes::eliminar_todo_las_factura($key, $mysqli);
     echo '<script>
