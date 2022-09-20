@@ -7,5 +7,5 @@ $Key = $_GET["temp"];
 $_SESSION["indcliente"] = $_GET["indcliente"];
 $_SESSION["Key"] = $Key;
 datos_clientes::eliminar_indtalonario($Key,$mysqli);
-echo '<script> location.href="../crear_factura" </script>';
+echo '<script> location.href="../crear_factura.php" </script>';
 

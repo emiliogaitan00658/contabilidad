@@ -20,9 +20,9 @@ $_SESSION["Key"]=$Key;
  })
  .then((willDelete) => {
    if (willDelete) {
-     //location.href="../factura";
+     //location.href="../factura.php";
    }else {
-    /// location.href="../factura";   }
+    /// location.href="../factura.php";   }
  });
  </script>';
 }
