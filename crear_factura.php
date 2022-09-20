@@ -23,16 +23,11 @@ if ($_POST) {
     $check_credito = isset($_POST['flexCheckCheckedcredito']) ? 1 : 0;
     $check_targeta = isset($_POST['flexCheckCheckedtargeta']) ? 1 : 0;
     $check_rx = isset($_POST['flexCheckCheckedrx']) ? 1 : 0;
-    $cordobas = $_POST['textcordobas'];
-    $dolar = $_POST['textdolar'];
+    $co = $_POST['textcordobas'];
+    $do = $_POST['textdolar'];
 
-
-    if ($cordobas==""){
-        $cordobas=0;
-    }
-    if ($dolar==""){
-        $cordobas=0;
-    }
+    $dolar = floatval($do);
+    $cordobas = floatval($co);
 
     $codo = datos_clientes::sumatotal_factursa_subfactura($Key, $mysqli);
     $RES = $codo;
