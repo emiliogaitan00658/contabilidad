@@ -41,10 +41,9 @@ if ($_POST) {
 $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
 ?>
 
-<div class="container z-depth-1 rounded white">
-    <div class="modal-header white rounded">
-        <h4 class="modal-title blue-grey-text unoem">Detalles de Cliente</h4>
-    </div>
+<div class="container z-depth-1 rounded white" style="border-radius: 6px">
+    <br>
+        <h5 class="alert alert-primary">Datos del Cliente</h5>
     <br>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?indcliente=<?php echo $indcliente;?>" method="post">
         <section class="row">

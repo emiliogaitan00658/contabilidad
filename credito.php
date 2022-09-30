@@ -77,10 +77,11 @@ if ($_GET) {
 //    }
 //}
 ?>
-<div class="container z-depth-1 rounded white">
-    <div class="modal-header white rounded">
-        <h4 class="modal-title blue-grey-text unoem alert alert-info">Lista de Creditos</h4>
-    </div>
+<div class="container z-depth-1 rounded white" style="border-radius: 6px;">
+    <br>
+    <h4 class="modal-title blue-grey-text unoem alert alert-info">Lista de Creditos</h4>
+
+    <br>
     <table class="table table-bordered" style="padding: 1em;">
         <thead>
         <tr style="border-bottom: 1px solid black" class="center-align">
@@ -122,11 +123,11 @@ if ($_GET) {
                             <a href="temporal/eliminar_credito.php?indtemp=<?php echo $resultado['indtemp']; ?>&indcliente=<?php echo $nombre; ?>"
                                class="btn btn-danger"><i class="btn-danger icon-bin"></i></a></td>
                     <?php }
-                    if ($resultado['producto']==null) { ?>
+                    if ($resultado['producto'] == null) { ?>
 
                         <td><a href="#" class="btn btn-primary green white-text">Pagar Creditos</a></td>
-                    <?php }else {  ?>
-  <td>
+                    <?php } else { ?>
+                        <td>
                             <a href="tabla_pago.php?indcredito=<?php echo $resultado['indcredito']; ?>&indtemp=<?php echo $resultado['indtemp']; ?>"
                                class="btn btn-primary green white-text">Pagar Creditos</a></td>
 

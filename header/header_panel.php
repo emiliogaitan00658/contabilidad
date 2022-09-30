@@ -73,11 +73,11 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link bg-red" href="historial_acceso.php" style="padding: 0;margin: 0"><i class="icon-profile indigo-text" style="font-size: 30px"></i></a>-->
 <!--            </li>-->
-            <li class="nav-item">
-                <a class="nav-link bg-red" href="../talonario_cambio.php"> <?php if (!empty($_SESSION)) {
-                        echo "No." . $talonario;
-                    } ?></a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link bg-red" href="../talonario_cambio.php"> --><?php //if (!empty($_SESSION)) {
+//                        echo "No." . $talonario;
+//                    } ?><!--</a>-->
+<!--            </li>-->
             <?php
             try {
                 if (!empty($_SESSION['sucursal'])) {
@@ -86,7 +86,7 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
                         <a class="nav-link" href="../panel_control.php"><i class="icon-cog" size="18dp"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-success white-text" href="../temporal/cerrar_seccion.php"><i
+                        <a class="nav-link btn-danger white-text" href="../temporal/cerrar_seccion.php"><i
                                 class="icon-cross"></i></a>
                     </li>
                     </li>

@@ -25,12 +25,9 @@
 
 <body style="background-color: rgb(247,247,249)" id="page-top">
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-
 error_reporting(E_ALL);
-
 session_start();
 include_once 'BD-Connection/conection.php';
 include_once 'BD-Connection/datos_clientes.php';
@@ -74,7 +71,9 @@ if (!empty($_SESSION)) {
 <!--            </li>-->
             <li class="nav-item">
                 <a class="nav-link alert alert-primary" href="#"><b> <i
-                            class="icon-coin-dollar "> </i> <?php echo $dolar ?> Cordobas</b></a>
+                                class="icon-coin-dollar "> </i> <?php try { echo $dolar; } catch (Exception $e) {
+
+                        }?> Cordobas</b></a>
             </li>
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link bg-red" href="talonario_cambio"> --><?php //if (!empty($_SESSION)) {

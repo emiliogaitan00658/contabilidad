@@ -79,7 +79,7 @@ if ($idsucursal != 1) {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
                     <div class="control-pares col-md-2">
-                        <input type="date" name="textfecha" class="form-control" placeholder="Fecha" value="<?php
+                        <input type="date" name="textfecha" class="form-control aler alert-info" placeholder="Fecha" value="<?php
                         if ($_POST) {
                             echo $_POST["textfecha"];
                         } else {
@@ -185,7 +185,7 @@ if ($idsucursal != 1) {
                         <input type="submit" value="Buscar" class="btn white-text blue-grey btn-primary"/>
                     </div>
                     <div class="control-pares col-md-2">
-                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio" style="margin: 0"> <b><?php if (!empty($_SESSION)) {
+                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio.php" style="margin: 0"> <b><?php if (!empty($_SESSION)) {
                                     echo "No." . $talonario;
                                 } ?> <i class="icon-arrow-right2 red-text"></i></b></a>
                     </div>
@@ -250,9 +250,9 @@ if ($idsucursal != 1) {
                         <td>
                             <a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a>
                         </td>
-                        <td class="center-align"><?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
-                        <td class="center-align"><?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
-                        <td class="center-align">
+                        <td class="center-align">C$ <?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
+                        <td class="center-align">C$ <?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
+                        <td class="center-align">$
                             <b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>
                         <td class="center-align"><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td class="center-align"><?php echo $resultado["hora"]; ?></td>
