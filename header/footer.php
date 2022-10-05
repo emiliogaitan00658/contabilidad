@@ -13,6 +13,7 @@
             <script>document.write(ano); </script>
         </p>
     </footer>
+<!--    <a style="position: relative!important;" href="https://www.digitalocean.com/?refcode=e3cd1825939e&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a>-->
 </div>
 </div>
 <script>

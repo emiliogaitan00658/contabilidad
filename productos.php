@@ -12,7 +12,7 @@ if (!$_SESSION) {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">
                 <div class="control-pares col-md-4">
-                    <input type="text" name="textproducto" class="form-control input_modificado" placeholder="Buscar ....." required>
+                    <input type="text" name="textproducto" value="<?php if ($_POST)echo $producto = $_POST["textproducto"];?>" class="form-control input_modificado" placeholder="Buscar ....." required>
                 </div>
                 <div class="control-pares col-md-4">
                     <input type="submit" value="Buscar producto" class="btn white-text blue-grey btn-primary"/>
@@ -51,7 +51,7 @@ if (!$_SESSION) {
         <tbody>
         <?php
         if (!empty($_POST["textproducto"])) {
-            echo $producto = $_POST["textproducto"];
+
             $result4 = $mysqli->query("SELECT * FROM `producto` WHERE `nombre_producto` LIKE '%$producto%' OR `codigo_producto` LIKE '%%$producto%%' ORDER by codigo_producto ASC  limit 40");
         } else {
             $result4 = $mysqli->query("SELECT * FROM `producto` ORDER by nombre_producto ASC limit 10");
