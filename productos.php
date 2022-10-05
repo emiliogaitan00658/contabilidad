@@ -52,9 +52,9 @@ if (!$_SESSION) {
         <?php
         if (!empty($_POST["textproducto"])) {
 
-            $result4 = $mysqli->query("SELECT * FROM `producto` WHERE `nombre_producto` LIKE '%$producto%' OR `codigo_producto` LIKE '%%$producto%%' ORDER by codigo_producto ASC  limit 40");
+            $result4 = $mysqli->query("SELECT * FROM `producto` WHERE `nombre_producto` LIKE '%$producto%' OR `codigo_producto` LIKE '%%$producto%%' ORDER by codigo_producto ASC");
         } else {
-            $result4 = $mysqli->query("SELECT * FROM `producto` ORDER by nombre_producto ASC limit 10");
+            $result4 = $mysqli->query("SELECT * FROM `producto` ORDER by nombre_producto ASC limit 25");
         }
         while ($resultado = $result4->fetch_assoc()) {
             ?>
