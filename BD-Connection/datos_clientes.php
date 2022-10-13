@@ -780,6 +780,27 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
+
+    public static function fecha_factura($i, $mysqli)
+    {
+        $result = $mysqli->query("SELECT fecha FROM `total_factura` WHERE indtalonario='$i'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["fecha"];
+        }
+        return "0";
+    }
+
+    public static function busqueda_alerta_factura($i, $mysqli)
+    {
+        $result = $mysqli->query("SELECT COUNT(*) as total FROM `total_factura` WHERE indtalonario='$i'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["total"];
+        }
+        return "0";
+    }
+
     public static function suma_total_venta_contador($indsucursal, $fecha1, $fecha2, $mysqli)
     {
         $result = $mysqli->query("SELECT count(indtalonario) as conteo FROM `total_factura` WHERE indsucursal='$indsucursal' and bandera='1' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario asc limit 1");

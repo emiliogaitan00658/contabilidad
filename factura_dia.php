@@ -3,24 +3,28 @@
 if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
-if ($idsucursal != 1) {
-    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
-    $dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
-    $primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
-    $segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
 
-//    for ($i = $primera; $i <= $segunda; $i++) {
-//        $res = datos_clientes::busqueda_alerta($i, $mysqli);
-//        if ($res == 0) {
-//            ?>
-<!--            <div class="container">-->
-<!--                <p class="alert alert-danger" style="position: center">!Alerta Numero de Factura Falta ingresar:-->
-<!--                    <b><i>--><?php //echo $i; ?><!--</i></b> (Manualmente o regitras factura).</p>-->
-<!--            </div>-->
-<!--            --><?php
-//        }
-//    }
-} ?>
+$dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
+$dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
+$primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
+$segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
+$total = 0;
+for ($i = $primera; $i <= $segunda; $i++) {
+    $res = datos_clientes::busqueda_alerta($i, $mysqli);
+    if ($res == 0) {
+        $total = $total + 1;
+    }
+}
+if ($total >  0) {
+    ?>
+    <div class="container">
+        <p class="alert alert-danger" style="position: center">!Alerta:
+            Total de factura no ingresadas <b><i><?php echo $total; ?></i></b> (Manualmente o regitras factura). <a
+                    href="faltante.php" class="btn btn-danger">ver</a></p>
+    </div>
+    <?php
+}
+?>
 
     <style>
         .dropbtn {
@@ -79,15 +83,16 @@ if ($idsucursal != 1) {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
                     <div class="control-pares col-md-2">
-                        <input type="date" name="textfecha" class="form-control aler alert-info" placeholder="Fecha" value="<?php
-                        if ($_POST) {
-                            echo $_POST["textfecha"];
-                        } else {
-                            $fcha = date("Y-m-d");
-                            echo $fcha;
-                        }
+                        <input type="date" name="textfecha" class="form-control aler alert-info" placeholder="Fecha"
+                               value="<?php
+                               if ($_POST) {
+                                   echo $_POST["textfecha"];
+                               } else {
+                                   $fcha = date("Y-m-d");
+                                   echo $fcha;
+                               }
 
-                        ?>" required>
+                               ?>" required>
                     </div>
                     <div class="control-pares col-md-2">
                         <input type="number" name="textfactura" class="form-control input_modificado"
@@ -185,7 +190,8 @@ if ($idsucursal != 1) {
                         <input type="submit" value="Buscar" class="btn white-text blue-grey btn-primary"/>
                     </div>
                     <div class="control-pares col-md-2">
-                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio.php" style="margin: 0"> <b><?php if (!empty($_SESSION)) {
+                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio.php" style="margin: 0">
+                            <b><?php if (!empty($_SESSION)) {
                                     echo "No." . $talonario;
                                 } ?> <i class="icon-arrow-right2 red-text"></i></b></a>
                     </div>
@@ -250,7 +256,8 @@ if ($idsucursal != 1) {
                         <td>
                             <a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a>
                         </td>
-                        <td class="center-align">C$ <?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
+                        <td class="center-align">
+                            C$ <?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
                         <td class="center-align">C$ <?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
                         <td class="center-align">$
                             <b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>

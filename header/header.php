@@ -66,6 +66,12 @@ if (!empty($_SESSION)) {
             <li class="nav-item">
                 <a class="nav-link" href="productos.php">Productos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="faltante.php">Faltantes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reportes.php">Reportes</a>
+            </li>
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link" href="pagos_mora">Credito</a>-->
 <!--            </li>-->
