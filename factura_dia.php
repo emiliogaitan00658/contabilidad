@@ -4,7 +4,8 @@ if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
 
-$dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
+if($indsucursal!=1) {
+    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
 $dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
 $primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
 $segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
@@ -23,6 +24,7 @@ if ($total >  0) {
                     href="faltante.php" class="btn btn-danger">ver</a></p>
     </div>
     <?php
+}
 }
 ?>
 
@@ -257,9 +259,9 @@ if ($total >  0) {
                             <a href="detaller_clientes.php?indcliente=<?php echo $resultado['indcliente']; ?>"><?php echo $nombre_apelido; ?></a>
                         </td>
                         <td class="center-align">
-                            C$ <?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
-                        <td class="center-align">C$ <?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
-                        <td class="center-align">$
+                            <?php echo number_format($resultado["subtotal"], 2, '.', ','); ?></td>
+                        <td class="center-align"><?php echo number_format($resultado["total"], 2, '.', ','); ?></td>
+                        <td class="center-align">
                             <b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>
                         <td class="center-align"><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td class="center-align"><?php echo $resultado["hora"]; ?></td>
@@ -274,7 +276,7 @@ if ($total >  0) {
 
 
                         <td class="center-align"><a
-                                    href="temporal/editar_factura_verificacion.php?temp=<?php echo $resultado['indtemp'] . "&indcliente=" . $indcliente; ?>"
+                                    href="temporal/editar_factura_verificacion.php?temp=<?php echo $resultado['indtemp'] . "&indcliente=" . $indcliente. '&indtalonario=' . $resultado['indtalonario'];; ?>"
                                     class="btn btn-success">Editar</a></td>
                         <!--                        <td class="center-align"></td>-->
 

@@ -46,6 +46,12 @@ if ($_POST) {
     $exito = datos_clientes::facturafinal($Key, $sucursal, $check_credito, $indcliente, $check_cordoba, $check_dolar, $check_tras, $check_efect, $check_fise, $check_bac, $check_targeta,
         $cordobas, $dolar, $subtotalF, $totalF, $mysqli);
 
+   //EDITAR FACTURA SISTEMA
+    if ($_SESSION["TALONARIO"]!=null) {
+        $talonario=$_SESSION["TALONARIO"];
+        datos_clientes::Factura_genera_codigo($Key, $talonario, $sucursal, $mysqli);
+    }
+
     if ($exito == true) {
         $_SESSION["Key"] = "";
         if ($check_credito == 1) {

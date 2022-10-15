@@ -1056,6 +1056,16 @@ VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fech
             return "false";
         }
     }
+    public static function verficiar_talonario_numero($key, $mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtemp='$key'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["indtalonario"];
+        } else {
+            return null;
+        }
+    }
 
     public static function datos_credito_generale($key, $mysqli)
     {

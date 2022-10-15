@@ -5,10 +5,8 @@
  * Date: 05/03/2020
  * Time: 03:38 PM
  */
-$mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
-//$mysqli = new mysqli("localhost", "root", "", "contabilidad");
-//$mysqli = new mysqli("mysql.hostinger.com", "u893429626_contable", ">iXeZlC5", "u893429626_contabilidad");
-//$mysqli = new mysqli("mysql.hostinger.com", "contabilidad", ">iXeZlC5", "u893429626_contabilidad");
+//$mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
+$mysqli = new mysqli("localhost", "root", "", "contabilidad");
 
 if (mysqli_connect_errno()) {
     die("Error al conectar: " . mysqli_connect_error());
