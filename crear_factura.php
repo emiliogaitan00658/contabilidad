@@ -50,6 +50,7 @@ if ($_POST) {
     if ($_SESSION["TALONARIO"]!=null) {
         $talonario=$_SESSION["TALONARIO"];
         datos_clientes::Factura_genera_codigo($Key, $talonario, $sucursal, $mysqli);
+        $_SESSION["TALONARIO"]=null;
     }
 
     if ($exito == true) {

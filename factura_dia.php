@@ -3,29 +3,28 @@
 if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
-
-if($indsucursal!=1) {
-    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
-$dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
-$primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
-$segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
-$total = 0;
-for ($i = $primera; $i <= $segunda; $i++) {
-    $res = datos_clientes::busqueda_alerta($i, $mysqli);
-    if ($res == 0) {
-        $total = $total + 1;
-    }
-}
-if ($total >  0) {
-    ?>
-    <div class="container">
-        <p class="alert alert-danger" style="position: center">!Alerta:
-            Total de factura no ingresadas <b><i><?php echo $total; ?></i></b> (Manualmente o regitras factura). <a
-                    href="faltante.php" class="btn btn-danger">ver</a></p>
-    </div>
-    <?php
-}
-}
+//if($indsucursal!=1) {
+//    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
+//$dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
+//$primera = datos_clientes::primera_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
+//$segunda = datos_clientes::ultima_factura_no($idsucursal, $dia_uno, $dia_dos, $mysqli);
+//$total = 0;
+//for ($i = $primera; $i <= 10; $i++) {
+//    $res = datos_clientes::busqueda_alerta($i,$indsucursal ,$mysqli);
+//    if ($res == 0) {
+//        $total = $total + 1;
+//    }
+//}
+//if ($total >  0) {
+//    ?>
+<!--    <div class="container">-->
+<!--        <p class="alert alert-danger" style="position: center">!Alerta:-->
+<!--            Total de factura no ingresadas <b><i>--><?php //echo $total; ?><!--</i></b> (Manualmente o regitras factura). <a-->
+<!--                    href="faltante.php" class="btn btn-danger">ver</a></p>-->
+<!--    </div>-->
+<!--    --><?php
+//}
+//}
 ?>
 
     <style>
@@ -78,7 +77,9 @@ if ($total >  0) {
 
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-dark blue-grey right"
+            <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
+                                                                href="cierre_caja.php"
+                                                                class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp;   <a class="btn btn-dark blue-grey right"
                                                                 href="temporal/cliente_manual.php"
                                                                 class="right btn btn-info">Factura Manual</a></h5>
             <hr>

@@ -41,6 +41,9 @@ if ($booos["indtalonario"] == null) {
 $cliente = datos_clientes::datos_clientes_generales($booos["indcliente"], $mysqli);
 /// verificamos de que se registro el control de la factura
 datos_clientes::update_Control_factura($talonario, $key, $mysqli);
+
+$ultimo_descuento="";
+
 ?>
 <div style="margin-top: 4.5em!important;margin-left: 1em">
     <p style="margin-left: 1em;width: 65%!important; font-size: 13px;" class="linea"><b><?php echo $cliente['nombre'] . " " . $cliente['apellido']; ?></b></p>
@@ -50,6 +53,7 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
 <table style="height: 150px; width: 600px;" id="contenidoTabla" >
     <tbody>
     <?php
+
     $subtotal = datos_clientes::sumatotal_subtotal($key, $mysqli);
     //$total = datos_clientes::sumatotal_factursa_subfactura($key, $mysqli);
     $total = datos_clientes::sumatotal_factura_total($key, $mysqli);
@@ -58,13 +62,15 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
     $result4 = $mysqli->query("SELECT * FROM `factura` where factura.indtemp='$key'");
     while ($resultado = $result4->fetch_assoc()) {
         $bandera = $bandera + 1;
+        $descuento="";
+        if ($resultado['descuento']!=0){$descuento="**Des"; $ultimo_descuento=$resultado['descuento'];}
         ?>
         <tr style="height: 5px;">
             <td style="width: 10px; height: 20px;margin-left: 0;padding-left: 0;"
                 class="left-align"><b><?php echo $resultado['codigo_producto']; ?></b></td>
             <td style="width: 40px; height: 20px;margin-left: 6px;"
                 class="right-align"><b><?php echo $resultado['unidad']; ?></b></td>
-            <td style="width: 400px; height: 20px;margin-left: 4px;"><b><?php echo datos_clientes::nombre_producto_completo($resultado['codigo_producto'], $mysqli); ?></b></td>
+            <td style="width: 400px; height: 20px;margin-left: 4px;"><b><?php echo datos_clientes::nombre_producto_completo($resultado['codigo_producto'], $mysqli); ?>&nbsp;&nbsp;<i><?php echo $descuento; ?></i></b></td>
             <td style="width: 68px; height: 20px;padding-left: 0em;"
                 class="right-align"><b><?php echo number_format(($resultado['precio_unidad']), 2, '.', ','); ?></b></td>
             <td style="width: 68px; height: 20px;padding-left: 1em;"
@@ -89,7 +95,7 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
     <tr style="height: 5px;margin-top: 0!important;">
         <td style="width: 100px; height:20px;">&nbsp;</td>
         <td style="width: 40px; height:20px;">&nbsp;</td>
-        <td style="width: 400px; height:20px;">&nbsp;</td>
+        <td style="width: 400px; height:20px;">&nbsp;<b><?php if ($ultimo_descuento!="") { echo "* Descuento aplicado sus productos = ".$ultimo_descuento. "%"." ( C$".number_format(($subtotal-$total), 2, '.', ',')."  ) "; }?></b></td>
         <td style="width: 68px; height:20px;">&nbsp;</td>
         <td style="width: 68px; height:10px;font-size: 15px!important;"><b><?php echo number_format(($subtotal), 2, '.', ','); ?></b></td>
     </tr>
