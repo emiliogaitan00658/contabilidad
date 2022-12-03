@@ -67,7 +67,7 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
 <!--                <a class="nav-link" href="../faltante.php">Faltantes</a>-->
 <!--            </li>-->
             <li class="nav-item">
-                <a class="nav-link" href="../reportes.php">Reportes</a>
+                <a class="nav-link" href="../reportes.php">Control Caja</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link alert alert-primary" href="#"><i

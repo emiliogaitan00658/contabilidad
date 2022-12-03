@@ -837,6 +837,26 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
+    public static function verificar_numero_factura($indtalonario, $mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtalonario='$indtalonario'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["indtalonario"];
+        }
+        return "0";
+    }
+
+    public static function verificar_retencion_credito($credito,$retencion,$mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtalonario='$indtalonario'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["indtalonario"];
+        }
+        return "0";
+    }
+
     public static function total_suma_contador($indsucursal, $fecha1, $fecha2, $mysqli)
     {
         $result = $mysqli->query("SELECT sum(total) as suma FROM `total_factura` WHERE indsucursal='$indsucursal' and bandera='1' and credito='0' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2')");
