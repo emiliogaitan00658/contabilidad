@@ -37,7 +37,8 @@ $segunda = datos_clientes::ultima_factura_no($sucursal, $fecha1, $fecha2, $mysql
             <?php
             $r1=0;
             for ($i = $primera; $i <= $segunda; $i++) {
-                $res=datos_clientes::busqueda_alerta($i, $mysqli);
+                $i;
+                $res=datos_clientes::super_alerta_mensaje($indsucursal, $i, $mysqli);
                 if ($res=="0") {
                     $r1=$r1+1;
                     ?>

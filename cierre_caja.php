@@ -1,7 +1,7 @@
 <?php
 include "header/header.php";
-$contador1=0;
-$contador2=0;
+$contador1 = 0;
+$contador2 = 0;
 if ($_POST) {
     $inicio = $_POST['textinicio'];
     $final = $_POST['textfinal'];
@@ -10,20 +10,26 @@ if ($_POST) {
     $total_error = $inicio - $final;
     if ($total_error <= 50) {
         for ($i = $inicio; $i <= $final; $i++) {
-            $resultado=datos_clientes::verificar_numero_factura($i,$mysqli);
-            if ($resultado=""){
-                $contador2=$contador2+1;
-            }else{
-                 $contador1=$contador1+1;
+            $resultado = datos_clientes::verificar_numero_factura($i, $mysqli);
+            if ($resultado = "") {
+                $contador2 = $contador2 + 1;
+            } else {
+                $contador1 = $contador1 + 1;
             }
+
         }
     }
+    $credito_verificado = datos_clientes::verificar_retencion_credito($indsucursal, $inicio, $final, $mysqli);
+    if ($credito_verificado == $credito ) {
+        if ($contador2 == 0) {
+            datos_clientes::Cierre_Caja($indsucursal,$inicio,$final,$credito,$retencion,$mysqli);
+            echo '<script>swal("Exito!", "Cierre de Caja con exito", "success");</script>';
+        } else {
+            echo '<script>swal("alerta!", "Tienes Facturas Pendiente", "error");</script>';
 
-    datos_clientes::verificar_retencion_credito($credito,$retencion,$mysqli);
-    if ($contador2==0){
-        echo '<script>swal("alerta!", "Tienes Facturas Pendiente", "error");</script>';
+        }
     }else{
-        echo '<script>swal("Exito!", "Cierre de Caja con exito", "success");</script>';
+        echo '<script>swal("alerta!", "Falta Credito", "error");</script>';
     }
 }
 
@@ -62,7 +68,7 @@ if ($_POST) {
                         <input type="number" name="textcredito" class="form-control" placeholder="Total Credito"
                                value="<?php
                                if ($_POST) {
-                                   echo $_POST['textfinal'];
+                                   echo $_POST['textcredito'];
                                }
                                ?>" required>
                     </div>
@@ -70,7 +76,7 @@ if ($_POST) {
                         <input type="number" name="textretencion" class="form-control" placeholder="Total Retencion"
                                value="<?php
                                if ($_POST) {
-                                   echo $_POST['textfinal'];
+                                   echo $_POST['textretencion'];
                                }
                                ?>" required>
                     </div>

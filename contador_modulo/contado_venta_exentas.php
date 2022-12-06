@@ -1,19 +1,14 @@
 <?php
-header('Content-Type: application/force-download');
-header('Content-disposition: attachment; filename=export.xls');
-// Fix for crappy IE bug in download.
-header("Pragma: ");
-header("Cache-Control: ");
-echo $_REQUEST['datatodisplay'];
-?>
-
-<?php
 include_once "../header/header_panel_informe.php";
 if (!$_SESSION) {
     echo '<script> location.href="login" </script>';
 }
 $fecha1 = $_POST["textfecha1"];
 $fecha2 = $_POST["textfecha2"];
+
+$_SESSION["exporta_fecha1"]=$fecha1;
+$_SESSION["exporta_fecha2"]=$fecha2;
+
 ?>
 <div class="container">
     <hr>
