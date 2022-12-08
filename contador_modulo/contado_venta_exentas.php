@@ -1,4 +1,5 @@
 <?php
+
 include_once "../header/header_panel_informe.php";
 if (!$_SESSION) {
     echo '<script> location.href="login" </script>';
@@ -16,6 +17,7 @@ $_SESSION["exporta_fecha2"]=$fecha2;
     <h5 class="center-align">Fecha de facturaciòn <?php echo datos_clientes::traforma_fecha($fecha1) ?>
         al <?php echo datos_clientes::traforma_fecha($fecha2) ?></h5>
     <hr>
+    <a href="../exel_pagina_exportacion/create_excel.php" class="btn btn-info"><i class="icon-file-excel"></i> Exportar a Exel</a>
 </div>
 <div class="row">
     <div class="z-depth-1 rounded white center-block" style="width: 95%">

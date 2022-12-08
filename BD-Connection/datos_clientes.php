@@ -464,7 +464,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
     {
 
 
-        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' . self::fecha_get_pc_MYSQL() . self::hora_get_pc();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.self::fecha_get_pc_MYSQL().self::hora_get_pc();
 
         function generate_string($input, $strength = 16)
         {
@@ -477,8 +477,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
             return $random_string;
         }
-
-        $key = generate_string($permitted_chars, 100);
+        $key=generate_string($permitted_chars, 100);
         $result = $mysqli->query(" SELECT * FROM `factura` WHERE indtemp='$key'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
@@ -771,12 +770,12 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
-    public static function busqueda_alerta($i, $indsucursal, $mysqli)
+    public static function busqueda_alerta($i,$indsucursal, $mysqli)
     {
-        $result = $mysqli->query("SELECT indsucursal FROM total_factura WHERE indtalonario='$i'");
+        $result = $mysqli->query("SELECT * FROM `total_factura` WHERE indtalonario='$i' and indsucursale='$indsucursal' limit 10");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
-            return 0;
+            return $i;
         }
         return "0";
     }
@@ -828,17 +827,6 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
-
-    public static function super_alerta_mensaje($indsucursal, $i, $mysqli)
-    {
-        $result = $mysqli->query("SELECT indsucursal FROM total_factura WHERE indtalonario='$i' and indsucursal='$indsucursal'");
-        $row3 = $result->fetch_array(MYSQLI_ASSOC);
-        if (!empty($row3)) {
-            return $row3["indsucursal"];
-        }
-        return "0";
-    }
-
     public static function suma_total_venta_credito_totales($indsucursal, $fecha1, $fecha2, $mysqli)
     {
         $result = $mysqli->query("SELECT sum(total) as suma FROM `total_factura` WHERE indsucursal='$indsucursal' and bandera='1' and credito='1' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2')");
@@ -859,16 +847,12 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
-    public static function verificar_retencion_credito($indsucursal, $inicio, $final, $mysqli)
+    public static function verificar_retencion_credito($credito,$retencion,$mysqli)
     {
-        $result = $mysqli->query("SELECT SUM(credito) as total FROM `total_factura` WHERE  ( indtalonario BETWEEN '$inicio' and '$final') and indsucursal='$indsucursal';");
+        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtalonario='$indtalonario'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
-            if ($row3["total"] == "") {
-                return 0;
-            } else {
-                return $row3["total"];
-            }
+            return $row3["indtalonario"];
         }
         return "0";
     }
@@ -1092,7 +1076,6 @@ VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fech
             return "false";
         }
     }
-
     public static function verficiar_talonario_numero($key, $mysqli)
     {
         $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtemp='$key'");
@@ -1257,17 +1240,6 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
         $query = mysqli_query($mysqli, $insert1);
         $insert1 = "DELETE FROM `control` WHERE `control`.`indtemp` ='$temp' ";
         $query = mysqli_query($mysqli, $insert1);
-        return true;
-    }
-
-    public static function Cierre_Caja($indsucursal, $inicio, $final, $credito, $retencion, $mysqli)
-    {
-        $fecha = self::fecha_get_pc();
-        $hora = self::hora_get_pc();
-        $insert1 = "INSERT INTO `cierre_caja` (`ind_factura`, `indsucursal`, `inicio`, `fin`, `credito`, `retenciones`, `fecha`, `hora`, `bandera`) 
-VALUES (NULL, '$indsucursal', '$inicio', '$final', '$credito', '$retencion', '$fecha', '$hora', '1'); ";
-        $query = mysqli_query($mysqli, $insert1);
-
         return true;
     }
 
