@@ -78,7 +78,7 @@ $ultimo_descuento="";
         </tr>
         <?php
     }
-    $res = 9 - $bandera;
+    $res = 8 - $bandera;
     if ($bandera == "0") {
     } else {
         for ($i = 1; $i <= $res; $i++) {
@@ -92,10 +92,19 @@ $ultimo_descuento="";
             </tr>
         <?php }
     } ?>
+
+    <tr style="height: 5px;">
+        <td style="width: 100px; height: 20px;">&nbsp;</td>
+        <td style="width: 40px; height:20px;">&nbsp;</td>
+        <td style="width: 400px; height:20px;">&nbsp;<b><?php if ($ultimo_descuento!="") { echo "* Descuento aplicado sus productos = ".$ultimo_descuento. "%"." ( C$".number_format(($subtotal-$total), 2, '.', ',')."  ) "; }?></b></td>
+        <td style="width: 68px; height:20px;">&nbsp;</td>
+        <td style="width: 68px; height:20px;">&nbsp;</td>
+    </tr>
+
     <tr style="height: 5px;margin-top: 0!important;">
         <td style="width: 100px; height:20px;">&nbsp;</td>
         <td style="width: 40px; height:20px;">&nbsp;</td>
-        <td style="width: 400px; height:20px;">&nbsp;<b><?php if ($ultimo_descuento!="") { echo "* Descuento aplicado sus productos = ".$ultimo_descuento. "%"." ( C$".number_format(($subtotal-$total), 2, '.', ',')."  ) "; }?></b></td>
+        <td style="width: 400px; height:20px;">&nbsp;</td>
         <td style="width: 68px; height:20px;">&nbsp;</td>
         <td style="width: 68px; height:10px;font-size: 15px!important;"><b><?php echo number_format(($subtotal), 2, '.', ','); ?></b></td>
     </tr>
