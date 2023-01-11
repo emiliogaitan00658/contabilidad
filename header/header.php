@@ -48,7 +48,7 @@ if (!empty($_SESSION)) {
 }
 
 ?>
-<div class="white rounded container-fluid" id="esconder_menu">
+<div class="white rounded container-fluid center-block center" id="esconder_menu">
     <div style="padding: 1em;border-color: #2a96a5!important;" class="container">
         <ul class="nav nav-tabs" >
             <li class="nav-item text-uppercase">

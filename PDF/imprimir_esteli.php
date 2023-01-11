@@ -58,13 +58,15 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
     $result4 = $mysqli->query("SELECT * FROM `factura` where factura.indtemp='$key'");
     while ($resultado = $result4->fetch_assoc()) {
         $bandera = $bandera + 1;
+        $descuento="";
+        if ($resultado['descuento']!=0){$descuento="**Des"; $ultimo_descuento=$resultado['descuento'];}
         ?>
         <tr style="height: 5px;">
             <td style="width: 10px; height: 20px;margin-left: 0;padding-left: 0;"
                 class="left-align"><b><?php echo $resultado['codigo_producto']; ?></b></td>
             <td style="width: 40px; height: 20px;margin-left: 6px;"
                 class="right-align"><b><?php echo $resultado['unidad']; ?></b></td>
-            <td style="width: 400px; height: 20px;margin-left: 7px;"><b><?php echo datos_clientes::nombre_producto_completo($resultado['codigo_producto'], $mysqli); ?></b></td>
+            <td style="width: 400px; height: 20px;margin-left: 7px;"><b><?php echo datos_clientes::nombre_producto_completo($resultado['codigo_producto'], $mysqli); ?>  <i><?php echo $descuento; ?></i></b></td>
             <td style="width: 68px; height: 20px;padding-left: 0em;"
                 class="right-align"><b><?php echo number_format(($resultado['precio_unidad']), 2, '.', ','); ?></b></td>
             <td style="width: 68px; height: 20px;padding-left: 1em;"
@@ -72,7 +74,7 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
         </tr>
         <?php
     }
-    $res = 9 - $bandera;
+    $res = 8 - $bandera;
     if ($bandera == "0") {
     } else {
         for ($i = 1; $i <= $res; $i++) {
@@ -86,6 +88,13 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
             </tr>
         <?php }
     } ?>
+    <tr style="height: 5px;">
+        <td style="width: 100px; height: 20px;">&nbsp;</td>
+        <td style="width: 40px; height:20px;">&nbsp;</td>
+        <td style="width: 400px; height:20px;">&nbsp;<b><?php if ($ultimo_descuento!="") { echo "* Descuento aplicado sus productos = ".$ultimo_descuento. "%"." ( C$".number_format(($subtotal-$total), 2, '.', ',')."  ) "; }?></b></td>
+        <td style="width: 68px; height:20px;">&nbsp;</td>
+        <td style="width: 68px; height:20px;">&nbsp;</td>
+    </tr>
     <tr style="height: 5px;margin-top: 0!important;">
         <td style="width: 100px; height:20px;">&nbsp;</td>
         <td style="width: 40px; height:20px;">&nbsp;</td>

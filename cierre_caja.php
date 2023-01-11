@@ -20,6 +20,8 @@ if ($_POST) {
         }
     }
     $credito_verificado = datos_clientes::verificar_retencion_credito($indsucursal, $inicio, $final, $mysqli);
+    echo $credito_verificado;
+    echo $credito;
     if ($credito_verificado == $credito ) {
         if ($contador2 == 0) {
             datos_clientes::Cierre_Caja($indsucursal,$inicio,$final,$credito,$retencion,$mysqli);

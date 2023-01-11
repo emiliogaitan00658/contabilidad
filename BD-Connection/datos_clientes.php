@@ -847,12 +847,12 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
-    public static function verificar_retencion_credito($credito,$retencion,$mysqli)
+    public static function verificar_retencion_credito($indsucursal,$incio,$final,$mysqli)
     {
-        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtalonario='$indtalonario'");
+        $result = $mysqli->query("SELECT sum(credito) as totalcredito FROM `total_factura` WHERE indtalonario BETWEEN '$incio' and '$final' and indsucursal='$indsucursal'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
-            return $row3["indtalonario"];
+            return $row3["totalcredito"];
         }
         return "0";
     }
@@ -1169,6 +1169,15 @@ VALUES (NULL, '$nombre_empresa', '$ruc','$detalles_empresa' , '$url_logo', '1');
         $query = mysqli_query($mysqli, $insert4);
         $query = mysqli_query($mysqli, $insert5);
 
+        return true;
+    }
+    public static function Cierre_Caja($indsucursal,$inicio,$final,$credito,$retencion,$mysqli)
+    {
+        $fecha=self::fecha_get_pc_MYSQL();
+        $hora=self::hora_get_pc();
+        $insert1 = "INSERT INTO `cierre_caja` (`ind_factura`, `indsucursal`, `inicio`, `fin`, `credito`, `retenciones`, `fecha`, `hora`, `bandera`) 
+                        VALUES (NULL, '$indsucursal', '$inicio', '$final', '$credito', '$retencion', '$fecha', '$hora', '1'); ";
+        $query = mysqli_query($mysqli, $insert1);
         return true;
     }
 

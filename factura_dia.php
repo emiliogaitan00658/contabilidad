@@ -298,6 +298,8 @@ if (!$_SESSION) {
                                        target="_blank">Proforma</a>
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
                                     >Retenciòn</a>
+                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
+                                    >Crear Creditos</a>
                                 </div>
                                 <script>
                                     /* When the user clicks on the button,
@@ -325,7 +327,7 @@ if (!$_SESSION) {
                         </td>
 
                     </tr>
-                <?php } else { ?>
+                <?php } else { ?>0
                     <tr class="red-text">
                         <td>
                             <del><a class="red-text"
@@ -365,6 +367,8 @@ if (!$_SESSION) {
                                     <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
                                        target="_blank">Proforma</a>
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>">Retenciòn</a>
+                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
+                                    >Crear Creditos</a>
                                 </div>
                             </div>
                             <script>

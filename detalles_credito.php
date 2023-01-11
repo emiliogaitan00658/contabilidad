@@ -7,9 +7,10 @@ if ($_GET) {
     $key = $_GET['key'];
     $total = $_GET['total'];
     $total_final=number_format(($total/$dolar), 2, '.', ''); ;
-} else {
-    echo '<script> location.href="buscar_clientes.php" </script>';
 }
+//else {
+//    echo '<script> location.href="buscar_clientes.php" </script>';
+//}
 if ($_POST) {
     $producto = strtoupper(filter_var($_POST['textproducto'], FILTER_SANITIZE_STRING));
     $inicio = $_POST['textfechainicio'];
