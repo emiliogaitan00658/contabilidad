@@ -266,7 +266,7 @@ if (!$_SESSION) {
                             <b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>
                         <td class="center-align"><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td class="center-align"><?php echo $resultado["hora"]; ?></td>
-                        <td class="center-align"><a href="PDF/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
+                        <td class="center-align"><a href="pdfv2/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
                                                     class="btn btn-success" target="_blank"><i class="icon-printer"></i></a>
                         </td>
 
@@ -342,7 +342,7 @@ if (!$_SESSION) {
                         <td class="center-align"><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></td>
                         <td><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td><?php echo $resultado["hora"]; ?></td>
-                        <td><a href="PDF/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
+                        <td><a href="pdfv2/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
                                class="btn btn-success" target="_blank"><i class="icon-printer"></i></a></td>
                         <td><a href="#" onclick="
                                     var i='<?php echo $resultado['indtemp']; ?>';

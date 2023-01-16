@@ -14,11 +14,11 @@ if ($_POST) {
     $sucursale = strtoupper(filter_var($_POST['textsucursal'], FILTER_SANITIZE_STRING));
     $nombre = strtoupper(filter_var($_POST['textnombre'], FILTER_SANITIZE_STRING));
     $apellido = strtoupper(filter_var($_POST['textapellido'], FILTER_SANITIZE_STRING));
-    $cedula = $_POST['textcedula'];
+    $tipo = $_POST['texttipo'];
     $direccion1 = filter_var($_POST['textdireccion1'], FILTER_SANITIZE_STRING);
     $direccion2 = filter_var($_POST['textdireccion2'], FILTER_SANITIZE_STRING);
     $telefono = strtoupper(filter_var($_POST['texttelefono'], FILTER_SANITIZE_STRING));
-    $recues = datos_clientes::datos_clientes_generales_actualizar($indcliente,$nombre,$apellido,$cedula, $direccion1, $direccion2, $telefono, $sucursale, $mysqli);
+    $recues = datos_clientes::datos_clientes_generales_actualizar($indcliente,$nombre,$apellido,$tipo, $direccion1, $direccion2, $telefono, $sucursale, $mysqli);
     if ($recues == true) {
         echo '<script>
  swal({
@@ -99,9 +99,13 @@ $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
                 </select>
             </div>
             <div class="control-pares col-md-3">
-                <label for="" class="control-label">Cedula Identidad: *</label>
-                <input type="text" name="textcedula" class="form-control"
-                       value="<?php echo $datos['cedula']; ?>" placeholder="No Cedula" required>
+                <label class="alert-primary">Tipo Cliente: *</label>
+                <select name="texttipo" class="form-control alert-primary" required>
+                    <option value="">--seleccionar--</option>
+                    <option class="form-control" value="1">Doc(@)- Empresa</option>
+                    <option class="form-control" value="2">Estudiante</option>
+                    <option class="form-control" value="3">Paciente</option>
+                </select>
             </div>
             <div class="control-pares col-md-3">
                 <label for="" class="control-label">Telefono: *</label>

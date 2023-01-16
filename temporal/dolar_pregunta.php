@@ -13,9 +13,9 @@ echo '<script>
  })
  .then((willDelete) => {
    if (willDelete) {
-     location.href="../PDF/cotizar_factura_link.php?dolar=1&key='. $key.'";
+     location.href="../pdfv2/cotizar_factura_link.php?dolar=1&key='. $key.'";
    }else {
-    location.href="../PDF/cotizar_factura_link.php?dolar=0&key='. $key.'";   }
+    location.href="../pdfv2/cotizar_factura_link.php?dolar=0&key='. $key.'";   }
  });
  </script>';
 include_once "../header/footer_temporal.php";

@@ -6,18 +6,18 @@ if (!$_SESSION) {
 if ($_POST) {
 
     if (!empty($_POST['textnombre'])) {
-        $nombre = strtoupper(filter_var($_POST['textnombre'], FILTER_SANITIZE_STRING));
-        $apellido = strtoupper(filter_var($_POST['textapellido'], FILTER_SANITIZE_STRING));
-        $sucursale = strtoupper(filter_var($_POST['textsucursal'], FILTER_SANITIZE_STRING));
-        $cedula = strtoupper(filter_var($_POST['textcedula'], FILTER_SANITIZE_STRING));
-        $direccion1 = strtoupper(filter_var($_POST['textdireccion1'], FILTER_SANITIZE_STRING));
-        $direccion2 = strtoupper(filter_var($_POST['textdireccion2'], FILTER_SANITIZE_STRING));
-        $telefono = strtoupper(filter_var($_POST['texttelefono'], FILTER_SANITIZE_STRING));
+        $nombre = strtoupper($_POST['textnombre']);
+        $apellido = strtoupper($_POST['textapellido']);
+        $sucursale = strtoupper($_POST['textsucursal']);
+        $tipo = strtoupper($_POST['texttipo']);
+        $direccion1 = strtoupper($_POST['textdireccion1']);
+        $direccion2 = strtoupper($_POST['textdireccion2']);
+        $telefono = strtoupper($_POST['texttelefono']);
 
         $varficar_nombres = datos_clientes::verificar_nombre_apellido($nombre, $apellido, $mysqli);
         if ($varficar_nombres == false) {
             $indusuario = datos_clientes::generar_ind_cliente($mysqli);
-            $recues = datos_clientes::nuevo_usuario($indusuario, $nombre, $direccion1, $direccion2, $cedula, $telefono, $sucursale, $apellido, $mysqli);
+            $recues = datos_clientes::nuevo_usuario($indusuario, $nombre, $direccion1, $direccion2, $tipo, $telefono, $sucursale, $apellido, $mysqli);
             if ($recues == true) {
                 echo '<script>
  swal({
@@ -83,7 +83,7 @@ if ($_POST) {
                 <input type="text" name="textnombre" class="form-control"
                        value="<?php if (!empty($_POST['textnombre'])) {
                            echo $_POST['textnombre'];
-                       } ?>" placeholder="Nombres" required>
+                       } ?>" placeholder="Nombres" required  onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || )">
             </div>
             <div class="control-pares col-md-5">
                 <label for="" class="control-label"><u>Apellidos o No RUC: *</u></label>
@@ -146,11 +146,13 @@ if ($_POST) {
                 </select>
             </div>
             <div class="control-pares col-md-3">
-                <label for="" class="control-label">Cedula Identidad:</label>
-                <input type="text" name="textcedula" class="form-control"
-                       value="<?php if (!empty($_POST['textcedula'])) {
-                           echo $_POST['textcedula'];
-                       } ?>" placeholder="No Cedula">
+                <label class="alert-primary">Tipo Cliente: *</label>
+                <select name="texttipo" class="form-control alert-primary" required>
+                    <option value="">--seleccionar--</option>
+                    <option class="form-control" value="1">Doc(@)- Empresa</option>
+                    <option class="form-control" value="2">Estudiante</option>
+                    <option class="form-control" value="3">Paciente</option>
+                </select>
             </div>
             <div class="control-pares col-md-3">
                 <label for="" class="control-label">Telefono: *</label>

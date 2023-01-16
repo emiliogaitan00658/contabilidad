@@ -5,7 +5,9 @@ include_once "./vendor/autoload.php";
 use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 ob_start();
+
 include "cotizar_factura_page.php";
+
 $html = ob_get_clean();
 $dompdf->loadHtml($html);
 $dompdf->render();

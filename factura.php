@@ -10,7 +10,7 @@ if($_SESSION["Key"]==""){
 }
 
 if (!empty($_POST["textnombre"])) {
-    $nombre = strtoupper(filter_var($_POST['textnombre'], FILTER_SANITIZE_STRING));
+    $nombre=strtoupper( $_POST['textnombre']);
 }else{
     $nombre ="0";
 }
@@ -26,7 +26,7 @@ if (!empty($_POST["textnombre"])) {
                         echo strtoupper($_POST['textnombre']);
                     }else{ echo ""; } ?>" placeholder="Buscar cliente o Empresa ....."  aria-label="Search" required>
                 </div>
-                <div class="control-pares col-md-3">
+                <div class="control-pares col-md-2">
                     <select name="textsucursal" class="form-control" required>
                         <?php if (!$_POST) { ?>
                             <option class="form-control" value="<?php echo "0"; ?>" selected>Todas Sucursale</option>
@@ -81,6 +81,12 @@ if (!empty($_POST["textnombre"])) {
                         <option class="form-control" value="7">Managua Bolonia</option>
                         <option class="form-control" value="8">Managua Villa Fontana</option>
                         <option class="form-control" value="10">Clinica Dansing</option>
+                    </select>
+                </div>
+                <div class="control-pares col-md-2">
+                    <select name="texttipo" class="form-control alert-primary" required>
+                        <option class="form-control" value="0">Todo Clientes</option>
+                        <option class="form-control" value="3">Paciente</option>
                     </select>
                 </div>
                 <div class="control-pares col-md-4">

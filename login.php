@@ -24,8 +24,8 @@ width: 100%;'>
 <?php
 include "header/header.php";
 if ($_POST) {
-    $pass = filter_var($_POST['textpass'], FILTER_SANITIZE_STRING);
-    $user = filter_var($_POST['textuser'], FILTER_SANITIZE_STRING);
+    $pass = $_POST['textpass'];
+    $user =$_POST['textuser'];
     //session_start();
     $resul = datos_clientes::login_empleado($user, $pass, $mysqli);
     $resul_ind_empleado = datos_clientes::ind_empleado($user, $pass, $mysqli);

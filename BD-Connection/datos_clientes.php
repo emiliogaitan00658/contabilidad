@@ -185,9 +185,9 @@ class datos_clientes
     }
 
 
-    public static function datos_clientes_generales_actualizar($indcliente, $nombre, $apellido, $cedula, $direccion1, $direccion2, $telefono, $sucursale, $mysqli)
+    public static function datos_clientes_generales_actualizar($indcliente, $nombre, $apellido, $tipo, $direccion1, $direccion2, $telefono, $sucursale, $mysqli)
     {
-        $insert1 = "UPDATE `clientes` SET `nombre` = '$nombre', `apellido` = '$apellido', `direccion1` = '$direccion1', `direccion2` = '$direccion2', `cedula` = '$cedula', `telefono` = '$telefono' WHERE `clientes`.`indcliente` = '$indcliente';";
+        $insert1 = "UPDATE `clientes` SET `nombre` = '$nombre', `apellido` = '$apellido', `direccion1` = '$direccion1', `direccion2` = '$direccion2', `tipo` = '$tipo', `telefono` = '$telefono' WHERE `clientes`.`indcliente` = '$indcliente';";
         $query = mysqli_query($mysqli, $insert1);
         return true;
     }
@@ -201,10 +201,10 @@ class datos_clientes
     }
 
 
-    public static function nuevo_usuario($indusuario, $nombre, $direccion1, $direccion2, $cedula, $telefono, $sucursale, $apellido, $mysqli)
+    public static function nuevo_usuario($indusuario, $nombre, $direccion1, $direccion2, $tipo, $telefono, $sucursale, $apellido, $mysqli)
     {
-        $insert1 = "INSERT INTO `clientes` (`indcliente`, `nombre`, `apellido`, `direccion1`, `direccion2`, `cedula`, `telefono`, `indsucursal`, `status`) 
-VALUES ( '$indusuario', '$nombre', '$apellido', '$direccion1', '$direccion2', '$cedula', '$telefono', '$sucursale', '1');";
+        $insert1 = "INSERT INTO `clientes` (`indcliente`, `nombre`, `apellido`, `direccion1`, `direccion2`, `tipo`, `telefono`, `indsucursal`, `status`) 
+VALUES ( '$indusuario', '$nombre', '$apellido', '$direccion1', '$direccion2', '$tipo', '$telefono', '$sucursale', '1');";
         $query = mysqli_query($mysqli, $insert1);
         return true;
     }
