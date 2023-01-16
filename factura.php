@@ -86,6 +86,8 @@ if (!empty($_POST["textnombre"])) {
                 <div class="control-pares col-md-2">
                     <select name="texttipo" class="form-control alert-primary" required>
                         <option class="form-control" value="0">Todo Clientes</option>
+                        <option class="form-control" value="1">Doctor(@)</option>
+                        <option class="form-control" value="2">Empresa</option>
                         <option class="form-control" value="3">Paciente</option>
                     </select>
                 </div>
