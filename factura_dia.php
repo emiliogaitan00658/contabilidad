@@ -69,7 +69,14 @@ if (!$_SESSION) {
         .dropdown a:hover {
             background-color: #2c3e50;
         }
-
+        /*.circle_demo {*/
+        /*    height:5px!important;*/
+        /*    width:5px!important;*/
+        /*    background: #204c63;*/
+        /*    -moz-border-radius:30px;*/
+        /*    -webkit-border-radius:30px;*/
+        /*    border-radius:30px;*/
+        /*}*/
         .show {
             display: block;
         }
@@ -211,6 +218,7 @@ if (!$_SESSION) {
         <table class="table table-responsive-sm table-bordered  table-hover" style="padding:0em">
             <thead>
             <tr style="border-bottom: 1px solid black;" class="alert alert-info">
+<!--                <th scope="col">*</th>-->
                 <th scope="col">No.Factura</th>
                 <th scope="col" class="center-align">Nombre y Apellido</th>
                 <th scope="col">Subtotal C$</th>
@@ -252,6 +260,8 @@ if (!$_SESSION) {
                 ?>
                 <?php if ($resultado['bandera'] == "1") { ?>
                     <tr>
+<!--                        <td class="circle_demo">-->
+<!--                        </td>-->
                         <td>
                             <a href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>">
                                 <?php echo $resultado["indtalonario"]; ?></a>
@@ -299,7 +309,13 @@ if (!$_SESSION) {
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
                                     >Retenciòn</a>
                                     <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
-                                    >Crear Creditos</a>
+                                    >Nuevo.Creditos</a>
+                                    <?php  if ($resultado['indtalonario']==null){?>
+                                    <a href="temporal/tranferir_factura.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
+                                    >Tranferir.Factura</a>
+
+                                    <?php  } ?>
+
                                 </div>
                                 <script>
                                     /* When the user clicks on the button,
@@ -329,6 +345,9 @@ if (!$_SESSION) {
                     </tr>
                 <?php } else { ?>0
                     <tr class="red-text">
+<!--                        <td>-->
+<!--                            <i class="circle_demo"></i>-->
+<!--                        </td>-->
                         <td>
                             <del><a class="red-text"
                                     href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>"><?php echo $resultado["indtalonario"]; ?></a>

@@ -88,7 +88,8 @@ if (!empty($_POST["textnombre"])) {
                         <option class="form-control" value="0">Todo Clientes</option>
                         <option class="form-control" value="1">Doctor(@)</option>
                         <option class="form-control" value="2">Empresa</option>
-                        <option class="form-control" value="3">Paciente</option>
+                        <option class="form-control" value="3">Estudiante</option>
+                        <option class="form-control" value="4">Paciente</option>
                     </select>
                 </div>
                 <div class="control-pares col-md-4">

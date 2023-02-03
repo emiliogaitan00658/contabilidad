@@ -149,9 +149,10 @@ if ($_POST) {
                 <label class="alert-primary">Tipo Cliente: *</label>
                 <select name="texttipo" class="form-control alert-primary" required>
                     <option value="">--seleccionar--</option>
-                    <option class="form-control" value="1">Doc(@)- Empresa</option>
-                    <option class="form-control" value="2">Estudiante</option>
-                    <option class="form-control" value="3">Paciente</option>
+                    <option class="form-control" value="1">Doc(@)</option>
+                    <option class="form-control" value="2">Empresa</option>
+                    <option class="form-control" value="3">Estudiante</option>
+                    <option class="form-control" value="4">Paciente</option>
                 </select>
             </div>
             <div class="control-pares col-md-3">

@@ -127,7 +127,6 @@ $cliente = datos_clientes::datos_clientes_generales($booos["indcliente"], $mysql
 ?>
 <div class="container">
     <div class="text-center" style="width: 100%!important;">
-        <img src="../imgbanco.png" width="15%" alt="">
         <h2 class="text-center" style="position: center!important;margin-bottom: 0!important;">ORTHODENTAL S.A</h2>
         <p class="red-text text-center " style="font-style: normal;margin-top: 0!important;">Visualizacion Factura Generada</p>
         <h5 style="border: 1px solid red;color: red"> *Esta Factura no se puede imprimir.</h5>
@@ -221,8 +220,5 @@ if ($pregunta == 1) {
 <?php }
 ?>
 
-<div class="container">
-    <img src="../assets/img/sello.jpg" width="20%" alt="" style="margin-left: 30em;margin-top: 3em;">
-</div>
 
 
