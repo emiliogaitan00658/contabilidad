@@ -100,7 +100,7 @@ if ($_GET) {
         if ($_GET) {
             $result4 = $mysqli->query("SELECT * FROM `credito` WHERE indcliente='$nombre' ORDER BY indcredito DESC");
             while ($resultado = $result4->fetch_assoc()) {
-                $total_faltante = datos_clientes::total_deuda_faltante($resultado['indtemp'], $mysqli);
+               echo  $total_faltante = datos_clientes::total_deuda_faltante($resultado['indtemp'], $mysqli);
                 $total_faltante_resta = $resultado['totalCredito'] - $total_faltante;
                 if ($total_faltante_resta == "0") {
                     datos_clientes::bandera_credito_cancelado($resultado['indtemp'], $mysqli);
@@ -108,14 +108,11 @@ if ($_GET) {
                 ?>
                 <tr class="center-align">
                     <th scope="row"><?php echo $contador; ?></th>
-                    <td><a href="PDF/cotizar_factura_link_credito.php?dolar=1&key=<?php echo $resultado['indtemp']; ?>"
+                    <td><a href="pdfv2/cotizar_factura_link_credito.php?dolar=1&key=<?php echo $resultado['indtemp']; ?>"
                            target="_blank"><b>No #<?php echo $resultado['producto']; ?></b></a></td>
                     <td class="center-align"><b>$ <?php echo $resultado['totalCredito']; ?></b></td>
                     <td class="center-align red-text"><b>$ <?php echo $total_faltante_resta ?></b></td>
-                    <td><?php
-                        $fecha_cambio = $resultado['fechaInicio'];
-                        $timestamp = strtotime($fecha_cambio);
-                        echo date("d/m/Y", $timestamp); ?></td>
+                    <td><?php echo  datos_clientes::traforma_fecha($resultado['fechaInicio']);?></td>
                     <?php if ($total_faltante_resta == "0") { ?>
                         <td><a href="#" class="btn btn-danger"><i class="btn-danger icon-bin"></i></a></td>
                     <?php } else { ?>

@@ -34,6 +34,7 @@ if (!empty($_SESSION)) {
         if (!empty($_SESSION['sucursal'])) {
             $indsucursal = $_SESSION['sucursal'];
             $talonario = datos_clientes::cambio_do($indsucursal, $mysqli);
+            $recibo = datos_clientes::recibo_numero($indsucursal, $mysqli);
         }
     } catch (Exception $e) {
 

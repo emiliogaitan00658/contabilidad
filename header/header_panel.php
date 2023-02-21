@@ -34,6 +34,7 @@ if (!empty($_SESSION)) {
         if (!empty($_SESSION['sucursal'])) {
             $indsucursal = $_SESSION['sucursal'];
             $talonario = datos_clientes::cambio_do($indsucursal, $mysqli);
+            $recibo = datos_clientes::recibo_numero($indsucursal, $mysqli);
         }
     } catch (Exception $e) {
 
@@ -59,6 +60,9 @@ $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../factura.php">Crear Factura</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recibo_dia.php">Recibos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../productos.php">Productos</a>

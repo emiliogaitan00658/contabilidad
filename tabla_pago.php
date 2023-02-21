@@ -7,6 +7,8 @@ if ($_SESSION) {
 if ($_GET) {
     $indcredito = $_GET['indcredito'];
     $indtemp = $_GET['indtemp'];
+    $indcliente=datos_clientes::idcliente_credito($indtemp_id, $mysqli);
+    echo $nombre_apelido = datos_clientes::nombre_apellido_cliente($indcliente, $mysqli);
 } else {
     echo '<script> location.href="buscar_clientes.php" </script>';
 }
@@ -15,8 +17,8 @@ $total_faltante = datos_clientes::total_deuda_faltante22($indcredito, $mysqli);
 
 if ($_POST) {
     $recibo = $_POST['textrecibo'];
-    $detalle = $_POST['textdetalles'];
-    echo $total = $_POST['texttotal'];
+    $detalle = strtoupper($_POST['textdetalles']);
+    $total = $_POST['texttotal'];
     $fecha = $_POST['textfecha'];
     $indsucursal = $_SESSION['sucursal'];
     if ($total_faltante != 0) {
@@ -59,8 +61,8 @@ if ($_POST) {
  });
  </script>';
     }
-}
 
+}
 
 //echo '<script>
 // swal({
@@ -80,17 +82,17 @@ if ($_POST) {
 // </script>';
 ?>
     <div class="container white z-depth-1 rounded" style="border-radius: 6px;">
-        <div class="modal-header white rounded">
-            <h4 class="modal-title blue-grey-text unoem">Deuda Pendiente: <span
+
+            <h4 class="modal-title blue-grey-text unoem alert alert-primary">Deuda Pendiente: <span
                         class="red-text">$ <?php echo $total_faltante; ?></span></h4>
-        </div>
+        <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?indcredito=<?php echo $indcredito; ?>&indtemp=<?php echo $indtemp; ?>"
               method="post">
             <br>
             <section class="row">
                 <div class="control-pares col-md-2">
                     <label for="" class="control-label">Numero de Recibo: *</label>
-                    <input type="number" name="textrecibo" class="form-control" placeholder="Numero Factura" required>
+                    <input type="number" name="textrecibo" class="form-control" value="0" placeholder="Numero Factura" required readonly=readonly>
                 </div>
                 <br>
                 <div class="control-pares col-md-7">
@@ -100,13 +102,14 @@ if ($_POST) {
                 </div>
                 <div class="control-pares col-md-2">
                     <label for="" class="control-label">Cantidad dolares: $ *</label>
-                    <input type="text" name="texttotal" class="form-control" placeholder="Detalles de concepto"
+                    <input type="text" name="texttotal" class="form-control" placeholder="abono $"
                            required>
                 </div>
                 <div class="control-pares col-md-2">
                     <label for="" class="control-label">Fecha: *</label>
-                    <input type="date" name="textfecha" value="<?php echo datos_clientes::fecha_get_pc_MYSQL(); ?>"
+                    <input type="date" name="textfecha" value="<?php echo datos_clientes::fecha_get_pc_MYSQL_form();?>"
                            class="form-control" placeholder="Numero Factura" required>
+
                 </div>
             </section>
             <div class="modal-footer">
@@ -149,9 +152,9 @@ if ($_POST) {
                             echo date("d/m/Y", $timestamp);
                             ?></td>
                         <td class="center-align"><?php
-                            if ($resultado['status'] == "false") {
+                            if ($resultado['indrecibo'] == "0") {
                                 ?>
-                                <p class="red white-text rounded" style="border-radius: 6px;">Cuenta Por Cobrar</p>
+                                <p class="red white-text rounded" style="border-radius: 6px;">Pendiente</p>
                                 <?php
                             } else {
                                 ?>
@@ -166,7 +169,7 @@ if ($_POST) {
                                     verficar_eliminar(i);"><i class="btn-danger icon-bin"></i></a></td>
                         </td>
                         <td class="center-align"><a
-                                    href="PDF/htmlpdf_credito.php?key=<?php echo $resultado['indtemp']; ?>&indpago=<?php echo $indpago; ?>"
+                                    href="pdfv2/htmlpdf_credito.php?key=<?php echo $resultado['indtemp']; ?>&indpago=<?php echo $indpago; ?>"
                                     class="btn btn-success" target="_blank"><i class="icon-printer"></i></a>
                         </td>
                     </tr>

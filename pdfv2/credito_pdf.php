@@ -1,6 +1,7 @@
 <?php
 include "../BD-Connection/conection.php";
 include "../BD-Connection/datos_clientes.php";
+
 function basico($numero)
 {
     $valor = array('UNO', 'DOS', 'TRES', 'CUATRO', 'CINCO', 'SEIS', 'SIETE', 'OCHO',
@@ -119,22 +120,35 @@ if ($_GET) {
     $resultado = datos_clientes::datos_credito_generale($key, $mysqli);
     $datos_cliete_generales = datos_clientes::datos_clientes_generales($resultado["indcliente"], $mysqli);
     $datos_generales_pago = datos_clientes::datos_credito_generale_pago($indpago, $mysqli);
+
+    //asignar idrecibo de impresion
+    $indpago_1 = $datos_generales_pago['indrecibo'];
+    $indsucursal = $datos_generales_pago['indsucursal'];
+    $indrecibo = datos_clientes::recibo_numero($indsucursal, $mysqli);
+    if ($indpago_1=="0"){
+        datos_clientes::modificar_id_recibo($indpago,$indrecibo,$indsucursal,$mysqli);
+    }
+
 }
 ?>
 <!--<style type="text/css">-->
 <!--    table {border-collapse: collapse}-->
 <!--    td {border:1px solid black}-->
 <!--</style>-->
-<div style="margin-top: 4.5em!important;margin-left:18em">
-    <p style="position: static!important; width: 30%!important;padding: 3px!important; font-size: 18px;margin-left:12em;" class="linea">
+<div style="margin-top: 6em!important;margin-left:18em">
+    <p style="position: static!important; width: 30%!important;padding: 3px!important; font-size: 18px;margin-left:18em;"
+       class="linea">
         <b><?php echo datos_clientes::fecha_get_pc(); ?></b></p>
 </div>
 <table style="height: 150px; width: 750px;">
     <tbody>
     <tr style="height: 5px;">
         <td style="width: 100%; height: 20px;" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b
-                    style="margin-left:3em;"><?php echo $datos_cliete_generales["nombre"] . " " . $datos_cliete_generales["apellido"]; ?></b>
+                    style="margin-left:8em;"><?php echo $datos_cliete_generales["nombre"] . " " . $datos_cliete_generales["apellido"]; ?></b>
         </td>
+    </tr>
+    <tr style="height: 5px;">
+        <td style="width: 100px; height: 20px;" colspan="2">&nbsp;</td>
     </tr>
     <tr style="height: 5px;">
         <td style="width: 100px; height: 20px;" colspan="2">&nbsp;</td>
@@ -162,7 +176,8 @@ if ($_GET) {
         <td style="width: 100px; height: 20px;" colspan="2">&nbsp;</td>
     </tr>
     <tr style="height: 5px;">
-        <td style="width: 100px; height: 20px;" colspan="2"><b class="text-uppercase"><?php echo $datos_generales_pago["detalles_factura"]; ?> </b>
+        <td style="width: 100px; height: 20px;" colspan="2"><b
+                    class="text-uppercase"><?php echo $datos_generales_pago["detalles_factura"]; ?> </b>
         </td>
     </tr>
     <tr style="height: 5px;">
@@ -173,15 +188,17 @@ if ($_GET) {
     </tr>
     <tr style="height: 5px;">
         <td style="width: 100px; height: 20px;">&nbsp;</td>
-        <td style="width: 10px; font-size: 18px"  style="margin-left: 6em">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>$ <?php echo  number_format(( $datos_generales_pago["pago"]), 2, '.', ',');; ?></b></td>
+        <td style="width: 10px; font-size: 18px" style="margin-left: 6em">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>$ <?php echo number_format(($datos_generales_pago["pago"]), 2, '.', ',');; ?></b>
+        </td>
     </tr>
     <tr style="height: 5px;">
         <td style="width: 100px; height: 20px;">&nbsp;</td>
         <td style="width: 10px;">&nbsp;</td>
     </tr>
-    <tr style="height: 5px;" >
+    <tr style="height: 5px;">
         <td style="width: 100px; height: 20px;">&nbsp;</td>
-        <td style="width: 10px; font-size: 18px"  style="margin-left: 6em">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>$ <?php echo  number_format(( $datos_generales_pago["pago"]), 2, '.', ',');; ?></b></td>
+        <td style="width: 10px; font-size: 18px" style="margin-left: 6em">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>$ <?php echo number_format(($datos_generales_pago["pago"]), 2, '.', ',');; ?></b>
+        </td>
     </tr>
     </tbody>
 </table>

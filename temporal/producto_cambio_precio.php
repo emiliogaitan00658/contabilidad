@@ -4,7 +4,8 @@ $dolar = datos_clientes::cambio_dolar($mysqli);
 ?>
     <div class="container white rounded z-depth-2" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5>Buscar producto</h5>
+            <h5 class="alert alert-success">Buscar Producto<a class="btn btn-dark blue-grey right" href="nuevo_producto.php" class="right btn btn-info">Agregar Producto</a></h5>
+            <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
                     <div class="control-pares col-md-4">
@@ -16,8 +17,6 @@ $dolar = datos_clientes::cambio_dolar($mysqli);
                 </section>
             </form>
             <br>
-            <hr>
-            <a href="nuevo_producto.php" class="btn btn-success">Agregar Producto</a>
             <hr>
             <p>Si desea buscar el producto por marca debe de asignar el codigo mas - ejemplo=(MAQUIRA-)</p>
             <hr>

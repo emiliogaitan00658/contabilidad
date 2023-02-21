@@ -100,18 +100,18 @@ if ($_SESSION["Key"] == "") {
 }
 ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" name="myapp"
-      onsubmit="return(appregistro());" style="border-radius: 6px;">
-    <div class="container z-depth-1 rounded white center-block">
+      onsubmit="return(appregistro());" style="border-radius: 12px;">
+    <div class="container z-depth-1 rounded white center-block" style="border-radius: 8px">
         <br>
 
         <section class="row">
             <div class="control-pares col-md-3">
-                <label for="" class="control-label">Nombres: *</label>
+                <label for="" class="control-label"><u>Nombres: *</u></label>
                 <input type="text" name="textnombre" class="form-control"
                        value="<?php echo $row["nombre"] ?>" placeholder="Nombres" readonly=readonly>
             </div>
             <div class="control-pares col-md-3">
-                <label for="" class="control-label">Apellidos: *</label>
+                <label for="" class="control-label"><u>Apellidos: *</u></label>
                 <input type="text" name="textapellido" class="form-control"
                        value="<?php echo $row["apellido"] ?>" placeholder="Apellidos" readonly=readonly>
             </div>

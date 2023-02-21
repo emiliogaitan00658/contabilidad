@@ -88,6 +88,14 @@ class datos_clientes
         return $fecha;
     }
 
+    public static function fecha_get_pc_MYSQL_form()
+    {
+        date_default_timezone_set('America/Managua');
+//        $fecha = date("Y/n/j");
+        $fecha = date("Y-m-d");
+        return $fecha;
+    }
+
     public static function hora_get_pc()
     {
         date_default_timezone_set('America/Managua');
@@ -309,9 +317,20 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         }
     }
 
+    public static function recibo_numero($indsucursal, $mysqli)
+    {
+        $result = $mysqli->query("SELECT * FROM `talonario` WHERE `indsucursal` = '$indsucursal'");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            return $row["recibo"];
+        } else {
+            return "error";
+        }
+    }
+
     public static function total_deuda_faltante($indtemp, $mysqli)
     {
-        $result = $mysqli->query("SELECT SUM(pago) as total FROM `creditos_pago` WHERE indtemp= '$indtemp'");
+        $result = $mysqli->query("SELECT SUM(pago) as total FROM `creditos_pago` WHERE indtemp= '$indtemp' and indrecibo!='0'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
             return $row["total"];
@@ -440,6 +459,13 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
     public static function cambio_talonario($indsucursal, $notalonario, $mysqli)
     {
         $insert = "UPDATE `talonario` SET `numero` = '$notalonario' WHERE `talonario`.`indsucursal` = '$indsucursal';";
+        $query = mysqli_query($mysqli, $insert);
+        return true;
+    }
+
+    public static function cambio_talonario_talonario($indsucursal, $notalonario, $mysqli)
+    {
+        $insert = "UPDATE `talonario` SET `recibo` = '$notalonario' WHERE `talonario`.`indsucursal` = '$indsucursal';";
         $query = mysqli_query($mysqli, $insert);
         return true;
     }
@@ -1023,8 +1049,8 @@ VALUES (NULL, '$indcliente','$sucursal', NULL, '$subtotalF', '$totalF', '$cordob
 
     public static function transferencia_factura($sucursal, $key, $mysqli)
     {
-        $fecha=self::fecha_get_pc_MYSQL();
-        $hora=self::hora_get_pc();
+        $fecha = self::fecha_get_pc_MYSQL();
+        $hora = self::hora_get_pc();
         $insert = "UPDATE `factura` SET `indsucursal` = '$sucursal' WHERE `factura`.`indtemp` = '$key';";
         $query = mysqli_query($mysqli, $insert);
 
@@ -1044,6 +1070,21 @@ VALUES (NULL, '$indcliente','$sucursal', NULL, '$subtotalF', '$totalF', '$cordob
         $insert = "INSERT INTO `producto` (`indproducto`, `codigo_producto`, `nombre_producto`, `precio1`, `precio2`, `precio3`, `fecha_vencimiento`, `bandera`)
 VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fecha', '1');";
         $query = mysqli_query($mysqli, $insert);
+        return true;
+    }
+
+    public static function modificar_id_recibo($indpago, $indrecibo, $indsucursal,$mysqli)
+    {
+        $insert = "UPDATE `creditos_pago` SET `indrecibo` = '$indrecibo' WHERE `creditos_pago`.`indpago` = '$indpago';";
+        $query = mysqli_query($mysqli, $insert);
+
+        $indrecibo = $indrecibo + 1;
+
+        $insert2 = "UPDATE `talonario` SET `recibo` = '$indrecibo' WHERE `talonario`.`indsucursal` = '$indsucursal';";
+        $query2 = mysqli_query($mysqli, $insert2);
+
+        $indrecibo=null;
+
         return true;
     }
 
@@ -1089,6 +1130,18 @@ VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fech
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3;
+        } else {
+            return "false";
+        }
+    }
+
+
+    public static function idcliente_credito($indtemp, $mysqli)
+    {
+        $result = $mysqli->query("SELECT indcliente FROM `credito` WHERE indtemp='$indtemp'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["indcliente"];
         } else {
             return "false";
         }
