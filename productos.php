@@ -7,7 +7,7 @@ if (!$_SESSION) {
 <div class="container white rounded z-depth-2" style="border-radius: 6px;">
     <div style="padding: 1em">
         <br>
-        <h5 class="alert alert-primary">Buscar producto</h5>
+        <h5 class="alert alert-primary"><img src="assets/buscar_prodcuto.png" alt="" width="5%">Buscar producto</h5>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">
@@ -38,7 +38,7 @@ if (!$_SESSION) {
 </div>
 <hr>
 <div class="container z-depth-1 rounded white" style="border-radius: 6px">
-    <table class="table table-responsive-sm table-bordered" style="padding: 1em;">
+    <table class="table table-responsive-sm table-striped" style="padding: 1em;">
         <thead>
         <tr style="border-bottom: 1px solid black;" class="alert alert-info">
             <th scope="col">#Codigo</th>

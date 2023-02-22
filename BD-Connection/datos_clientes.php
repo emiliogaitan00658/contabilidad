@@ -578,7 +578,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function conteo_total_facturas_cleintes($indcliente, $mysqli)
     {
-        $result = $mysqli->query("SELECT COUNT(indcliente) as suma FROM `total_factura` WHERE indcliente='$indcliente'");
+        $result = $mysqli->query("SELECT COUNT(indcliente) as suma FROM `total_factura` WHERE indcliente='$indcliente' and indtalonario!=''");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3["suma"];

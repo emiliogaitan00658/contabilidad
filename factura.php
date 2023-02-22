@@ -17,7 +17,7 @@ if (!empty($_POST["textnombre"])) {
 ?>
 <div class="container white rounded z-depth-1" style="border-radius: 6px;">
     <div style="padding: 1em">
-        <h5 class="alert alert-primary">Buscardor de Clientes<a class="btn btn-dark blue-grey right" href="index.php" class="right btn btn-info"><i class="icon-user-plus white-text"></i> Nuevo Cliente</a></h5>
+        <h5 class="alert alert-primary"><img src="assets/icono_cliente.png" alt="" width="5%">Buscardor de Clientes<a class="btn btn-dark blue-grey right" href="index.php" class="right btn btn-info"><i class="icon-user-plus white-text"></i> Nuevo Cliente</a></h5>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <section class="row">

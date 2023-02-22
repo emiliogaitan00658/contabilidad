@@ -12,7 +12,7 @@ if ($_GET) {
 //    echo '<script> location.href="buscar_clientes.php" </script>';
 //}
 if ($_POST) {
-    $producto = strtoupper(filter_var($_POST['textproducto'], FILTER_SANITIZE_STRING));
+    $producto = strtoupper($_POST['textproducto']);
     $inicio = $_POST['textfechainicio'];
     $monto = $_POST['textpagar'];
     $cuotas = "0";

@@ -22,7 +22,12 @@ if ($_POST) {
     $check_bac = isset($_POST['flexCheckCheckedbac']) ? 1 : 0;
     $check_credito = isset($_POST['flexCheckCheckedcredito']) ? 1 : 0;
     $check_targeta = isset($_POST['flexCheckCheckedtargeta']) ? 1 : 0;
-    $check_rx = isset($_POST['flexCheckCheckedrx']) ? 1 : 0;
+//    $check_rx = isset($_POST['flexCheckCheckedrx']) ? 1 : 0;
+    if ($row['tipo']=="4"){
+        $check_rx = 1;
+    }else {
+        $check_rx = 0;
+    }
     $co = $_POST['textcordobas'];
     $do = $_POST['textdolar'];
 
@@ -144,13 +149,13 @@ if ($_SESSION["Key"] == "") {
                         Tarjeta
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedrx"
-                           name="flexCheckCheckedrx">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        RX
-                    </label>
-                </div>
+<!--                <div class="form-check">-->
+<!--                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedrx"-->
+<!--                           name="flexCheckCheckedrx">-->
+<!--                    <label class="form-check-label" for="flexCheckChecked">-->
+<!--                        RX-->
+<!--                    </label>-->
+<!--                </div>-->
             </div>
 
             <div class="control-pares col-md-3">

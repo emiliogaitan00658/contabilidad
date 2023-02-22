@@ -84,7 +84,7 @@ if (!$_SESSION) {
 
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5 class="alert alert-primary">Factura Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
+            <h5 class="alert alert-primary"><img src="assets/icono_factura.png" alt="" width="5%">Factura Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
                                                                 href="cierre_caja.php"
                                                                 class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp;   <a class="btn btn-dark blue-grey right"
                                                                 href="temporal/cliente_manual.php"

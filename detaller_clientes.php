@@ -11,13 +11,13 @@ if ($_GET) {
 }
 
 if ($_POST) {
-    $sucursale = strtoupper(filter_var($_POST['textsucursal'], FILTER_SANITIZE_STRING));
-    $nombre = strtoupper(filter_var($_POST['textnombre'], FILTER_SANITIZE_STRING));
-    $apellido = strtoupper(filter_var($_POST['textapellido'], FILTER_SANITIZE_STRING));
+   $sucursale = $_POST['textsucursal'];
+    $nombre = strtoupper($_POST['textnombre']);
+    $apellido = strtoupper($_POST['textapellido']);
     $tipo = $_POST['texttipo'];
-    $direccion1 = filter_var($_POST['textdireccion1'], FILTER_SANITIZE_STRING);
-    $direccion2 = filter_var($_POST['textdireccion2'], FILTER_SANITIZE_STRING);
-    $telefono = strtoupper(filter_var($_POST['texttelefono'], FILTER_SANITIZE_STRING));
+    $direccion1 = $_POST['textdireccion1'];
+    $direccion2 = $_POST['textdireccion2'];
+    $telefono = strtoupper($_POST['texttelefono']);
     $recues = datos_clientes::datos_clientes_generales_actualizar($indcliente,$nombre,$apellido,$tipo, $direccion1, $direccion2, $telefono, $sucursale, $mysqli);
     if ($recues == true) {
         echo '<script>
@@ -64,27 +64,27 @@ $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
                 <label>Seleccionar Sucursal: *</label>
                 <select name="textsucursal" disabled class="form-control">
                     <option class="form-control" value="<?php
-                    if($datos['indsucursal']=="Managua"){echo "Managua";}
-                    if($datos['indsucursal']=="Masaya"){echo "2";}
-                    if($datos['indsucursal']=="Chontales"){echo "3";}
-                    if($datos['indsucursal']=="Esteli"){echo "6";}
-                    if($datos['indsucursal']=="Leon"){echo "5";}
-                    if($datos['indsucursal']=="Matagalpa"){echo "9";}
-                    if($datos['indsucursal']=="Chinandega"){echo "4";}
-                    if($datos['indsucursal']=="Managua Bolonia"){echo "7";}
-                    if($datos['indsucursal']=="Managua Villa Fontana"){echo "8";}
-                    if($datos['indsucursal']=="Clinica Dansing"){echo "10";}
+                    if($datos['tipo']=="Managua"){echo "1";}
+                    if($datos['tipo']=="Masaya"){echo "2";}
+                    if($datos['tipo']=="Chontales"){echo "3";}
+                    if($datos['tipo']=="Esteli"){echo "6";}
+                    if($datos['tipo']=="Leon"){echo "5";}
+                    if($datos['tipo']=="Matagalpa"){echo "9";}
+                    if($datos['tipo']=="Chinandega"){echo "4";}
+                    if($datos['tipo']=="Managua Bolonia"){echo "7";}
+                    if($datos['tipo']=="Managua Villa Fontana"){echo "8";}
+                    if($datos['tipo']=="Clinica Dansing"){echo "10";}
                     ?>" selected hidden><?php
-                    if($datos['indsucursal']=="1"){echo "Managua";}
-                    if($datos['indsucursal']=="2"){echo "Masaya";}
-                    if($datos['indsucursal']=="3"){echo "Chontales";}
-                    if($datos['indsucursal']=="6"){echo "Esteli";}
-                    if($datos['indsucursal']=="5"){echo "Leon";}
-                    if($datos['indsucursal']=="9"){echo "Matagalpa";}
-                    if($datos['indsucursal']=="4"){echo "Chinandega";}
-                    if($datos['indsucursal']=="7"){echo "Managua Bolonia";}
-                    if($datos['indsucursal']=="8"){echo "Managua Villa Fontana";}
-                    if($datos['indsucursal']=="10"){echo "Clinica Dansing";}
+                    if($datos['tipo']=="1"){echo "Managua";}
+                    if($datos['tipo']=="2"){echo "Masaya";}
+                    if($datos['tipo']=="3"){echo "Chontales";}
+                    if($datos['tipo']=="6"){echo "Esteli";}
+                    if($datos['tipo']=="5"){echo "Leon";}
+                    if($datos['tipo']=="9"){echo "Matagalpa";}
+                    if($datos['tipo']=="4"){echo "Chinandega";}
+                    if($datos['tipo']=="7"){echo "Managua Bolonia";}
+                    if($datos['tipo']=="8"){echo "Managua Villa Fontana";}
+                    if($datos['tipo']=="10"){echo "Clinica Dansing";}
                     ?></option>
                     <option class="form-control" value="1">Managua</option>
                     <option class="form-control" value="2">Masaya</option>
@@ -101,16 +101,27 @@ $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
             <div class="control-pares col-md-3">
                 <label class="alert-primary">Tipo Cliente: *</label>
                 <select name="texttipo" class="form-control alert-primary" required>
-                    <option value="">--seleccionar--</option>
-                    <option class="form-control" value="1">Doc(@)- Empresa</option>
-                    <option class="form-control" value="2">Estudiante</option>
-                    <option class="form-control" value="3">Paciente</option>
+                    <option class="form-control" value="<?php
+                    if($datos['tipo']=="Doc(@)"){echo "1";}
+                    if($datos['tipo']=="Empresa"){echo "2";}
+                    if($datos['tipo']=="Estudiante"){echo "3";}
+                    if($datos['tipo']=="Paciente"){echo "4";}
+                    ?>" selected hidden><?php
+                        if($datos['tipo']=="1"){echo "Doc(@)";}
+                        if($datos['tipo']=="2"){echo "Empresa";}
+                        if($datos['tipo']=="3"){echo "Estudiante";}
+                        if($datos['tipo']=="4"){echo "Paciente";}
+                        ?></option>
+                    <option class="form-control" value="1">Doc(@)</option>
+                    <option class="form-control" value="2">Empresa</option>
+                    <option class="form-control" value="3">Estudiante</option>
+                    <option class="form-control" value="4">Paciente</option>
                 </select>
             </div>
             <div class="control-pares col-md-3">
                 <label for="" class="control-label">Telefono: *</label>
                 <input type="text" name="texttelefono" placeholder="Telefono" class="form-control"
-                       value="<?php echo $datos['telefono']; ?>" required>
+                       value="<?php echo $datos['telefono']; ?>" >
             </div>
         </section>
         <br>
@@ -118,7 +129,7 @@ $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
             <div class="control-pares col-md-5">
                 <label for="" class="control-label">Dirección 1: *</label>
                 <input type="text" name="textdireccion1" class="form-control" placeholder="Direccion de domicilio"
-                       value="<?php echo $datos['direccion1']; ?>" required>
+                       value="<?php echo $datos['direccion1']; ?>">
             </div>
             <div class="control-pares col-md-5">
                 <label for="" class="control-label">Dirección 2: *</label>

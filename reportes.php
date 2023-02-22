@@ -1,37 +1,37 @@
-<?php
-include "header/header.php";
-$dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
-$dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
-?>
-<div class="container z-depth-1 rounded white" style="border-radius: 6px">
-    <table class="table table-responsive-sm table-bordered  table-hover" style="padding:0em">
-        <thead>
-        <tr style="border-bottom: 1px solid black;" class="alert alert-info">
-            <th scope="col">#Codigo</th>
-            <th scope="col">Factura Inicio</th>
-            <th scope="col">Factura Cierre</th>
-            <th scope="col">Fecha </th>
-            <th scope="col">Hora</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $result4 = $mysqli->query("SELECT * FROM `cierre_caja` WHERE fecha BETWEEN '$dia_uno' and '$dia_dos' and indsucursal='$indsucursal'");
+<?php include "header/header.php"; ?>
+<div class="container">
+    <br>
+    <h5 class="alert alert-primary">Admistración de sucursales</h5>
+    <hr>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body center-align">
+                    <h5 class="card-title">Cambiar Producto</h5>
+                    <p class="card-text">Cambio de Precio.</p>
+                    <a href="temporal/producto_cambio_precio.php" class="btn btn-secondary">ir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body center-align">
+                    <h5 class="card-title">Crear Usuario</h5>
+                    <p class="card-text">Registro de usuario.</p>
+                    <a href="temporal/crear_usuario.php" class="btn btn-secondary">ir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Asignar nuevo numero de factura Sucursal</h5>
+                    <p class="card-text">Asignar numero de factura.</p>
+                    <a href="temporal/crear_numero_talonario.php" class="btn btn-primary">Crear No Factura</a>
+                </div>
+            </div>
+        </div>
 
-        while ($resultado = $result4->fetch_assoc()) {
-            ?>
-            <tr>
-                <th scope="row"><?php echo $resultado['ind_factura']; ?></th>
-                <td><?php echo $resultado['inicio'];?></td>
-                <td><?php echo $resultado['fin']; ?></td>
-                <td><?php echo datos_clientes::traforma_fecha($resultado['fecha']); ?></td>
-                <td><?php echo $resultado['hora']; ?></td>
-            </tr>
-        <?php } ?>
-
-        </tbody>
-    </table>
+    </div>
 </div>
-<?php
-include_once "header/footer.php";
-?>
+<?php include "header/footer.php" ?>

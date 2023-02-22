@@ -7,8 +7,7 @@ if ($_SESSION) {
 if ($_GET) {
     $indcredito = $_GET['indcredito'];
     $indtemp = $_GET['indtemp'];
-    $indcliente=datos_clientes::idcliente_credito($indtemp_id, $mysqli);
-    echo $nombre_apelido = datos_clientes::nombre_apellido_cliente($indcliente, $mysqli);
+    $indcliente=datos_clientes::idcliente_credito($indtemp, $mysqli);
 } else {
     echo '<script> location.href="buscar_clientes.php" </script>';
 }
@@ -85,6 +84,7 @@ if ($_POST) {
 
             <h4 class="modal-title blue-grey-text unoem alert alert-primary">Deuda Pendiente: <span
                         class="red-text">$ <?php echo $total_faltante; ?></span></h4>
+        <p> <b>Nombre Cliente: </b><?php echo $nombre_apelido = datos_clientes::nombre_apellido_cliente($indcliente, $mysqli);?></p>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?indcredito=<?php echo $indcredito; ?>&indtemp=<?php echo $indtemp; ?>"
               method="post">

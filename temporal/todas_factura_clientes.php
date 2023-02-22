@@ -138,7 +138,7 @@ if ($_GET) {
             </thead>
             <tbody>
             <?php
-            $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE indcliente='$nombre' ORDER by indtotalfactura DESC limit 5");
+            $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE indcliente='$nombre' and indtalonario!='' ORDER by indtotalfactura  DESC limit 15");
             while ($resultado = $result4->fetch_assoc()) {
                 $indcliente = $resultado['indcliente'];
                 $_SESSION["sucursal_acceso"] = $indsucursal = $resultado['indsucursal'];

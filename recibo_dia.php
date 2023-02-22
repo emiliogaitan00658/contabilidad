@@ -2,7 +2,7 @@
 ?>
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5 class="alert alert-primary">Facturación de Recibos<a style="margin: 0"
+            <h5 class="alert alert-primary"><img src="assets/credito.png" alt="" width="5%" style="position:static">Facturación de Recibos<a style="margin: 0"
                                                                      class="nav-link alert alert-danger bg-red right"
                                                                      href="cambio_numeracion_recibo.php"
                                                                      class="right btn btn-info"><?php if (!empty($_SESSION)) {
@@ -128,11 +128,11 @@
     </div>
     <br>
     <div class="container z-depth-1 rounded white" style="border-radius: 6px;">
-        <h4 class="modal-title blue-grey-text unoem alert alert-success">Credito Facturados</h4>
+        <h5 class="modal-title blue-grey-text unoem alert alert-success">Credito Facturados</h5>
         <hr>
-        <table class="table table-bordered center-align" style="padding: 1em;">
+        <table class="table table-striped center-align"  style="padding: 1em;">
             <thead>
-            <tr style="border-bottom: 1px solid black">
+            <tr style="border-bottom: 1px solid black" class="alert alert-dark" >
                 <th scope="col">No Recibo</th>
                 <th scope="col">Nombre y Apellido</th>
                 <th scope="col">USD Pago</th>
@@ -149,7 +149,7 @@
             if ($_POST) {
                 $fecha2 = $_POST["textfecha"];
                 $Nrecibo = $_POST["textrecibo"];
-                $result4 = $mysqli->query("SELECT * FROM `creditos_pago` WHERE fechapago=='$' or indrecibo='$Nrecibo' or indsucursal='$indsucursal'");
+                $result4 = $mysqli->query("SELECT * FROM `creditos_pago` WHERE fechapago='$fecha2' or indrecibo='$Nrecibo' or indsucursal='$indsucursal'");
             } else {
                 $result4 = $mysqli->query("SELECT * FROM `creditos_pago` WHERE indsucursal='$indsucursal' and fechapago='$fecha_consulta'");
             }
@@ -163,7 +163,7 @@
                 <tr>
                     <td><b><?php echo $resultado['indrecibo']; ?></b></td>
                     <td><p><?php echo $nombre_apelido; ?></p></td>
-                    <td><b>$ <?php echo $resultado['pago']; ?></b></td>
+                    <td><b>$<?php echo$resultado['pago'] . ' (' . number_format((($dolar * $resultado['pago'])), 2, '.', ','). ')'; ?></b></td>
                     <td><?php
                         if ($resultado['indrecibo'] == "0") {
                             ?>
