@@ -7,17 +7,26 @@
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body center-align">
-                    <h5 class="card-title">Reporte de Cierre de Caja</h5>
-                    <p class="card-text">Cierre de.</p>
-                    <a href="temporal/producto_cambio_precio.php" class="btn btn-secondary">ir</a>
+                    <h5 class="card-title">Reporte Radiografia</h5>
+                    <p class="card-text">Informes de RX.</p>
+                    <a href="reportes_informenes/reporte_radiografias.php" class="btn btn-secondary">ir</a>
                 </div>
             </div>
         </div>
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body center-align">
-                    <h5 class="card-title">Crear Usuario</h5>
-                    <p class="card-text">Registro de usuario.</p>
+                    <h5 class="card-title">Reporte de Materiales</h5>
+                    <p class="card-text">Informe de materiales.</p>
+                    <a href="temporal/crear_usuario.php" class="btn btn-secondary">ir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body center-align">
+                    <h5 class="card-title">Garantia Equipos</h5>
+                    <p class="card-text">Reporte de Garantia Equipos.</p>
                     <a href="temporal/crear_usuario.php" class="btn btn-secondary">ir</a>
                 </div>
             </div>

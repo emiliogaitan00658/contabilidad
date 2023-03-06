@@ -84,11 +84,13 @@ if (!$_SESSION) {
 
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 1em">
-            <h5 class="alert alert-primary"><img src="assets/icono_factura.png" alt="" width="5%">Factura Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
+            <h5 class="alert alert-heading z-depth-1"><img src="assets/icono_factura.png" alt="" width="5%">Factura Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
                                                                 href="cierre_caja.php"
                                                                 class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp;   <a class="btn btn-dark blue-grey right"
                                                                 href="temporal/cliente_manual.php"
-                                                                class="right btn btn-info">Factura Manual</a></h5>
+                                                                class="right btn btn-info"  style="margin-left: 1em;">Factura Manual</a>   <a class="btn btn-outline-primary right"
+                                                                href="temporal/cliente_manual.php"
+                                                                class="right btn btn-info" >Garantia Equipo</a></h5>
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
