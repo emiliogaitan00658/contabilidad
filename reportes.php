@@ -7,8 +7,8 @@
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body center-align">
-                    <h5 class="card-title">Cambiar Producto</h5>
-                    <p class="card-text">Cambio de Precio.</p>
+                    <h5 class="card-title">Reporte de Cierre de Caja</h5>
+                    <p class="card-text">Cierre de.</p>
                     <a href="temporal/producto_cambio_precio.php" class="btn btn-secondary">ir</a>
                 </div>
             </div>

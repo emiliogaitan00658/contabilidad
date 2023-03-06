@@ -166,7 +166,7 @@ if ($_GET) {
                     echo convertir($numero_conver) . " " . $fraction . "/100";
                 }
 
-                ?> DOLARES
+                ?> DOLARES NETO
             </b></td>
     </tr>
     <tr style="height: 5px;">

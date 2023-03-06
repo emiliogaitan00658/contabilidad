@@ -84,11 +84,10 @@ if ($_POST) {
 
             <h4 class="modal-title blue-grey-text unoem alert alert-primary">Deuda Pendiente: <span
                         class="red-text">$ <?php echo $total_faltante; ?></span></h4>
-        <p> <b>Nombre Cliente: </b><?php echo $nombre_apelido = datos_clientes::nombre_apellido_cliente($indcliente, $mysqli);?></p>
+        <p style="padding: 0.4em"> <b>Nombre Cliente: </b><u  class="blue-grey-text"><?php echo $nombre_apelido = datos_clientes::nombre_apellido_cliente($indcliente, $mysqli);?></u></p>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?indcredito=<?php echo $indcredito; ?>&indtemp=<?php echo $indtemp; ?>"
               method="post">
-            <br>
             <section class="row">
                 <div class="control-pares col-md-2">
                     <label for="" class="control-label">Numero de Recibo: *</label>
