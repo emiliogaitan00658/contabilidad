@@ -66,7 +66,7 @@ if ($_POST) {
         <div class="container">
             <p class="alert alert-danger">Cliente
                 existe <?php echo $varficar_nombres['nombre'] . "  " . $varficar_nombres['apellido']; ?>
-                <a href="temporal/indcliente.php?indcliente=<?php $varficar_nombres['indcliente']; ?>"
+                <a href="temporal/indcliente.php?indcliente=<?php echo $varficar_nombres['indcliente']; ?>"
                    class="btn btn-info">Genera
                     factura</a></p>
         </div>

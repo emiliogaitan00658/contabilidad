@@ -89,7 +89,7 @@ if (!$_SESSION) {
                                                                 class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp;   <a class="btn btn-dark blue-grey right"
                                                                 href="temporal/cliente_manual.php"
                                                                 class="right btn btn-info"  style="margin-left: 1em;">Factura Manual</a>   <a class="btn btn-outline-primary right"
-                                                                href="temporal/cliente_manual.php"
+                                                                href="temporal/cliente_garantia.php"
                                                                 class="right btn btn-info" >Garantia Equipo</a></h5>
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

@@ -5,6 +5,26 @@ $Key = $_SESSION["Key"];
 $_SESSION["Key"] = $Key;
 $sucursal = $_SESSION['sucursal'];
 $row = datos_clientes::buscar($indcliente, $mysqli);
+
+if ($row["tipo"]==null or $row["tipo"]=="" or $row["tipo"]==" " ){
+    echo '<script>
+   swal({
+     title: "Mensaje ?",
+     text: "Debemos Especificar que Tipo Cliente",
+     icon: "warning",
+     buttons: true,
+
+   })
+   .then((willDelete) => {
+     if (willDelete) {
+            location.href="detaller_clientes.php?indcliente=' . $row["indcliente"] . '";
+     }else {
+            location.href="detaller_clientes.php?indcliente=' . $row["indcliente"] . '";
+     }
+   });
+   </script>';
+}
+
 if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }

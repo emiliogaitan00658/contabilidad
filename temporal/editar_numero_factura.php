@@ -4,12 +4,16 @@ if ($_GET) {
     $indtalonario = $_GET['indtalonario'];
 }
 if ($_POST) {
-
     $key = $_POST['textkey'];
     $indtalonario = $_POST['texttalonario'];
-    $res = datos_clientes::cambio_numero_factura($key, $indtalonario, $mysqli);
-    if ($res == true) {
-        echo '<script>
+
+
+    $respuesta = datos_clientes::Factura_petetida_verificacion($indsucursal,$indtalonario, $mysqli);
+
+    if ($respuesta==false){
+        $res = datos_clientes::cambio_numero_factura($key, $indtalonario, $mysqli);
+        if ($res == true) {
+            echo '<script>
    swal({
      title: "Exito ?",
      text: "Se a cambiado el numero de factura",
@@ -25,8 +29,24 @@ if ($_POST) {
      }
    });
    </script>';
+        }
+    }else{
+        echo '<script>
+   swal({
+     title: "Error ?",
+     text: "Este numero de factura esta registrado",
+     icon: "error",
+     buttons: true,
 
-    }
+   })
+   .then((willDelete) => {
+     if (willDelete) {
+       htmlspecialchars($_SERVER["PHP_SELF"]);
+     }else {
+       htmlspecialchars($_SERVER["PHP_SELF"]);
+     }
+   });
+   </script>';    }
 }
 
 ?>

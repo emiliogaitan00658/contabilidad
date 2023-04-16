@@ -7,7 +7,7 @@ $fecha1 = $_POST["textfecha1"];
 $fecha2 = $_POST["textfecha2"];
 $sucursal = $_POST["textsucursal"];
 
-$sucursal_nombre=datos_clientes::nombre_sucursal_ind($sucursal,$mysqli);
+$sucursal_nombre = datos_clientes::nombre_sucursal_ind($sucursal, $mysqli);
 
 $primera = datos_clientes::primera_factura_no($sucursal, $fecha1, $fecha2, $mysqli);
 $segunda = datos_clientes::ultima_factura_no($sucursal, $fecha1, $fecha2, $mysqli);
@@ -35,23 +35,26 @@ $segunda = datos_clientes::ultima_factura_no($sucursal, $fecha1, $fecha2, $mysql
             </thead>
             <tbody>
             <?php
-            $r1=0;
-            for ($i = $primera; $i <= $segunda; $i++) {
-                $i;
-                $res=datos_clientes::super_alerta_mensaje($indsucursal, $i, $mysqli);
-                if ($res=="0") {
-                    $r1=$r1+1;
+            $r1 = 0;
+            $result4 = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE (indtalonario BETWEEN '$primera' AND '$segunda') AND indsucursal='$sucursal' ");
+            while ($resultado = $result4->fetch_assoc()) {
+                $r1 = $r1 + 1;
+                $consulta=datos_clientes::datos_generales_factura_talonario_verificacion($resultado['indtalonario'], $sucursal, $mysqli);
+                if ($consulta==false) {
                     ?>
                     <tr>
                         <td class="center-align"><?php echo $r1; ?></td>
                         <td class="center-align">Factura Faltante</td>
                         <td class="center-align"><?php echo $sucursal_nombre; ?></td>
-                        <td class="center-align"><?php echo $i; ?></td>
+                        <td class="center-align"><?php echo $resultado['indtalonario']; ?></td>
                     </tr>
                     <?php
                 }
             } ?>
+
             </tbody>
+
+
         </table>
     </div>
 

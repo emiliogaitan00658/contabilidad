@@ -64,28 +64,40 @@ $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
                 <label>Seleccionar Sucursal: *</label>
                 <select name="textsucursal" disabled class="form-control">
                     <option class="form-control" value="<?php
-                    if($datos['tipo']=="Managua"){echo "1";}
-                    if($datos['tipo']=="Masaya"){echo "2";}
-                    if($datos['tipo']=="Chontales"){echo "3";}
-                    if($datos['tipo']=="Esteli"){echo "6";}
-                    if($datos['tipo']=="Leon"){echo "5";}
-                    if($datos['tipo']=="Matagalpa"){echo "9";}
-                    if($datos['tipo']=="Chinandega"){echo "4";}
-                    if($datos['tipo']=="Managua Bolonia"){echo "7";}
-                    if($datos['tipo']=="Managua Villa Fontana"){echo "8";}
-                    if($datos['tipo']=="Clinica Dansing"){echo "10";}
-                    ?>" selected hidden><?php
-                    if($datos['tipo']=="1"){echo "Managua";}
-                    if($datos['tipo']=="2"){echo "Masaya";}
-                    if($datos['tipo']=="3"){echo "Chontales";}
-                    if($datos['tipo']=="6"){echo "Esteli";}
-                    if($datos['tipo']=="5"){echo "Leon";}
-                    if($datos['tipo']=="9"){echo "Matagalpa";}
-                    if($datos['tipo']=="4"){echo "Chinandega";}
-                    if($datos['tipo']=="7"){echo "Managua Bolonia";}
-                    if($datos['tipo']=="8"){echo "Managua Villa Fontana";}
-                    if($datos['tipo']=="10"){echo "Clinica Dansing";}
-                    ?></option>
+                    echo $_SESSION['sucursal']; ?>" selected><?php
+
+                        if ($_SESSION['sucursal'] == "1") {
+                            echo "Managua";
+                        }
+                        if ($_SESSION['sucursal'] == "2") {
+                            echo "Masaya";
+                        }
+                        if ($_SESSION['sucursal'] == "3") {
+                            echo "Chontales";
+                        }
+                        if ($_SESSION['sucursal'] == "6") {
+                            echo "Esteli";
+                        }
+                        if ($_SESSION['sucursal'] == "5") {
+                            echo "Leon";
+                        }
+                        if ($_SESSION['sucursal'] == "9") {
+                            echo "Matagalpa";
+                        }
+                        if ($_SESSION['sucursal'] == "4") {
+                            echo "Chinandega";
+                        }
+                        if ($_SESSION['sucursal'] == "7") {
+                            echo "Managua Bolonia";
+                        }
+                        if ($_SESSION['sucursal'] == "8") {
+                            echo "Managua Villa Fontana";
+                        }
+                        if ($_SESSION['sucursal'] == "10") {
+                            echo "Clinica Dansing";
+                        }
+
+                        ?></option>
                     <option class="form-control" value="1">Managua</option>
                     <option class="form-control" value="2">Masaya</option>
                     <option class="form-control" value="3">Chontales</option>

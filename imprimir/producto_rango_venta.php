@@ -15,8 +15,8 @@ if ($_POST) {
     $primera = datos_clientes::primera_factura_no($sucursal, $fecha1, $fecha2, $mysqli);
     $segunda = datos_clientes::ultima_factura_no($sucursal, $fecha1, $fecha2, $mysqli);
 
-    $result4 = $mysqli->query("SELECT nombre_producto,codigo_producto, SUM(unidad) as conteo,indtalonario FROM `factura` 
-WHERE (indtalonario >= '$primera' AND indtalonario <= '$segunda') and indsucursal='$sucursal' GROUP BY codigo_producto");
+    $result4 = $mysqli->query("SELECT nombre_producto,codigo_producto, unidad as conteo,indtalonario FROM `factura` 
+WHERE (indtalonario >= '$primera' AND indtalonario <= '$segunda') and indsucursal='$sucursal'  and factura.codigo_producto='ANELSAM-184' ORDER BY indtalonario DESC");
 }
 ?>
 <div class="container">
@@ -30,7 +30,6 @@ WHERE (indtalonario >= '$primera' AND indtalonario <= '$segunda') and indsucursa
     <table class="table table-bordered table-responsive" style="padding: 1em;">
         <thead>
         <tr style="border-bottom: 1px solid black">
-            <th scope="col">#</th>
             <th scope="col">Unidad</th>
             <th scope="col">Codigo Producto</th>
             <th scope="col">Producto</th>
@@ -39,12 +38,11 @@ WHERE (indtalonario >= '$primera' AND indtalonario <= '$segunda') and indsucursa
         </thead>
         <tbody>
         <?php
-        $conteo = 0;
+        $conteo22 = 0;
         while ($resultado = $result4->fetch_assoc()) {
-            $conteo = $conteo + 1;
+            $conteo22 = $conteo22 + $resultado['conteo'];
             ?>
             <tr>
-                <th scope="row"><?php echo $conteo; ?></th>
                 <td class="greend"><?php echo $resultado['conteo']; ?></td>
                 <td><?php echo $resultado['codigo_producto']; ?></td>
                 <td><?php echo $resultado['nombre_producto']; ?></td>
@@ -52,8 +50,10 @@ WHERE (indtalonario >= '$primera' AND indtalonario <= '$segunda') and indsucursa
             </tr>
             <?php
         } ?>
+
         </tbody>
     </table>
+    <?php  echo $conteo22; ?>
 </div>
 <script language="javascript" type="text/javascript">
     window.onload = function () {

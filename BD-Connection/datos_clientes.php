@@ -328,6 +328,17 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         }
     }
 
+    public static function Factura_petetida_verificacion($indsucursal,$indtalonario, $mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario  FROM `total_factura` WHERE indtalonario='$indtalonario' and indsucursal='$indsucursal';");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function total_deuda_faltante($indtemp, $mysqli)
     {
         $result = $mysqli->query("SELECT SUM(pago) as total FROM `creditos_pago` WHERE indtemp= '$indtemp' and indrecibo!='0'");
@@ -355,7 +366,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function buscar($indclientes, $mysqli)
     {
-        $result = $mysqli->query("SELECT * FROM `clientes` WHERE indcliente= '$indclientes'");
+        $result = $mysqli->query("SELECT nombre,apellido,indcliente,tipo FROM `clientes` WHERE indcliente= '$indclientes'");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
             return $row;
@@ -725,6 +736,15 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
             return $row3;
         }
         return "error";
+    }
+    public static function datos_generales_factura_talonario_verificacion($indtalonario, $indsucursal,$mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario FROM `factura` WHERE indtalonario='$indtalonario'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return true;
+        }
+        return false;
     }
 
     public static function datos_generales_talonario($key, $mysqli)
