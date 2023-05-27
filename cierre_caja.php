@@ -20,17 +20,16 @@ if ($_POST) {
         }
     }
     $credito_verificado = datos_clientes::verificar_retencion_credito($indsucursal, $inicio, $final, $mysqli);
-    echo $credito_verificado;
-    echo $credito;
-    if ($credito_verificado == $credito ) {
+    if ($credito_verificado == $credito){
+
         if ($contador2 == 0) {
-            datos_clientes::Cierre_Caja($indsucursal,$inicio,$final,$credito,$retencion,$mysqli);
+            datos_clientes::Cierre_Caja($indsucursal, $inicio, $final, $credito, $retencion, $mysqli);
             echo '<script>swal("Exito!", "Cierre de Caja con exito", "success");</script>';
         } else {
             echo '<script>swal("alerta!", "Tienes Facturas Pendiente", "error");</script>';
-
+            echo "dd";
         }
-    }else{
+    } else {
         echo '<script>swal("alerta!", "Falta Credito", "error");</script>';
     }
 }
@@ -96,6 +95,64 @@ if ($_POST) {
             <br>
         </div>
     </div>
+    <br>
+    <div class="container row z-depth-1 white">
+        <hr>
+        <h4 style="padding: 1em;">Usuarios Registrados</h4>
+        <hr>
+        <table class="table table-responsive-lg" style="height: 86px; width: 1189px;margin-bottom: 4em">
+            <tbody>
+            <tr>
+                <td style="width: 57px;">#</td>
+                <td style="width: 260px;"><b>Inicio</b></td>
+                <td style="width: 275px;"><b>Final</b></td>
+                <td style="width: 205.962px;"><b>Credito</b></td>
+                <td style="width: 205.962px;"><b>Retencio</b></td>
+                <td style="width: 205.962px;"><b>Fecha</b></td>
+                <td style="width: 205.962px;"><b>Hora</b></td>
+                <td style="width: 205.962px;"><b>Eliminar</b></td>
+            </tr>
+            <?php
+            $result = $mysqli->query("SELECT * FROM `cierre_caja` WHERE indsucursal='$indsucursal' AND bandera='1' LIMIT 4");
+            while ($resultado = $result->fetch_assoc()) {
+                ?>
+                <tr>
+                    <td style="width: 57px;"><?php echo $resultado['indempleado']; ?></td>
+                    <td style="width: 260px;"><?php echo $resultado['inicio']; ?></td>
+                    <td style="width: 275px;"><?php echo $resultado['fin']; ?></td>
+                    <td style="width: 188px;"><?php echo $resultado['credito']; ?></td>
+                    <td style="width: 190.038px;"><?php echo $resultado['retenciones']; ?></td>
+                    <td style="width: 190.038px;"><?php echo $resultado['fecha']; ?></td>
+                    <td style="width: 190.038px;"><?php echo $resultado['hora']; ?></td>
+                    <td style="width: 190.038px;"><a href="#" onclick="
+                            var i='<?php echo $resultado['indempleado']; ?>';
+                            verficar_eliminar(i);" class="btn btn-danger"><i class="icon-bin white-text"></i></a></td>
+                </tr>
+                <?php
+            }
+            ?>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function verficar_eliminar(codigo) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "Eliminiar Usuario",
+                icon: "success",
+                buttons: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        location.href = "eliminar_usuario_user.php?induser=" + codigo;
+                    } else {
+                        location.href = "#";
+                    }
+                });
+        }
+
+    </script>
 <?php
 include_once "header/footer.php";
 ?>

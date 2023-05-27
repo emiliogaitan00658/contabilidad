@@ -15,6 +15,7 @@ if ($_POST) {
         $telefono = strtoupper($_POST['texttelefono']);
 
         $varficar_nombres = datos_clientes::verificar_nombre_apellido($nombre, $apellido, $mysqli);
+
         if ($varficar_nombres == false) {
             $indusuario = datos_clientes::generar_ind_cliente($mysqli);
             $recues = datos_clientes::nuevo_usuario($indusuario, $nombre, $direccion1, $direccion2, $tipo, $telefono, $sucursale, $apellido, $mysqli);
@@ -153,6 +154,8 @@ if ($_POST) {
                     <option class="form-control" value="2">Empresa</option>
                     <option class="form-control" value="3">Estudiante</option>
                     <option class="form-control" value="4">Paciente</option>
+                    <option class="form-control" value="5">Tecnico</option>
+                    <option class="form-control" value="6">Otro</option>
                 </select>
             </div>
             <div class="control-pares col-md-3">

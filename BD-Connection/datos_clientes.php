@@ -121,7 +121,14 @@ class datos_clientes
     {
         $limit = 6;
         $resultado = random_int(10 ** ($limit - 1), (10 ** $limit) - 1);
-        return $resultado;
+        ///verificar si existe el cliente si no existe
+        $result = $mysqli->query("SELECT indcliente FROM `clientes` WHERE indcliente='$resultado'");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            self::generar_ind_cliente($mysqli);
+        }else{
+            return $resultado;
+        }
     }
 
     public static function generar_ind_cuota_pago($mysqli)
@@ -164,6 +171,19 @@ class datos_clientes
     public static function datos_clientes_generales($indcliente, $mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `clientes` WHERE indcliente='$indcliente'");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            return $row;
+        }
+        return false;
+    }
+
+
+    public static function datos_cierre_caja($indsucursal, $mysqli)
+    {
+        $fecha_actual=self::fecha_get_pc_MYSQL();
+        $result = $mysqli->query("SELECT COUNT(indtalonario) as total_factura,SUM(credito) as total_credito,SUM(subtotal) as sub,sum(total) as total FROM `total_factura` WHERE
+        (fecha BETWEEN '$fecha_actual' and '$fecha_actual') and indtalonario is NOT null and indsucursal='$indsucursal' and bandera ='1';");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
             return $row;
@@ -779,7 +799,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function ultima_factura_no($indsucursal, $fecha1, $fecha2, $mysqli)
     {
-        $result = $mysqli->query("SELECT * FROM `total_factura` WHERE indsucursal='$indsucursal' and bandera='1' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario desc limit 1");
+        $result = $mysqli->query("SELECT * FROM `total_factura` WHERE indsucursal='$indsucursal' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario desc limit 1");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3["indtalonario"];
@@ -799,7 +819,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function primera_factura_no($indsucursal, $fecha1, $fecha2, $mysqli)
     {
-        $result = $mysqli->query("SELECT * FROM `total_factura` WHERE indsucursal='$indsucursal' and bandera='1' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario asc limit 1");
+        $result = $mysqli->query("SELECT * FROM `total_factura` WHERE indsucursal='$indsucursal' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario asc limit 1");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3["indtalonario"];
@@ -809,7 +829,7 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
 
     public static function conteo_factura($indsucursal, $fecha1, $fecha2, $mysqli)
     {
-        $result = $mysqli->query("SELECT count(indtalonario) as conteo FROM `total_factura` WHERE indsucursal='$indsucursal' and bandera='1' and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario asc limit 1");
+        $result = $mysqli->query("SELECT count(indtalonario) as conteo FROM `total_factura` WHERE indsucursal='$indsucursal'  and indtalonario IS NOT NULL and (fecha BETWEEN '$fecha1' and '$fecha2') order by indtalonario asc limit 1");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3["conteo"];
@@ -1267,8 +1287,8 @@ VALUES (NULL, '$nombre_empresa', '$ruc','$detalles_empresa' , '$url_logo', '1');
     {
         $fecha = self::fecha_get_pc_MYSQL();
         $hora = self::hora_get_pc();
-        $insert1 = "INSERT INTO `cierre_caja` (`ind_factura`, `indsucursal`, `inicio`, `fin`, `credito`, `retenciones`, `fecha`, `hora`, `bandera`) 
-                        VALUES (NULL, '$indsucursal', '$inicio', '$final', '$credito', '$retencion', '$fecha', '$hora', '1'); ";
+        $insert1 = "INSERT INTO `cierre_caja` (`ind_factura`, `indsucursal`, `inicio`, `fin`, `credito`, `retenciones`, `fecha`, `hora`, `bandera`)
+VALUES ('', '1', '22', '23', '1', '1', '2023-05-02', '13:48:29', '1');";
         $query = mysqli_query($mysqli, $insert1);
         return true;
     }

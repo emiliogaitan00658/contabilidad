@@ -6,7 +6,7 @@ $_SESSION["Key"] = $Key;
 $sucursal = $_SESSION['sucursal'];
 $row = datos_clientes::buscar($indcliente, $mysqli);
 
-if ($row["tipo"]==null or $row["tipo"]=="" or $row["tipo"]==" " ){
+if ($row["tipo"] == null or $row["tipo"] == "" or $row["tipo"] == " ") {
     echo '<script>
    swal({
      title: "Mensaje ?",
@@ -43,9 +43,9 @@ if ($_POST) {
     $check_credito = isset($_POST['flexCheckCheckedcredito']) ? 1 : 0;
     $check_targeta = isset($_POST['flexCheckCheckedtargeta']) ? 1 : 0;
 //    $check_rx = isset($_POST['flexCheckCheckedrx']) ? 1 : 0;
-    if ($row['tipo']=="4"){
+    if ($row['tipo'] == "4") {
         $check_rx = 1;
-    }else {
+    } else {
         $check_rx = 0;
     }
     $co = $_POST['textcordobas'];
@@ -71,11 +71,11 @@ if ($_POST) {
     $exito = datos_clientes::facturafinal($Key, $sucursal, $check_credito, $indcliente, $check_cordoba, $check_dolar, $check_tras, $check_efect, $check_fise, $check_bac, $check_targeta,
         $cordobas, $dolar, $subtotalF, $totalF, $mysqli);
 
-   //EDITAR FACTURA SISTEMA
-    if ($_SESSION["TALONARIO"]!=null) {
-        $talonario=$_SESSION["TALONARIO"];
+    //EDITAR FACTURA SISTEMA
+    if ($_SESSION["TALONARIO"] != null) {
+        $talonario = $_SESSION["TALONARIO"];
         datos_clientes::Factura_genera_codigo($Key, $talonario, $sucursal, $mysqli);
-        $_SESSION["TALONARIO"]=null;
+        $_SESSION["TALONARIO"] = null;
     }
 
     if ($exito == true) {
@@ -84,7 +84,8 @@ if ($_POST) {
             echo '<script> location.href="detalles_credito.php?indcliente=' . $indcliente . '&key=' . $ress . '&total= ' . $totalF . '" </script>';
         } else {
             if ($check_rx == 1) {
-                echo '<script> location.href="temporal/buscar_RAX_medico.php?key=' . $ress . '" </script>';
+//                echo '<script> location.href="temporal/buscar_RAX_medico.php?key=' . $ress . '" </script>';
+                echo '<script> location.href="factura_dia.php" </script>';
             } else {
                 echo '<script> location.href="factura_dia.php" </script>';
 //              echo '<script>
@@ -169,13 +170,13 @@ if ($_SESSION["Key"] == "") {
                         Tarjeta
                     </label>
                 </div>
-<!--                <div class="form-check">-->
-<!--                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedrx"-->
-<!--                           name="flexCheckCheckedrx">-->
-<!--                    <label class="form-check-label" for="flexCheckChecked">-->
-<!--                        RX-->
-<!--                    </label>-->
-<!--                </div>-->
+                <!--                <div class="form-check">-->
+                <!--                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedrx"-->
+                <!--                           name="flexCheckCheckedrx">-->
+                <!--                    <label class="form-check-label" for="flexCheckChecked">-->
+                <!--                        RX-->
+                <!--                    </label>-->
+                <!--                </div>-->
             </div>
 
             <div class="control-pares col-md-3">

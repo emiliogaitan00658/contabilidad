@@ -3,13 +3,14 @@ include_once "../header/header_temporal.php";
 include_once '../BD-Connection/conection.php';
 include_once '../BD-Connection/datos_clientes.php';
 session_start();
-$Key=datos_clientes::Verificar_generador_codigo($mysqli);
+$Key = datos_clientes::Verificar_generador_codigo($mysqli);
 
-if(!empty($_GET["indcliente"])) {
-$_SESSION["indcliente"]=$_GET["indcliente"];
-$_SESSION["Key"]=$Key;
+if (!empty($_GET["indcliente"])) {
+    echo "ddsd";
+    $_SESSION["indcliente"] = $_GET["indcliente"];
+    $_SESSION["Key"] = $Key;
     echo '<script> location.href="../crear_factura.php" </script>';
-}else{
+} else {
     echo '<script>
  swal({
    title: "Error ?",
@@ -26,9 +27,6 @@ $_SESSION["Key"]=$Key;
  });
  </script>';
 }
-
-
-
 
 
 include_once "../header/footer_temporal.php";

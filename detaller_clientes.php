@@ -118,16 +118,22 @@ $datos = datos_clientes::datos_clientes_generales($indcliente, $mysqli);
                     if($datos['tipo']=="Empresa"){echo "2";}
                     if($datos['tipo']=="Estudiante"){echo "3";}
                     if($datos['tipo']=="Paciente"){echo "4";}
+                    if($datos['tipo']=="Tecnico"){echo "5";}
+                    if($datos['tipo']=="Otro"){echo "6";}
                     ?>" selected hidden><?php
                         if($datos['tipo']=="1"){echo "Doc(@)";}
                         if($datos['tipo']=="2"){echo "Empresa";}
                         if($datos['tipo']=="3"){echo "Estudiante";}
                         if($datos['tipo']=="4"){echo "Paciente";}
+                        if($datos['tipo']=="5"){echo "Tecnico";}
+                        if($datos['tipo']=="6"){echo "otro";}
                         ?></option>
                     <option class="form-control" value="1">Doc(@)</option>
                     <option class="form-control" value="2">Empresa</option>
                     <option class="form-control" value="3">Estudiante</option>
                     <option class="form-control" value="4">Paciente</option>
+                    <option class="form-control" value="5">Tecnico</option>
+                    <option class="form-control" value="6">Otro</option>
                 </select>
             </div>
             <div class="control-pares col-md-3">

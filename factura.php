@@ -83,6 +83,7 @@ if (!empty($_POST["textnombre"])) {
                         <option class="form-control" value="10">Clinica Dansing</option>
                     </select>
                 </div>
+<!--                esta funcion hay que repara-->
                 <div class="control-pares col-md-2">
                     <select name="texttipo" class="form-control alert-primary" required>
                         <option class="form-control" value="0">Todo Clientes</option>
@@ -90,6 +91,8 @@ if (!empty($_POST["textnombre"])) {
                         <option class="form-control" value="2">Empresa</option>
                         <option class="form-control" value="3">Estudiante</option>
                         <option class="form-control" value="4">Paciente</option>
+                        <option class="form-control" value="5">Tecnico</option>
+                        <option class="form-control" value="6">Otro</option>
                     </select>
                 </div>
                 <div class="control-pares col-md-4">

@@ -17,14 +17,16 @@ if (!$_SESSION) {
 //}
 //if ($total >  0) {
 //    ?>
-<!--    <div class="container">-->
-<!--        <p class="alert alert-danger" style="position: center">!Alerta:-->
-<!--            Total de factura no ingresadas <b><i>--><?php //echo $total; ?><!--</i></b> (Manualmente o regitras factura). <a-->
-<!--                    href="faltante.php" class="btn btn-danger">ver</a></p>-->
-<!--    </div>-->
-<!--    --><?php
+    <!--    <div class="container">-->
+    <!--        <p class="alert alert-danger" style="position: center">!Alerta:-->
+    <!--            Total de factura no ingresadas <b><i>--><?php //echo $total; ?><!--</i></b> (Manualmente o regitras factura). <a-->
+    <!--                    href="faltante.php" class="btn btn-danger">ver</a></p>-->
+    <!--    </div>-->
+    <!--    --><?php
 //}
 //}
+
+$datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
 ?>
 
     <style>
@@ -69,6 +71,7 @@ if (!$_SESSION) {
         .dropdown a:hover {
             background-color: #2c3e50;
         }
+
         /*.circle_demo {*/
         /*    height:5px!important;*/
         /*    width:5px!important;*/
@@ -83,14 +86,17 @@ if (!$_SESSION) {
     </style>
 
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
-        <div style="padding: 1em">
-            <h5 class="alert alert-heading z-depth-1"><img src="assets/icono_factura.png" alt="" width="5%">Factura Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
-                                                                href="cierre_caja.php"
-                                                                class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp;   <a class="btn btn-dark blue-grey right"
-                                                                href="temporal/cliente_manual.php"
-                                                                class="right btn btn-info"  style="margin-left: 1em;">Factura Manual</a>   <a class="btn btn-outline-primary right"
-                                                                href="temporal/cliente_garantia.php"
-                                                                class="right btn btn-info" >Garantia Equipo</a></h5>
+        <div style="padding: 0.5em">
+            <h5 class="alert alert-heading z-depth-1"><img src="assets/icono_factura.png" alt="" width="5%">Factura
+                Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
+                            href="cierre_caja.php"
+                            class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp; <a
+                    class="btn btn-dark blue-grey right"
+                    href="temporal/cliente_manual.php"
+                    class="right btn btn-info" style="margin-left: 1em;">Factura Manual</a> <a
+                    class="btn btn-outline-primary right"
+                    href="temporal/cliente_garantia.php"
+                    class="right btn btn-info">Garantia Equipo</a></h5>
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
@@ -213,6 +219,33 @@ if (!$_SESSION) {
             <hr>
             <!--            <p class="red-text">Las facturas anuladas deben de ser reportadas en el sistema, es una obligación  del personal reportarlas, igual registrar todas las facturas  realizadas</p>-->
             <!--            <hr>-->
+            <?php
+            if ($indsucursal == "2" or $indsucursal == "3" or $indsucursal == "4" or $indsucursal == "5" or $indsucursal == "6" or $indsucursal == "7") {
+                ?>
+                <div class="row" style="margin: 0;padding: 0;">
+                    <p class="alert alert-primary center-block">
+                        <span>Total Factura: <?php echo $datos_hoy_con["total_factura"]; ?></span> <span
+                            style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
+                        <span
+                            style="margin-left:1em ;">Sub_Total Ventas: C$ <?php echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?></span><span
+                            style="margin-left:1em ;">Total Venta: C$<?php echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?></span>
+                    </p>
+                </div>
+                <?php
+            } else if ($indsucursal == "1" and $indempleado == "24") { ?>
+
+                <div class="row" style="margin: 0;padding: 0;">
+                    <p class="alert alert-danger center-block">
+                        <span>Total Factura: <?php echo $datos_hoy_con["total_factura"]; ?></span> <span
+                            style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
+                        <span
+                            style="margin-left:1em ;">Sub_Total Ventas: C$ <?php echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?></span><span
+                            style="margin-left:1em ;">Total Venta: C$<?php echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?></span>
+                    </p>
+                </div>
+                <?php
+            } ?>
+
         </div>
     </div>
     <hr>
@@ -220,7 +253,7 @@ if (!$_SESSION) {
         <table class="table table-responsive-sm table-bordered  table-hover" style="padding:0em">
             <thead>
             <tr style="border-bottom: 1px solid black;" class="alert alert-info">
-<!--                <th scope="col">*</th>-->
+                <!--                <th scope="col">*</th>-->
                 <th scope="col">No.Factura</th>
                 <th scope="col" class="center-align">Nombre y Apellido</th>
                 <th scope="col">Subtotal C$</th>
@@ -247,7 +280,7 @@ if (!$_SESSION) {
                 if ($talo == "") {
                     $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE total_factura.fecha='$fecha2' and total_factura.indsucursal='$sucursal' ORDER by indtotalfactura DESC");
                 } else {
-                    $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE  indtalonario='$talo' ORDER by indtotalfactura DESC");
+                    $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE  indtalonario='$talo' and  total_factura.indsucursal='$indsucursal' ORDER by indtotalfactura DESC");
                 }
             } else {
                 $fecha = datos_clientes::fecha_get_pc_MYSQL();
@@ -262,8 +295,8 @@ if (!$_SESSION) {
                 ?>
                 <?php if ($resultado['bandera'] == "1") { ?>
                     <tr>
-<!--                        <td class="circle_demo">-->
-<!--                        </td>-->
+                        <!--                        <td class="circle_demo">-->
+                        <!--                        </td>-->
                         <td>
                             <a href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>">
                                 <?php echo $resultado["indtalonario"]; ?></a>
@@ -278,19 +311,24 @@ if (!$_SESSION) {
                             <b><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></b></td>
                         <td class="center-align"><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td class="center-align"><?php echo $resultado["hora"]; ?></td>
-                        <td class="center-align"><a href="pdfv2/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
-                                                    class="btn btn-success" target="_blank"><i class="icon-printer"></i></a>
+                        <!--                        <td class="center-align"><a href="pdfv2/htmltopdf.php?key=-->
+                        <?php //echo $resultado['indtemp']; ?><!--"-->
+                        <!--                                                    class="btn btn-success" target="_blank"><i class="icon-printer"></i></a>-->
+                        <!--                        </td>-->
+                        <td class="center-align"><a
+                                href="temporal/confima_factura_numero.php?key=<?php echo $resultado['indtemp']; ?>"
+                                class="btn btn-success" target="_blank"><i class="icon-printer"></i></a>
                         </td>
 
                         <td><a href="#"
                                class="btn btn-danger" onclick="
-                                    var i='<?php echo $resultado['indtemp']; ?>';
-                                    verficar_eliminar(i);"><i class="btn-danger icon-bin"></i></a></td>
+                                var i='<?php echo $resultado['indtemp']; ?>';
+                                verficar_eliminar(i);"><i class="btn-danger icon-bin"></i></a></td>
 
 
                         <td class="center-align"><a
-                                    href="temporal/editar_factura_verificacion.php?temp=<?php echo $resultado['indtemp'] . "&indcliente=" . $indcliente. '&indtalonario=' . $resultado['indtalonario'];; ?>"
-                                    class="btn btn-success">Editar</a></td>
+                                href="temporal/editar_factura_verificacion.php?temp=<?php echo $resultado['indtemp'] . "&indcliente=" . $indcliente . '&indtalonario=' . $resultado['indtalonario'];; ?>"
+                                class="btn btn-success">Editar</a></td>
                         <!--                        <td class="center-align"></td>-->
 
                         <!--                        <td class="center-align"></td>-->
@@ -304,19 +342,19 @@ if (!$_SESSION) {
                                 <button onclick="myFunction<?php echo $conteo_i; ?>()" class="dropbtn">:</button>
                                 <div id="myDropdown<?php echo $conteo_i; ?>" class="dropdown-content">
                                     <a href="#" onclick="
-                                            var i='<?php echo $resultado['indtemp']; ?>';
-                                            verficar_anulacion(i);">Anular</a>
+                                        var i='<?php echo $resultado['indtemp']; ?>';
+                                        verficar_anulacion(i);">Anular</a>
                                     <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
                                        target="_blank">Proforma</a>
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>"
                                     >Retenciòn</a>
-                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
+                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente'] . "&key=" . $resultado['indtemp'] . '&total= ' . $resultado["total"]; ?>"
                                     >Nuevo.Creditos</a>
-                                    <?php  if ($resultado['indtalonario']==null){?>
-                                    <a href="temporal/tranferir_factura.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
-                                    >Tranferir.Factura</a>
+                                    <?php if ($resultado['indtalonario'] == null) { ?>
+                                        <a href="temporal/tranferir_factura.php?indcliente=<?php echo $resultado['indcliente'] . "&key=" . $resultado['indtemp'] . '&total= ' . $resultado["total"]; ?>"
+                                        >Tranferir.Factura</a>
 
-                                    <?php  } ?>
+                                    <?php } ?>
 
                                 </div>
                                 <script>
@@ -345,11 +383,11 @@ if (!$_SESSION) {
                         </td>
 
                     </tr>
-                <?php } else { ?>0
-                    <tr class="red-text">
-<!--                        <td>-->
-<!--                            <i class="circle_demo"></i>-->
-<!--                        </td>-->
+                <?php } else { ?>
+                    <tr class="red-text alert alert-danger">
+                        <!--                        <td>-->
+                        <!--                            <i class="circle_demo"></i>-->
+                        <!--                        </td>-->
                         <td>
                             <del><a class="red-text"
                                     href="temporal/editar_numero_factura.php?key=<?php echo $resultado['indtemp'] . '&indtalonario=' . $resultado['indtalonario']; ?>"><?php echo $resultado["indtalonario"]; ?></a>
@@ -363,11 +401,11 @@ if (!$_SESSION) {
                         <td class="center-align"><?php echo number_format(($resultado["total"] / $dolar), 2, '.', ','); ?></td>
                         <td><?php echo datos_clientes::traforma_fecha($resultado["fecha"]); ?></td>
                         <td><?php echo $resultado["hora"]; ?></td>
-                        <td><a href="pdfv2/htmltopdf.php?key=<?php echo $resultado['indtemp']; ?>"
+                        <td><a href="temporal/confima_factura_numero.php?key=<?php echo $resultado['indtemp']; ?>"
                                class="btn btn-success" target="_blank"><i class="icon-printer"></i></a></td>
                         <td><a href="#" onclick="
-                                    var i='<?php echo $resultado['indtemp']; ?>';
-                                    verficar_eliminar(i);"
+                                var i='<?php echo $resultado['indtemp']; ?>';
+                                verficar_eliminar(i);"
                                class="btn btn-danger"><i class="btn-danger icon-bin"></i></a></td>
                         <td><a href="#"
                                class="btn btn-success">Editar</a></td>
@@ -385,10 +423,10 @@ if (!$_SESSION) {
                                 <button onclick="myFunction<?php echo $conteo_i; ?>()" class="dropbtn">:</button>
                                 <div id="myDropdown<?php echo $conteo_i; ?>" class="dropdown-content">
                                     <a href="#">--</a>
-                                    <a href="temporal/dolar_pregunta.php?key=<?php echo $resultado['indtemp']; ?>"
-                                       target="_blank">Proforma</a>
+                                    <a href="#"
+                                       target="_blank">__</a>
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>">Retenciòn</a>
-                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente']. "&key=" . $resultado['indtemp']. '&total= '.$resultado["total"]; ?>"
+                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente'] . "&key=" . $resultado['indtemp'] . '&total= ' . $resultado["total"]; ?>"
                                     >Crear Creditos</a>
                                 </div>
                             </div>
