@@ -128,7 +128,7 @@ if ($_POST) {
             </tbody>
         </table>
     </div>
-
+<!--examen de prueba-->
     <script>
         function verficar_eliminar(codigo) {
             swal({
