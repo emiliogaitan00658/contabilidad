@@ -87,22 +87,16 @@ if ($_POST) {
                 </section>
             </form>
             <hr>
-            <a class="btn btn-dark light-blue right" href="factura_dia.php"><i class="icon-arrow-left2"></i>Regresar</a>
-            <br>
-            <p>Nota: El detalles solo seran cambiado y autizado por el personal adminstrativo de la
-                plataforma.</p>
-            <p>Contactar al ingeniero de la empresa</p>
+            <p>Contactar al ingeniero de la empresa por fallos tecnico.</p>
             <br>
         </div>
     </div>
     <br>
-    <div class="container row z-depth-1 white">
-        <hr>
-        <h4 style="padding: 1em;">Usuarios Registrados</h4>
-        <hr>
-        <table class="table table-responsive-lg" style="height: 86px; width: 1189px;margin-bottom: 4em">
+    <div class="container row z-depth-1 white" style="border-radius: 6px;">
+            <h4 class="alert alert-primary" style="margin: 0.5em;">Registro de cierre de caja <?php echo datos_clientes::nombre_sucursal($indsucursal); ?></h4>
+        <table class="table table-bordered  table-info style="height: 86px; width: 1189px;margin-bottom: 4em">
             <tbody>
-            <tr>
+            <tr class="alert alert-primary">
                 <td style="width: 57px;">#</td>
                 <td style="width: 260px;"><b>Inicio</b></td>
                 <td style="width: 275px;"><b>Final</b></td>
@@ -117,7 +111,7 @@ if ($_POST) {
             while ($resultado = $result->fetch_assoc()) {
                 ?>
                 <tr>
-                    <td style="width: 57px;"><?php echo $resultado['indempleado']; ?></td>
+                    <td style="width: 57px;"><?php echo $resultado['ind_factura']; ?></td>
                     <td style="width: 260px;"><?php echo $resultado['inicio']; ?></td>
                     <td style="width: 275px;"><?php echo $resultado['fin']; ?></td>
                     <td style="width: 188px;"><?php echo $resultado['credito']; ?></td>
