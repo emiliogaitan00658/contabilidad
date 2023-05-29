@@ -353,7 +353,6 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                                     <?php if ($resultado['indtalonario'] == null) { ?>
                                         <a href="temporal/tranferir_factura.php?indcliente=<?php echo $resultado['indcliente'] . "&key=" . $resultado['indtemp'] . '&total= ' . $resultado["total"]; ?>"
                                         >Tranferir.Factura</a>
-
                                     <?php } ?>
 
                                 </div>

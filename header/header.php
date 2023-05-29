@@ -74,7 +74,7 @@ if (!empty($_SESSION)) {
 <!--                <a class="nav-link" href="faltante.php">Faltantes</a>-->
 <!--            </li>-->
             <li class="nav-item">
-                <a class="nav-link" href="reportes.php">Control Sucursal</a>
+                <a class="nav-link" href="#">Control Sucursal</a>
             </li>
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link" href="pagos_mora">Credito</a>-->

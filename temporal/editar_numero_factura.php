@@ -7,8 +7,11 @@ if ($_POST) {
     $key = $_POST['textkey'];
     $indtalonario = $_POST['texttalonario'];
 
-    $res = datos_clientes::cambio_numero_factura($key, $indtalonario, $mysqli);
-    echo '<script>
+   if ($indtalonario=="0"){
+       echo '<script> swal("Denegado", "El numro de factura no puede ser ( 0 )", "error");</script>';
+   }else{
+       $res = datos_clientes::cambio_numero_factura($key, $indtalonario, $mysqli);
+       echo '<script>
    swal({
      title: "Exito ?",
      text: "Se a cambiado el numero de factura",
@@ -24,52 +27,7 @@ if ($_POST) {
      }
    });
    </script>';
-
-
-
-//    $respuesta = datos_clientes::Factura_petetida_verificacion($indsucursal,$indtalonario, $mysqli);
-
-
-
-
-//
-//    if ($respuesta==false){
-//        $res = datos_clientes::cambio_numero_factura($key, $indtalonario, $mysqli);
-//        if ($res == true) {
-//            echo '<script>
-//   swal({
-//     title: "Exito ?",
-//     text: "Se a cambiado el numero de factura",
-//     icon: "success",
-//     buttons: true,
-//
-//   })
-//   .then((willDelete) => {
-//     if (willDelete) {
-//        location.href="../factura_dia.php";
-//     }else {
-//       htmlspecialchars($_SERVER["PHP_SELF"]);
-//     }
-//   });
-//   </script>';
-//        }
-//    }else{
-//        echo '<script>
-//   swal({
-//     title: "Error ?",
-//     text: "Este numero de factura esta registrado",
-//     icon: "error",
-//     buttons: true,
-//
-//   })
-//   .then((willDelete) => {
-//     if (willDelete) {
-//       htmlspecialchars($_SERVER["PHP_SELF"]);
-//     }else {
-//       htmlspecialchars($_SERVER["PHP_SELF"]);
-//     }
-//   });
-//   </script>';    }
+   }
 }
 
 ?>
