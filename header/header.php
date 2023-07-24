@@ -47,6 +47,7 @@ if (!empty($_SESSION)) {
     $indempleado=$_SESSION["indempleado"];
     $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
 }
+date_default_timezone_set('America/Managua');
 
 ?>
 <div class="white rounded container-fluid center-block center" id="esconder_menu">

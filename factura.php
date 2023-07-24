@@ -14,6 +14,9 @@ if (!empty($_POST["textnombre"])) {
 }else{
     $nombre ="0";
 }
+
+
+
 ?>
 <div class="container white rounded z-depth-1" style="border-radius: 6px;">
     <div style="padding: 1em">
@@ -86,7 +89,30 @@ if (!empty($_POST["textnombre"])) {
 <!--                esta funcion hay que repara-->
                 <div class="control-pares col-md-2">
                     <select name="texttipo" class="form-control alert-primary" required>
-                        <option class="form-control" value="0">Todo Clientes</option>
+                        <?php if (!$_POST) { ?>
+                            <option class="form-control" value="<?php echo "1"; ?>" selected>Doctor(@)</option>
+                        <?php } else { ?>
+                            <option class="form-control" value="<?php
+                            echo $_POST['texttipo']; ?>" selected><?php
+
+                                if ($_POST['texttipo'] == "1") {
+                                    echo "Doctor(@)";
+                                }
+
+                                if ($_POST['texttipo'] == "2") {
+                                    echo "Empresa";
+                                } if ($_POST['texttipo'] == "3") {
+                                    echo "Estudiante";
+                                } if ($_POST['texttipo'] == "4") {
+                                    echo "Paciente";
+                                } if ($_POST['texttipo'] == "5") {
+                                    echo "Tecnico";
+                                } if ($_POST['texttipo'] == "6") {
+                                    echo "Otro";
+                                }
+                                ?>
+                            </option>
+                        <?php } ?>
                         <option class="form-control" value="1">Doctor(@)</option>
                         <option class="form-control" value="2">Empresa</option>
                         <option class="form-control" value="3">Estudiante</option>
@@ -127,14 +153,15 @@ if (!empty($_POST["textnombre"])) {
         $contador=0;
         if ($_POST) {
             $sucursalB = $_POST["textsucursal"];
+            $tipo_cliente = $_POST["texttipo"];
             if($sucursalB!="0"){
                 $result4 = $mysqli->query("SELECT * FROM clientes 
          WHERE (nombre LIKE _utf8  '%$nombre%' 
-         OR apellido LIKE _utf8  '%$nombre%') and status='1' and indsucursal='$sucursalB' ORDER BY nombre  ASC limit 45");
+         OR apellido LIKE _utf8  '%$nombre%') and status='1' and indsucursal='$sucursalB' and tipo='$tipo_cliente' ORDER BY nombre  ASC limit 45");
             }else{
                 $result4 = $mysqli->query("SELECT * FROM clientes 
          WHERE (nombre LIKE _utf8  '%$nombre%' 
-         OR apellido LIKE _utf8  '%$nombre%') and status='1' ORDER BY nombre  ASC limit 45");
+         OR apellido LIKE _utf8  '%$nombre%') and status='1' and tipo='$tipo_cliente' ORDER BY nombre  ASC limit 45");
             }
             while ($resultado = $result4->fetch_assoc()) {
                 $contador=1+$contador;

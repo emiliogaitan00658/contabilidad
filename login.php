@@ -57,6 +57,7 @@ width: 100%;'>
             $_SESSION['sucursal'] = $resul;
             $_SESSION["Key"] = "";
             $_SESSION["RAX"] = "";
+            $_SESSION["verificar"]=0;
             $_SESSION["indempleado"] = $resul_ind_empleado;
             datos_clientes::historial_acceso("Login.php", $resul, $resul_ind_empleado, $mysqli);
 

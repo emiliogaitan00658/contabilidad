@@ -3,6 +3,29 @@
 if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
+
+$fecha1 = datos_clientes::fecha_get_pc_MYSQL();
+$fecha2 = datos_clientes::fecha_get_pc_MYSQL();
+$uno=datos_clientes::primera_factura_no($indsucursal, $fecha1, $fecha2, $mysqli);
+$dos=datos_clientes::ultima_factura_no($indsucursal, $fecha1, $fecha2, $mysqli);
+
+$numeros_presentes=datos_clientes::rango_hoy_facturacion($indsucursal, $fecha1, $fecha2, $mysqli);
+
+function numeros_faltantes_en_rango($A, $B, $numeros_presentes) {
+    $numeros_faltantes = array();
+    for ($num = $A; $num <= $B; $num++) {
+        if (!in_array($num, $numeros_presentes)) {
+            $numeros_faltantes[] = $num;
+        }
+    }
+    return $numeros_faltantes;
+}
+
+$A = $uno;
+$B = $dos;
+
+$numeros_faltantes = numeros_faltantes_en_rango($A, $B, $numeros_presentes);
+
 //if($indsucursal!=1) {
 //    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
 //$dia_uno = Extraccion_fecha::_data_ultima_fecha_del_mes();
@@ -207,13 +230,15 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                     <div class="control-pares col-md-2">
                         <input type="submit" value="Buscar" class="btn white-text blue-grey btn-primary"/>
                     </div>
+
+                    <?php if($indsucursal=="1"){?>
                     <div class="control-pares col-md-2">
                         <a class="nav-link alert alert-danger bg-red" href="talonario_cambio.php" style="margin: 0">
                             <b><?php if (!empty($_SESSION)) {
                                     echo "No." . $talonario;
                                 } ?> <i class="icon-arrow-right2 red-text"></i></b></a>
                     </div>
-
+                    <?php }?>
                 </section>
             </form>
             <hr>
@@ -224,6 +249,8 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                 ?>
                 <div class="row" style="margin: 0;padding: 0;">
                     <p class="alert alert-primary center-block">
+                        <span class="red-text">Facturas Faltantes:{ <?php // Mostrar los números faltantes
+                            echo implode(", ", $numeros_faltantes); ?>  }</span>
                         <span>Total Factura: <?php echo $datos_hoy_con["total_factura"]; ?></span> <span
                             style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
                         <span
@@ -236,7 +263,10 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
 
                 <div class="row" style="margin: 0;padding: 0;">
                     <p class="alert alert-danger center-block">
-                        <span>Total Factura: <?php echo $datos_hoy_con["total_factura"]; ?></span> <span
+                        <span class="red-text">Facturas Faltantes:{ <?php // Mostrar los números faltantes
+                            echo implode(", ", $numeros_faltantes); ?> }</span> <span
+                            style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
+                        <span
                             style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
                         <span
                             style="margin-left:1em ;">Sub_Total Ventas: C$ <?php echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?></span><span

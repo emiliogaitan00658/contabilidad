@@ -1,3 +1,55 @@
 en ves de cedula debe de cambiar a tipo
 en talonario indtempo ahora va hacer numero recibo
 SELECT * FROM `clientes` WHERE nombre LIKE "%DR%" or nombre="%DRA%" or nombre="%DRA.%" or nombre="%DR.%";
+
+echo '<script>
+ swal({
+   title: "Exito ?",
+   text: "Guardado Con Exitoooo",
+   icon: "success",
+   buttons: true,
+
+ })
+ .then((willDelete) => {
+   if (willDelete) {
+     location.href="temporal/indcliente.php?indcliente=' . $indusuario . '";
+   }else {
+
+   }
+ });
+ </script>';
+
+
+echo '<script>
+ swal({
+   title: "Error ?",
+   text: "Este Usuario Existe",
+   icon: "error",
+   buttons: false,
+
+ })
+ .then((willDelete) => {
+   if (willDelete) {
+
+   }else {
+
+   }
+ });
+ </script>';
+
+ echo '<script>
+ swal({
+   title: "No valido ?",
+   text: "No puede integrar caracter en apellido",
+   icon: "error",
+   buttons: false,
+
+ })
+ .then((willDelete) => {
+   if (willDelete) {
+
+   }else {
+
+   }
+ });
+ </script>';

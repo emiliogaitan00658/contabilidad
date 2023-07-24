@@ -6,21 +6,50 @@ if (!$_SESSION) {
 if ($_POST) {
 
     if (!empty($_POST['textnombre'])) {
+        function quitarCaracteresEspeciales($texto)
+        {
+            // Utilizamos una expresión regular para reemplazar todo lo que no sean dígitos o letras con una cadena vacía
+//            return preg_replace('/[^a-zA-Z0-9]/', '', $texto);
+            return preg_replace('/[^a-zA-Z0-9\s]/', '', $texto);
+        }
+
+// Ejemplo de uso
         $nombre = strtoupper($_POST['textnombre']);
+        $nombre1 = quitarCaracteresEspeciales($nombre);
         $apellido = strtoupper($_POST['textapellido']);
+        $apellido2 = quitarCaracteresEspeciales($apellido);
+
+
         $sucursale = strtoupper($_POST['textsucursal']);
         $tipo = strtoupper($_POST['texttipo']);
         $direccion1 = strtoupper($_POST['textdireccion1']);
         $direccion2 = strtoupper($_POST['textdireccion2']);
         $telefono = strtoupper($_POST['texttelefono']);
 
-        $varficar_nombres = datos_clientes::verificar_nombre_apellido($nombre, $apellido, $mysqli);
+        $varficar_nombres = datos_clientes::verificar_nombre_apellido($nombre1, $apellido2, $mysqli);
+
+
+        function validarInput($input)
+        {
+            // Eliminar espacios en blanco al inicio y al final del input
+            $input = trim($input);
+
+            // Comprobar si el input es igual a un punto o está en blanco
+            if ($input === '.' || empty($input)) {
+                return false; // No válido
+            } else {
+                return true; // Válido
+            }
+        }
+
 
         if ($varficar_nombres == false) {
-            $indusuario = datos_clientes::generar_ind_cliente($mysqli);
-            $recues = datos_clientes::nuevo_usuario($indusuario, $nombre, $direccion1, $direccion2, $tipo, $telefono, $sucursale, $apellido, $mysqli);
-            if ($recues == true) {
-                echo '<script>
+
+            if (validarInput($apellido)) {
+                $indusuario = datos_clientes::generar_ind_cliente($mysqli);
+                $recues = datos_clientes::nuevo_usuario($indusuario, $nombre1, $direccion1, $direccion2, $tipo, $telefono, $sucursale, $apellido2, $mysqli);
+                if ($recues == true) {
+                    echo '<script>
  swal({
    title: "Exito ?",
    text: "Guardado Con Exitoooo",
@@ -32,7 +61,25 @@ if ($_POST) {
    if (willDelete) {
      location.href="temporal/indcliente.php?indcliente=' . $indusuario . '";
    }else {
-     
+
+   }
+ });
+ </script>';
+                }
+            } else {
+                echo '<script>
+ swal({
+   title: "No valido ?",
+   text: "No puede integrar caracter en apellido",
+   icon: "error",
+   buttons: false,
+
+ })
+ .then((willDelete) => {
+   if (willDelete) {
+
+   }else {
+
    }
  });
  </script>';
@@ -48,14 +95,14 @@ if ($_POST) {
  })
  .then((willDelete) => {
    if (willDelete) {
-     
+
    }else {
-      
+
    }
  });
  </script>';
-
         }
+
     }
 }
 ?>
@@ -84,7 +131,8 @@ if ($_POST) {
                 <input type="text" name="textnombre" class="form-control"
                        value="<?php if (!empty($_POST['textnombre'])) {
                            echo $_POST['textnombre'];
-                       } ?>" placeholder="Nombres" required  onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || )">
+                       } ?>" placeholder="Nombres" required
+                       onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || )">
             </div>
             <div class="control-pares col-md-5">
                 <label for="" class="control-label"><u>Apellidos o No RUC: *</u></label>

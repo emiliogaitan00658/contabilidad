@@ -6,7 +6,6 @@ session_start();
 $Key = datos_clientes::Verificar_generador_codigo($mysqli);
 
 if (!empty($_GET["indcliente"])) {
-    echo "ddsd";
     $_SESSION["indcliente"] = $_GET["indcliente"];
     $_SESSION["Key"] = $Key;
     echo '<script> location.href="../crear_factura.php" </script>';

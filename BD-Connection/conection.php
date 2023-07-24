@@ -6,10 +6,8 @@
  * Time: 03:38 PM
  */
 error_reporting (0);
-
-$mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
-//$mysqli = new mysqli("localhost", "root", "", "contabilidad22");
-
+//$mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
+$mysqli = new mysqli("localhost", "root", "", "contabilidad_ortho");
 if (mysqli_connect_errno()) {
     die("Error al conectar: " . mysqli_connect_error());
 }

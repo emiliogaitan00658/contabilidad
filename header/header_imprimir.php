@@ -42,6 +42,8 @@ $dolar=datos_clientes::cambio_dolar($mysqli);
 $nombre_empleado=datos_clientes::nombre_empleado($_SESSION["indempleado"],$mysqli);
 $indempleado=$_SESSION["indempleado"];
 $datos_empresa=datos_clientes::mostrar_detalle_empresa($mysqli);
+date_default_timezone_set('America/Managua');
+
 ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVK62C6JJC"></script>
