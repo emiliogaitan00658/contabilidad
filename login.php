@@ -1,4 +1,4 @@
-<div style='background-image: url("assets/img/img.png");
+<div style='background-image: url("assets/img/pexels-ksenia-chernaya-7695182 - copia.jpg");
 background-size: cover;
 background-position: center;
 height: 100vh;
@@ -225,7 +225,7 @@ width: 100%;'>
                                 <input type="submit" value="INGRESAR" class="btn">
                             </div>
                         </form>
-                        <p class="center-align alert alert-info">Este sistema es creado Ing. Emilio Gaitán</p>
+                        <p class="center-align alert alert-info">Derechos reservados politica de softwares</p>
                     </div>
                 </div>
             </div>

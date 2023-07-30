@@ -249,13 +249,13 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                 ?>
                 <div class="row" style="margin: 0;padding: 0;">
                     <p class="alert alert-primary center-block">
-                        <span class="red-text">Facturas Faltantes:{ <?php // Mostrar los números faltantes
-                            echo implode(", ", $numeros_faltantes); ?>  }</span>
+                        <span class="red-text">Rango No: <?php echo "[".$uno." - ".$dos."] Faltantes No=". // Mostrar los números faltantes
+                             implode(", ", $numeros_faltantes); ?>  </span>
                         <span>Total Factura: <?php echo $datos_hoy_con["total_factura"]; ?></span> <span
                             style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
-                        <span
-                            style="margin-left:1em ;">Sub_Total Ventas: C$ <?php echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?></span><span
-                            style="margin-left:1em ;">Total Venta: C$<?php echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?></span>
+<!--                        <span-->
+<!--                            style="margin-left:1em ;">Sub_Total Ventas: C$ --><?php //echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?><!--</span><span-->
+<!--                            style="margin-left:1em ;">Total Venta: C$--><?php //echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?><!--</span>-->
                     </p>
                 </div>
                 <?php
@@ -263,14 +263,14 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
 
                 <div class="row" style="margin: 0;padding: 0;">
                     <p class="alert alert-danger center-block">
-                        <span class="red-text">Facturas Faltantes:{ <?php // Mostrar los números faltantes
-                            echo implode(", ", $numeros_faltantes); ?> }</span> <span
+                         <span class="red-text">Rango No: <?php echo "[".$uno." - ".$dos."] Faltantes No=". // Mostrar los números faltantes
+                                 implode(", ", $numeros_faltantes); ?>  </span> <span
                             style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
                         <span
                             style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
-                        <span
-                            style="margin-left:1em ;">Sub_Total Ventas: C$ <?php echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?></span><span
-                            style="margin-left:1em ;">Total Venta: C$<?php echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?></span>
+<!--                        <span-->
+<!--                            style="margin-left:1em ;">Sub_Total Ventas: C$ --><?php //echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?><!--</span><span-->
+<!--                            style="margin-left:1em ;">Total Venta: C$--><?php //echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?><!--</span>-->
                     </p>
                 </div>
                 <?php

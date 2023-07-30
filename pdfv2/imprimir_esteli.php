@@ -44,7 +44,7 @@ datos_clientes::update_Control_factura($talonario, $key, $mysqli);
 ?>
 <div style="margin-top: 4.5em!important;margin-left: 1.5em">
     <p style="margin-left: 1em;width: 65%!important; font-size: 13px;" class="linea"><b><?php echo $cliente['nombre'] . " " . $cliente['apellido']; ?></b></p>
-    <span style="position: static!important; width: 20%!important; font-size: 16px;margin-left: 6em;" class="linea"><b><?php echo datos_clientes::fecha_get_pc(); ?></b></span>
+    <span style="position: static!important; width: 20%!important; font-size: 16px;margin-left: 4em;" class="linea"><b><?php echo datos_clientes::fecha_get_pc(); ?></b></span>
 </div>
 <br>
 <table style="height: 150px; width: 600px;" id="contenidoTabla" >

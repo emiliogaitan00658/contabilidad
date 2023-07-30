@@ -41,27 +41,27 @@ swal("Contraseña de Autorización:", {
                     <input type="text" name="textnombre" class="form-control" placeholder="Nombre sucursal"
                            value="<?php if ($_GET) {
                                echo $datos_cliente["nombre"];
-                           } ?>" required>
+                           } ?>" required readonly>
                 </div>
                 <div class="control-pares col-md-3">
                     <label for="">Apellido Cliente: *</label>
                     <input type="text" name="textnombre" class="form-control" placeholder="Nombre sucursal"
                            value="<?php if ($_GET) {
                                echo $datos_cliente["apellido"];
-                           } ?>" required>
+                           } ?>" required readonly>
                 </div>
                 <div class="control-pares col-md-5">
                     <label for="">Codigo de Factura: *</label>
                     <input type="text" name="textkey" class="form-control" placeholder="Direccion" readonly=readonly
                            value="<?php if ($_GET) {
                         echo $llave;
-                    } ?>" required>
+                    } ?>" required readonly>
                 </div>
                 <div class="control-pares col-md-3">
                     <label for="">Total Cordobas: *</label>
                     <input type="text" name="texttelefono" class="form-control" placeholder="Telefono"
                            value="<?php if ($_GET) {
-                               echo $total;
+                               echo number_format($total, 2, '.', ',');;
                            } ?>" readonly=readonly required>
                 </div>
 
@@ -84,7 +84,7 @@ swal("Contraseña de Autorización:", {
                 <br>
                 <br>
                 <div class="control-pares col-md-4">
-                    <input type="submit" value="Agregar Registar" class="btn white-text blue-grey btn-primary" style="margin:2em"/>
+                    <input type="submit" value="Trasferir Factura" class="btn white-text blue-grey btn-primary" style="margin:2em"/>
                 </div>
             </section>
         </form>
