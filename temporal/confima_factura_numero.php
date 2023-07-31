@@ -7,6 +7,7 @@ if ($indsucursal == "2" or $indsucursal == "1" or $indsucursal == "24" or $indsu
     if ($_POST) {
         $Confirmacion = $_POST["textcambio"];
         $key = $_POST["textkey"];
+
         $r = datos_clientes::cambio_numero_factura($key, $Confirmacion, $mysqli);
         echo '<script> location.href="../pdfv2/htmltopdf.php?key=' . $key . '" </script>';
     }
