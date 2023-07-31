@@ -110,16 +110,19 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
 
     <div class="container white rounded z-depth-1" style="border-radius: 6px;">
         <div style="padding: 0.5em">
-            <h5 class="alert alert-heading z-depth-1"><img src="assets/icono_factura.png" alt="" width="5%">Factura
-                Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"
-                            href="cierre_caja.php"
-                            class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp; <a
+            <h5 class="alert alert-heading z-depth-1"><img src="assets/icono_factura.png" alt="" width="5%">Factura Generadas
+<!--                Generadas<a class="btn btn-secondary right" style="margin-left: 1em;"-->
+<!--                            href="cierre_caja.php"-->
+<!--                            class="right btn btn-danger"><i class="icon-exit"></i> Cierre Caja</a>&nbsp;-->
+                <a
                     class="btn btn-dark blue-grey right"
                     href="temporal/cliente_manual.php"
-                    class="right btn btn-info" style="margin-left: 1em;">Factura Manual</a> <a
-                    class="btn btn-outline-primary right"
-                    href="temporal/cliente_garantia.php"
-                    class="right btn btn-info">Garantia Equipo</a></h5>
+                    class="right btn btn-info" style="margin-left: 1em;">Factura Manual</a>
+<!--                <a-->
+<!--                    class="btn btn-outline-primary right"-->
+<!--                    href="temporal/cliente_garantia.php"-->
+<!--                    class="right btn btn-info">Garantia Equipo</a>-->
+            </h5>
             <hr>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <section class="row">
@@ -231,14 +234,14 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                         <input type="submit" value="Buscar" class="btn white-text blue-grey btn-primary"/>
                     </div>
 
-                    <?php if($indsucursal=="1"){?>
-                    <div class="control-pares col-md-2">
-                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio.php" style="margin: 0">
-                            <b><?php if (!empty($_SESSION)) {
-                                    echo "No." . $talonario;
-                                } ?> <i class="icon-arrow-right2 red-text"></i></b></a>
-                    </div>
-                    <?php }?>
+<!--                    --><?php //if($indsucursal=="1"){?>
+<!--                    <div class="control-pares col-md-2">-->
+<!--                        <a class="nav-link alert alert-danger bg-red" href="talonario_cambio.php" style="margin: 0">-->
+<!--                            <b>--><?php //if (!empty($_SESSION)) {
+//                                    echo "No." . $talonario;
+//                                } ?><!-- <i class="icon-arrow-right2 red-text"></i></b></a>-->
+<!--                    </div>-->
+<!--                    --><?php //}?>
                 </section>
             </form>
             <hr>

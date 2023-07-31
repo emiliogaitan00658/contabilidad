@@ -2,29 +2,20 @@
 include_once "../header/header_panel.php";
 
 $key = $_GET["key"];
-if ($indsucursal == "2" or $indsucursal == "3" or $indsucursal == "4" or $indsucursal == "5" or $indsucursal == "6" or $indsucursal == "7" or $indsucursal == "8"or $indsucursal == "9") {
+if ($indsucursal == "2" or $indsucursal == "1" or $indsucursal == "24" or $indsucursal == "3" or $indsucursal == "4" or $indsucursal == "5" or $indsucursal == "6" or $indsucursal == "7" or $indsucursal == "8" or $indsucursal == "9") {
     $re22 = datos_clientes::datos_generales_talonario($key, $mysqli);
     if ($_POST) {
         $Confirmacion = $_POST["textcambio"];
         $key = $_POST["textkey"];
         $r = datos_clientes::cambio_numero_factura($key, $Confirmacion, $mysqli);
-        echo '<script> location.href="../pdfv2/htmltopdf.php?key='.$key.'" </script>';
+        echo '<script> location.href="../pdfv2/htmltopdf.php?key=' . $key . '" </script>';
     }
-//    else {
-//        $booos = datos_clientes::verficiar_talonario($key, $mysqli);
-//        if ($booos["indtalonario"] == null) {
-//            datos_clientes::Factura_genera_codigo($key, $talonario, $indsucursal, $mysqli);
-//            //datos_clientes::cambio_fecha_factura();
-//        }
-//    }
-}else if ($indsucursal == "1" and $indempleado == "24") {
-    echo '<script> location.href="../pdfv2/htmltopdf.php?key='.$key.'" </script>';
-}else{
-    echo '<script> location.href="../pdfv2/htmltopdf.php?key='.$key.'" </script>';
+} else {
+    echo '<script> location.href="../pdfv2/htmltopdf.php?key=' . $key . '" </script>';
 }
-if ($_POST){
+if ($_POST) {
 
-}else if (!$_GET) {
+} else if (!$_GET) {
     echo '<script> location.href="../factura_dia.php" </script>';
 }
 ?>

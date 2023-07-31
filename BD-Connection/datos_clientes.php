@@ -922,12 +922,12 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', 
         return "0";
     }
 
-    public static function verificar_numero_factura($indtalonario, $mysqli)
+    public static function verificar_numero_factura($indtalonario, $indsucursal,$mysqli)
     {
-        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtalonario='$indtalonario'");
+        $result = $mysqli->query("SELECT indtalonario,key FROM `total_factura` WHERE indtalonario='$indtalonario' and indsucursal='$indsucursal'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
-            return $row3["indtalonario"];
+            return $row3;
         }
         return "0";
     }
