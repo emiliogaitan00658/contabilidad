@@ -8,7 +8,7 @@ if ($_GET) {
     $total = $_GET['total'];
     $total_final=number_format(($total/$dolar), 2, '.', '');
 
-   $rr=datos_clientes::idcliente_credito($key,$mysqli);
+   echo $rr=datos_clientes::idcliente_credito($key,$mysqli);
 
     if($rr!="false"){
         echo '<script>
