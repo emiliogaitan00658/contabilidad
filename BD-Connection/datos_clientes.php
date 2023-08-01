@@ -243,54 +243,10 @@ VALUES ( '$indusuario', '$nombre', '$apellido', '$direccion1', '$direccion2', '$
         $query = mysqli_query($mysqli, $insert2);
 
 
-        $insert1 = "INSERT INTO `credito` (`indcredito`, `indsucursal`, `indcliente`, `producto`, `totalCredito`, `numeroCuotas`, `fechaInicio`, `status`, `prima`, `indtemp`) 
-VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', '', '$key');";
-
-        $result = $mysqli->query("SELECT * FROM `credito` WHERE indtemp='$key'");
-        $row = $result->fetch_array(MYSQLI_ASSOC);
-
-        $query = mysqli_query($mysqli, $insert1);
-
-
-//        $query = mysqli_query($mysqli, $insert1);
-//
-//
-//        $fecha = $inicio;
-//        $bandera = 0;
-//
-//        $d = date('d', strtotime($fecha));
-//        $m = date('m', strtotime($fecha));
-//        $y = date('Y', strtotime($fecha));
-//        $m + 1;
-//
-//        $pago_cu = $monto / $cuotas;
-//        $pago_cuatos = round($pago_cu, 2);
-//
-//        for ($i = 1; $i <= $cuotas; $i++) {
-//            if ($i == $cuotas) {
-//                $bandera = 1;
-//            }
-//            $bandera;
-//            $m = $m + 1;
-//            if ($m > 12) {
-//                $m = 1;
-//                $y = $y + 1;
-//            }
-//
-//            if (checkdate($m, $d, $y)) {
-//                $date = $y . "-" . $m . "-" . $d;
-//            } else {
-//                $date = $y . "-" . $m . "-" . "1";
-//            }
-//            $result = $mysqli->query("SELECT * FROM `credito` WHERE indtemp='$key'");
-//            $row = $result->fetch_array(MYSQLI_ASSOC);
-//
-//            $indcredito = $row["indcredito"];
-//
-//            $insert1 = "INSERT INTO `creditos_pago` (`indpago`, `indcredito`, `indfactura`, `pago`, `fechapago`, `status`, `bandera`, `indsucursal`, `detalles`, `indtemp`)
-//                   VALUES (NULL, '$indcredito', null, '$pago_cuatos', '$date', 'false', '$bandera', '$indsucursal', '00000', '$key');";
-//            $query = mysqli_query($mysqli, $insert1);
-//        }
+        $fecha=self::fecha_get_pc_MYSQL();
+        $insert3 = "INSERT INTO `credito` (`indcredito`, `indsucursal`, `indcliente`, `producto`, `totalCredito`, `numeroCuotas`, `fechaInicio`, `status`, `prima`, `indtemp`)
+VALUES (NULL, '$indcliente', '$indsucursal', NULL, '$monto', '$cuotas', '$fecha', '1', '0', '$key');";
+        $query = mysqli_query($mysqli, $insert3);
         return true;
     }
 
