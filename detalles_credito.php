@@ -34,6 +34,7 @@ if ($_GET) {
 //else {
 //    echo '<script> location.href="buscar_clientes.php" </script>';
 //}
+eeeeeeeeeee
 if ($_POST) {
 
     $rr=datos_clientes::idcliente_credito($key,$mysqli);
