@@ -479,7 +479,7 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                                     <a href="#"
                                        target="_blank">__</a>
                                     <a href="contador_modulo/registro_retencion.php?key=<?php echo $resultado['indtemp']; ?>">Retenciòn</a>
-                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente'] . "&key=" . $resultado['indtemp'] . '&total= ' . $resultado["total"]; ?>"
+                                    <a href="detalles_credito.php?indcliente=<?php echo $resultado['indcliente'] . "&key=" . $resultado['indtemp'] . '&total= ' .$resultado["total"]; ?>"
                                     >Crear Creditos</a>
                                 </div>
                             </div>

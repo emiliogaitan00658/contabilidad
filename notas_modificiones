@@ -1,6 +1,53 @@
 en ves de cedula debe de cambiar a tipo
 en talonario indtempo ahora va hacer numero recibo
+
+
+
+
+
+
+
+
+
+
+
+
+if ($recues == true) {
+        echo '<script>
+ swal({
+   title: "Exito ?",
+   text: "Credito Guardado",
+   icon: "success",
+   buttons: true,
+
+ })
+ .then((willDelete) => {
+   if (willDelete) {
+     location.href="factura_dia.php";
+   }else {
+     location.href="factura_dia.php";
+   }
+ });
+ </script>';
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 SELECT * FROM `clientes` WHERE nombre LIKE "%DR%" or nombre="%DRA%" or nombre="%DRA.%" or nombre="%DR.%";
+
+
+
+
+
 
 echo '<script>
  swal({

@@ -239,6 +239,10 @@ VALUES ( '$indusuario', '$nombre', '$apellido', '$direccion1', '$direccion2', '$
     public static function nuevo_credito($indcliente, $indsucursal, $key, $inicio, $monto, $cuotas, $prima, $mysqli)
     {
 
+        $insert2 = "UPDATE `total_factura` SET `credito` = '1' WHERE total_factura.indtemp ='$key';";
+        $query = mysqli_query($mysqli, $insert2);
+
+
         $insert1 = "INSERT INTO `credito` (`indcredito`, `indsucursal`, `indcliente`, `producto`, `totalCredito`, `numeroCuotas`, `fechaInicio`, `status`, `prima`, `indtemp`) 
 VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto','', '$inicio', '1', '', '$key');";
 
