@@ -15,7 +15,7 @@ swal("Contraseña de Autorización:", {
 })
 .then((value) => {
     if ("orthodental2020"==value) {
-        location.href="autorizacion_cambio_factura?key=' . $key.'&sucursal=' . $sucursal.'";
+        location.href="autorizacion_cambio_factura.php?key=' . $key.'&sucursal=' . $sucursal.'";
    }else{
      swal("Acceso", "Denegado el acceso Intentar nuvamente", "error")
 .then((value) => {
