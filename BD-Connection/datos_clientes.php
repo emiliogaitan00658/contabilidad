@@ -245,7 +245,7 @@ VALUES ( '$indusuario', '$nombre', '$apellido', '$direccion1', '$direccion2', '$
 
         $fecha=self::fecha_get_pc_MYSQL();
         $insert3 = "INSERT INTO `credito` (`indcredito`, `indsucursal`, `indcliente`, `producto`, `totalCredito`, `numeroCuotas`, `fechaInicio`, `status`, `prima`, `indtemp`)
-VALUES (NULL, '$indcliente', '$indsucursal', NULL, '$monto', '$cuotas', '$fecha', '1', '0', '$key');";
+VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto', '$cuotas', '$fecha', '1', '0', '$key');";
         $query = mysqli_query($mysqli, $insert3);
         return true;
     }
