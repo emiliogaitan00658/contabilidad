@@ -35,6 +35,30 @@ if ($_GET) {
 //    echo '<script> location.href="buscar_clientes.php" </script>';
 //}
 if ($_POST) {
+
+    $rr=datos_clientes::idcliente_credito($key,$mysqli);
+
+    if($rr!="false"){
+        echo '<script>
+ swal({
+   title: "Anuncio ?",
+   text: "Ya contiene un credito",
+   icon: "warning",
+   buttons: true,
+
+ })
+ .then((willDelete) => {
+   if (willDelete) {
+     location.href="factura_dia.php";
+   }else {
+     location.href="factura_dia.php";
+   }
+ });
+ </script>';
+    }
+
+
+
     $producto = strtoupper($_POST['textproducto']);
     $inicio = $_POST['textfechainicio'];
     $monto = $_POST['textpagar'];
