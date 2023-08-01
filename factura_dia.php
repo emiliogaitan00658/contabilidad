@@ -325,7 +325,7 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                 if ($timestamp_fecha < $timestamp_fecha_limite) {
                     $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
                 } elseif ($timestamp_fecha > $timestamp_fecha_limite) {
-                    $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad_may_2023");
+                    $mysqli = new mysqli("localhost", "root", "root2020", "mv");
                 } else {
                     $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad_may_2023");
                 }
