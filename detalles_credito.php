@@ -9,6 +9,7 @@ if ($_GET) {
     $total_final=number_format(($total/$dolar), 2, '.', '');
 
    $rr=datos_clientes::idcliente_credito($key,$mysqli);
+
     if($rr!="false"){
         echo '<script>
  swal({
