@@ -2,6 +2,7 @@ en ves de cedula debe de cambiar a tipo
 en talonario indtempo ahora va hacer numero recibo
 
 
+SELECT indtalonario,COUNT(*) AS duplicad FROM total_factura GROUP BY indtalonario HAVING COUNT(*) > 1 LIMIT 1;
 
 
 

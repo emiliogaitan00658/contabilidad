@@ -10,13 +10,17 @@ $uno = datos_clientes::primera_factura_no($indsucursal, $fecha1, $fecha2, $mysql
 $dos = datos_clientes::ultima_factura_no($indsucursal, $fecha1, $fecha2, $mysqli);
 
 $numeros_presentes = datos_clientes::rango_hoy_facturacion($indsucursal, $fecha1, $fecha2, $mysqli);
-
-function numeros_faltantes_en_rango($A, $B, $numeros_presentes)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+function numeros_faltantes_en_rango($A, $B, $numeros_presentes,$indsucursal,$mysqli)
 {
     $numeros_faltantes = array();
     for ($num = $A; $num <= $B; $num++) {
         if (!in_array($num, $numeros_presentes)) {
-            $numeros_faltantes[] = $num;
+            if (datos_clientes::verificar_numero_factura2($num,$indsucursal,$mysqli)=="0"){
+                $numeros_faltantes[] = $num;
+            }
         }
     }
     return $numeros_faltantes;
@@ -25,7 +29,8 @@ function numeros_faltantes_en_rango($A, $B, $numeros_presentes)
 $A = $uno;
 $B = $dos;
 
-$numeros_faltantes = numeros_faltantes_en_rango($A, $B, $numeros_presentes);
+
+$numeros_faltantes = numeros_faltantes_en_rango($A, $B, $numeros_presentes,$indsucursal,$mysqli);
 
 //if($indsucursal!=1) {
 //    $dia_dos = Extraccion_fecha::_data_primer_fecha_del_mes();
@@ -249,15 +254,16 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
             <hr>
             <!--            <p class="red-text">Las facturas anuladas deben de ser reportadas en el sistema, es una obligación  del personal reportarlas, igual registrar todas las facturas  realizadas</p>-->
             <!--            <hr>-->
-            <?php
-            if ($indsucursal == "2" or $indsucursal == "3" or $indsucursal == "4" or $indsucursal == "5" or $indsucursal == "6" or $indsucursal == "7") {
-                ?>
+<!--            --><?php
+//            if ($indsucursal == "2" or $indsucursal == "3" or $indsucursal == "4" or $indsucursal == "5" or $indsucursal == "6" or $indsucursal == "7") {
+//                ?>
                 <div class="row" style="margin: 0;padding: 0;">
                     <p class="alert alert-primary center-block">
                         <span class="red-text">Rango No: <?php echo "[" . $uno . " - " . $dos . "] Faltantes No=" . // Mostrar los números faltantes
                                 implode(", ", $numeros_faltantes); ?>  </span>
                         <span>Total Factura: <?php echo $datos_hoy_con["total_factura"]; ?></span> <span
-                                style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
+                                style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span><span
+                                style="margin-left:1em ;" class="red-text">Factura Duplicada: <?php echo datos_clientes::factura_duplicada($uno,$dos,$indsucursal,$mysqli); ?></span>
                         <!--                        <span-->
                         <!--                            style="margin-left:1em ;">Sub_Total Ventas: C$ -->
                         <?php //echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?><!--</span><span-->
@@ -265,26 +271,6 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                         <?php //echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?><!--</span>-->
                     </p>
                 </div>
-                <?php
-            } else if ($indsucursal == "1" and $indempleado == "24") { ?>
-
-                <div class="row" style="margin: 0;padding: 0;">
-                    <p class="alert alert-danger center-block">
-                         <span class="red-text">Rango No: <?php echo "[" . $uno . " - " . $dos . "] Faltantes No=" . // Mostrar los números faltantes
-                                 implode(", ", $numeros_faltantes); ?>  </span> <span
-                                style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
-                        <span
-                                style="margin-left:1em ;">Factura Credito: <?php echo $datos_hoy_con["total_credito"]; ?></span>
-                        <!--                        <span-->
-                        <!--                            style="margin-left:1em ;">Sub_Total Ventas: C$ -->
-                        <?php //echo number_format($datos_hoy_con["sub"], 2, '.', ','); ?><!--</span><span-->
-                        <!--                            style="margin-left:1em ;">Total Venta: C$-->
-                        <?php //echo number_format($datos_hoy_con["total"], 2, '.', ',');; ?><!--</span>-->
-                    </p>
-                </div>
-                <?php
-            } ?>
-
         </div>
     </div>
     <hr>
@@ -317,20 +303,20 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                 $sucursal = $_POST["textsucursal"];
                 $talo = $_POST["textfactura"];
 
-//                    *********************//fecha viejas factura viejas
-                $fecha_limite = "2023-08-01";
-                $timestamp_fecha = strtotime($fecha2);
-                $timestamp_fecha_limite = strtotime($fecha_limite);
-
-                if ($timestamp_fecha < $timestamp_fecha_limite) {
-                    $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
-                } elseif ($timestamp_fecha > $timestamp_fecha_limite) {
-                    $mysqli = new mysqli("localhost", "root", "root2020", "mv");
-                } else {
-                    $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad_may_2023");
-                }
-
-//*******************************************************************************
+////                    *********************//fecha viejas factura viejas
+//                $fecha_limite = "2023-08-01";
+//                $timestamp_fecha = strtotime($fecha2);
+//                $timestamp_fecha_limite = strtotime($fecha_limite);
+//
+//                if ($timestamp_fecha < $timestamp_fecha_limite) {
+//                    $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad");
+//                } elseif ($timestamp_fecha > $timestamp_fecha_limite) {
+//                    $mysqli = new mysqli("localhost", "root", "root2020", "mv");
+//                } else {
+//                    $mysqli = new mysqli("localhost", "root", "root2020", "contabilidad_may_2023");
+//                }
+//
+////*******************************************************************************
                 if ($talo == "") {
                     $result4 = $mysqli->query("SELECT * FROM `total_factura` WHERE total_factura.fecha='$fecha2' and total_factura.indsucursal='$sucursal' ORDER by indtotalfactura DESC");
                 } else {

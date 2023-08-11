@@ -183,7 +183,7 @@ class datos_clientes
     {
         $fecha_actual = self::fecha_get_pc_MYSQL();
         $result = $mysqli->query("SELECT COUNT(indtalonario) as total_factura,SUM(credito) as total_credito,SUM(subtotal) as sub,sum(total) as total FROM `total_factura` WHERE
-        (fecha BETWEEN '$fecha_actual' and '$fecha_actual') and indtalonario is NOT null and indsucursal='$indsucursal' and bandera ='1';");
+        (fecha BETWEEN '$fecha_actual' and '$fecha_actual') and indtalonario is NOT null and indsucursal='$indsucursal';");
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row)) {
             return $row;
@@ -199,6 +199,16 @@ class datos_clientes
             return $row['indcliente'];
         }
         return false;
+    }
+
+    public static function Anulada_contador($inicio, $final, $indsucursal, $mysqli)
+    {
+        $result = $mysqli->query("SELECT count(indtalonario) as conteo FROM `total_factura` WHERE (indtalonario BETWEEN '$inicio' and '$final') and indtalonario is NOT null and bandera ='0' and indsucursal='$indsucursal'");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            return $row['conteo'];
+        }
+        return 0;
     }
 
     public static function datos_clientes_generales_dadd($indcliente, $mysqli)
@@ -243,7 +253,7 @@ VALUES ( '$indusuario', '$nombre', '$apellido', '$direccion1', '$direccion2', '$
         $query = mysqli_query($mysqli, $insert2);
 
 
-        $fecha=self::fecha_get_pc_MYSQL();
+        $fecha = self::fecha_get_pc_MYSQL();
         $insert3 = "INSERT INTO `credito` (`indcredito`, `indsucursal`, `indcliente`, `producto`, `totalCredito`, `numeroCuotas`, `fechaInicio`, `status`, `prima`, `indtemp`)
 VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto', '$cuotas', '$fecha', '1', '0', '$key');";
         $query = mysqli_query($mysqli, $insert3);
@@ -882,12 +892,33 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto', '$cuotas', '$fecha'
         return "0";
     }
 
-    public static function verificar_numero_factura($indtalonario, $indsucursal,$mysqli)
+    public static function verificar_numero_factura($indtalonario, $indsucursal, $mysqli)
     {
         $result = $mysqli->query("SELECT indtalonario,key FROM `total_factura` WHERE indtalonario='$indtalonario' and indsucursal='$indsucursal'");
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3;
+        }
+        return "0";
+    }
+
+    public static function factura_duplicada($uno,$dos,$indsucursal,$mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario,COUNT(*) AS duplicad FROM total_factura
+WHERE (indtalonario BETWEEN '$uno' and '$dos') and indsucursal='$indsucursal' GROUP BY indtalonario HAVING COUNT(*) > 1 LIMIT 1;");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["indtalonario"];
+        }
+        return "0";
+    }
+
+    public static function verificar_numero_factura2($indtalonario, $indsucursal, $mysqli)
+    {
+        $result = $mysqli->query("SELECT indtalonario FROM `total_factura` WHERE indtalonario='$indtalonario' and indsucursal='$indsucursal'");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return "1";
         }
         return "0";
     }

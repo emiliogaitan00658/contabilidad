@@ -10,7 +10,7 @@ if ($_POST) {
         {
             // Utilizamos una expresión regular para reemplazar todo lo que no sean dígitos o letras con una cadena vacía
 //            return preg_replace('/[^a-zA-Z0-9]/', '', $texto);
-            return preg_replace('/[^a-zA-Z0-9\s]/', '', $texto);
+            return preg_replace('/[^a-zA-Z0-9-ñÑ\s]/', '', $texto);
         }
 
 // Ejemplo de uso

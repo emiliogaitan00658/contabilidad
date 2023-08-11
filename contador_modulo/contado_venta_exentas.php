@@ -17,7 +17,6 @@ $_SESSION["exporta_fecha2"]=$fecha2;
     <h5 class="center-align">Fecha de facturaciòn <?php echo datos_clientes::traforma_fecha($fecha1) ?>
         al <?php echo datos_clientes::traforma_fecha($fecha2) ?></h5>
     <hr>
-    <a href="../exel_pagina_exportacion/create_excel.php" class="btn btn-info"><i class="icon-file-excel"></i> Exportar a Exel</a>
 </div>
 <div class="row">
     <div class="z-depth-1 rounded white center-block" style="width: 95%">
@@ -26,6 +25,7 @@ $_SESSION["exporta_fecha2"]=$fecha2;
             <tr style="border-bottom: 1px solid black;">
                 <th scope="col">N.# SUCURSAL</th>
                 <th scope="col" class="center-align">SUCURSAL</th>
+                <th scope="col">TOTAL ANULADA</th>
                 <th scope="col">N.# INICIO</th>
                 <th scope="col">N.# FINAL</th>
                 <th scope="col">TOTAL DE FACTURAS</th>
@@ -48,12 +48,16 @@ $_SESSION["exporta_fecha2"]=$fecha2;
                 $sum = 0;
                 $sum1 = 0;
                 $d = 0;
+
+                $L1=0;
+                $L2=0;
                 ?>
                 <tr>
                     <td class="center-align"><?php echo $resultado["serie"]; ?></td>
                     <td class="center-align"><?php echo $resultado["nombre_sucursal"]; ?></td>
-                    <td class="center-align"><?php echo datos_clientes::primera_factura_no($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
-                    <td class="center-align"><?php echo datos_clientes::ultima_factura_no($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
+                    <td class="center-align"><?php echo datos_clientes::Anulada_contador($L1,$L2,$resultado["indsucursal"], $mysqli) ?></td>
+                    <td class="center-align"><?php echo $L1=datos_clientes::primera_factura_no($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
+                    <td class="center-align"><?php echo $L2=datos_clientes::ultima_factura_no($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
                     <td class="center-align"><?php echo $d = datos_clientes::conteo_factura($resultado["indsucursal"], $fecha1, $fecha2, $mysqli);
                         $total_factura = $total_factura + $d; ?></td>
                     <td class="center-align"><?php $n1 = datos_clientes:: suma_total_venta_contado_totales($resultado["indsucursal"], $fecha1, $fecha2, $mysqli);echo datos_clientes::dos_decimales($n1); ?></td>
@@ -70,6 +74,7 @@ $_SESSION["exporta_fecha2"]=$fecha2;
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td class="center-align"><?php echo $total_factura; ?></td>
                 <td class="center-align"><?php echo datos_clientes::dos_decimales($total_contado); ?></td>
                 <td class="center-align"><?php echo datos_clientes::dos_decimales($total_credito); ?></td>
@@ -78,3 +83,5 @@ $_SESSION["exporta_fecha2"]=$fecha2;
             </tbody>
         </table>
     </div>
+</div>
+
