@@ -190,6 +190,16 @@ class datos_clientes
         }
         return false;
     }
+    public static function datos_cierre_caja2($indsucursal,$fecha_actual,$mysqli)
+    {
+        $result = $mysqli->query("SELECT COUNT(indtalonario) as total_factura,SUM(credito) as total_credito,SUM(subtotal) as sub,sum(total) as total FROM `total_factura` WHERE
+        (fecha BETWEEN '$fecha_actual' and '$fecha_actual') and indtalonario is NOT null and indsucursal='$indsucursal';");
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row)) {
+            return $row;
+        }
+        return false;
+    }
 
     public static function datos_clientes_moras($indcredito, $mysqli)
     {
@@ -773,6 +783,16 @@ VALUES (NULL, '$indsucursal', '$indcliente', NULL, '$monto', '$cuotas', '$fecha'
         $row3 = $result->fetch_array(MYSQLI_ASSOC);
         if (!empty($row3)) {
             return $row3["indtalonario"];
+        }
+        return "0";
+    }
+
+    public static function total_retenciones($indsucursal, $fecha1, $fecha2, $mysqli)
+    {
+        $result = $mysqli->query("SELECT SUM(porsentaje) as total_retenciones FROM `retencion` WHERE (fecha BETWEEN '$fecha1' and '$fecha2') and indsucursal='$indsucursal' ");
+        $row3 = $result->fetch_array(MYSQLI_ASSOC);
+        if (!empty($row3)) {
+            return $row3["total_retenciones"];
         }
         return "0";
     }

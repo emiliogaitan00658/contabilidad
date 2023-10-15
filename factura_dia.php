@@ -20,6 +20,12 @@ function numeros_faltantes_en_rango($A, $B, $numeros_presentes,$indsucursal,$mys
         if (!in_array($num, $numeros_presentes)) {
             if (datos_clientes::verificar_numero_factura2($num,$indsucursal,$mysqli)=="0"){
                 $numeros_faltantes[] = $num;
+                if ($num > 60){
+                    echo '<script>
+        swal("Numero Factura Mala Contactar ingeniero", "Error", "warning")
+</script>';
+                    exit();
+                }
             }
         }
     }

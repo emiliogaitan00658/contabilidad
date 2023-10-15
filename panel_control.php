@@ -87,6 +87,15 @@
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body center-align">
+                    <h5 class="card-title">Informe de ventas</h5>
+                    <p class="card-text">Informe de ventas sucursales</p>
+                    <a href="contabilida_cierre.php" class="btn btn-secondary">Ir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body center-align">
                     <h5 class="card-title">Retenciòn</h5>
                     <p class="card-text">Informe de retenciòn de sucursales</p>
                     <a href="contador_modulo/fecha_reporte_retencion.php" class="btn btn-secondary">Ir</a>

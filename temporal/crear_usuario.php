@@ -1,5 +1,9 @@
 <?php
 include_once "../header/header_panel.php";
+if (!$_SESSION) {
+    echo '<script> location.href="../login.php" </script>';
+}
+
 if ($_POST) {
     $nombre = strtoupper(filter_var($_POST['textnombre'], FILTER_SANITIZE_STRING));
     $apellido = strtoupper(filter_var($_POST['textapellido'], FILTER_SANITIZE_STRING));

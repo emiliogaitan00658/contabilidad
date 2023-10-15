@@ -1,3 +1,33 @@
+
+<?php
+
+echo $ip = $_SERVER['REMOTE_ADDR']; // Obtén la dirección IP del visitante
+
+// URL de la API de ipinfo.io para obtener información de la IP
+$api_url = "http://ipinfo.io/{$ip}/json";
+
+// Realiza la solicitud HTTP a la API
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+
+// Procesa la respuesta JSON
+$ip_info = json_decode($response, true);
+
+// Accede a la información que necesitas, por ejemplo, el país
+$country = $ip_info['country'];
+
+// Ahora puedes tomar decisiones basadas en el país, por ejemplo, bloquear acceso desde un país específico
+if ($country === 'US') {
+    echo "Acceso desde Estados Unidos no permitido.";
+} else {
+    echo "Bienvenido.";
+}
+
+
+?>
 <div style='background-image: url("assets/img/pexels-ksenia-chernaya-7695182 - copia.jpg");
 background-size: cover;
 background-position: center;

@@ -25,7 +25,7 @@ $_SESSION["exporta_fecha2"]=$fecha2;
             <tr style="border-bottom: 1px solid black;">
                 <th scope="col">N.# SUCURSAL</th>
                 <th scope="col" class="center-align">SUCURSAL</th>
-                <th scope="col">TOTAL ANULADA</th>
+                <th scope="col">TOTAL RETENCION</th>
                 <th scope="col">N.# INICIO</th>
                 <th scope="col">N.# FINAL</th>
                 <th scope="col">TOTAL DE FACTURAS</th>
@@ -55,11 +55,14 @@ $_SESSION["exporta_fecha2"]=$fecha2;
                 <tr>
                     <td class="center-align"><?php echo $resultado["serie"]; ?></td>
                     <td class="center-align"><?php echo $resultado["nombre_sucursal"]; ?></td>
-                    <td class="center-align"><?php echo datos_clientes::Anulada_contador($L1,$L2,$resultado["indsucursal"], $mysqli) ?></td>
+<!--                    <td class="center-align">--><?php //echo datos_clientes::Anulada_contador($L1,$L2,$resultado["indsucursal"], $mysqli) ?><!--</td>-->
+                    <td class="center-align"><?php echo $M2=datos_clientes::total_retenciones($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
+
                     <td class="center-align"><?php echo $L1=datos_clientes::primera_factura_no($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
                     <td class="center-align"><?php echo $L2=datos_clientes::ultima_factura_no($resultado["indsucursal"], $fecha1, $fecha2, $mysqli); ?></td>
                     <td class="center-align"><?php echo $d = datos_clientes::conteo_factura($resultado["indsucursal"], $fecha1, $fecha2, $mysqli);
                         $total_factura = $total_factura + $d; ?></td>
+
                     <td class="center-align"><?php $n1 = datos_clientes:: suma_total_venta_contado_totales($resultado["indsucursal"], $fecha1, $fecha2, $mysqli);echo datos_clientes::dos_decimales($n1); ?></td>
                     <td class="center-align"><?php $n2 = datos_clientes::suma_total_venta_credito_totales($resultado["indsucursal"], $fecha1, $fecha2, $mysqli);echo datos_clientes::dos_decimales($n2) ?></td>
                     <td class="center-align"><?php $suma1=datos_clientes::total_suma_contador($resultado["indsucursal"], $fecha1, $fecha2, $mysqli);echo datos_clientes::dos_decimales($suma1); ?></td>

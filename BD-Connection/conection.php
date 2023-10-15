@@ -6,8 +6,8 @@
  * Time: 03:38 PM
  */
 error_reporting (0);
-$mysqli = new mysqli("localhost", "root", "root2020", "contabilidad_may_2023");
-//$mysqli = new mysqli("localhost", "root", "", "orthodental_2023");
+//$mysqli = new mysqli("localhost", "root", "root2020", "contabilidad_may_2023");
+$mysqli = new mysqli("localhost", "root", "", "orthodental_2023");
 if (mysqli_connect_errno()) {
     die("Error al conectar: " . mysqli_connect_error());
 }
