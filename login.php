@@ -1,4 +1,3 @@
-
 <?php
 
 echo $ip = $_SERVER['REMOTE_ADDR']; // Obtén la dirección IP del visitante
@@ -25,7 +24,6 @@ if ($country === 'US') {
 } else {
     echo "Bienvenido.";
 }
-
 
 ?>
 <div style='background-image: url("assets/img/pexels-ksenia-chernaya-7695182 - copia.jpg");
