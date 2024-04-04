@@ -7,7 +7,6 @@ if ($_GET) {
 } else {
     echo '<script> location.href="factura_dia.php" </script>';
 }
-
 ?>
 <div class="container z-depth-1 rounded white" style="border-radius: 6px;">
     <br>

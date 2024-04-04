@@ -20,6 +20,7 @@ if (!$_SESSION) {
             </section>
         </form>
         <hr>
+
 <!--        <div class="modal-footer">-->
 <!---->
 <!--            <a class="btn white-text btn-dark" href="faltantes">Faltantes</a>-->

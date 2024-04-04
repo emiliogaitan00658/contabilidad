@@ -59,6 +59,7 @@ if (!$_SESSION) {
                                 if ($_POST['textsucursal'] == "6") {
                                     echo "Esteli";
                                 }
+
                                 if ($_POST['textsucursal'] == "5") {
                                     echo "Leon";
                                 }

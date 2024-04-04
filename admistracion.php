@@ -407,6 +407,7 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja2($indsucursal,$fecha_actual, 
                                         >Tranferir.Factura</a>
                                     <?php } ?>
 
+
                                 </div>
                                 <script>
                                     /* When the user clicks on the button,

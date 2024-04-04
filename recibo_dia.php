@@ -200,7 +200,6 @@
     </div>
 
     <script>
-
         function verficar_eliminar(codigo) {
             swal({
                 title: "Eliminar?",

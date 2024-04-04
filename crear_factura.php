@@ -13,7 +13,6 @@ if ($row["tipo"] == null or $row["tipo"] == "" or $row["tipo"] == " ") {
      text: "Debemos Especificar que Tipo Cliente",
      icon: "warning",
      buttons: true,
-
    })
    .then((willDelete) => {
      if (willDelete) {

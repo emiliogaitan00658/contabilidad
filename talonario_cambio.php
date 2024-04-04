@@ -3,6 +3,7 @@
 if (!$_SESSION){
     echo '<script> location.href="login.php" </script>';
 }
+
 if ($_POST){
     if(!empty($_POST['texttalonario'])){
         $indsucursal=$_SESSION['sucursal'];

@@ -9,6 +9,7 @@ if ($_GET) {
     datos_clientes::entregar_matariales_bandera($indfacura, $bandera, $mysqli);
 }
 ?>
+
     <style>
         .vertical-header span {
             writing-mode: vertical-rl;

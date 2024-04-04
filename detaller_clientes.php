@@ -1,6 +1,5 @@
 <?php include "header/header.php";
 if($_SESSION){
-
 }else{
     echo '<script>location.href="login.php";</script>';
 }

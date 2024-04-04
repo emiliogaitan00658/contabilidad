@@ -8,6 +8,7 @@ $row = datos_clientes::buscar($indcliente, $mysqli);
 if (!$_GET) {
     echo '<script> location.href="factura_dia.php" </script>';
 }
+
 if ($_POST) {
     $check_cordoba = isset($_POST['flexCheckCheckedcordoba']) ? 1 : 0;
     $check_dolar = isset($_POST['flexCheckCheckeddolar']) ? 1 : 0;

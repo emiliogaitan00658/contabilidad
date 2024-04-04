@@ -1,6 +1,7 @@
 <?php include "header/header.php";
 if (!$_SESSION){
     echo '<script> location.href="login.php" </script>';
+
 }
 if ($_GET) {
     $nombre = $_GET['indcliente'];

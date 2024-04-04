@@ -1,4 +1,5 @@
 <?php
+
 include "header/header.php";
 if ($_POST) {
     $dolar_nuevo = $_POST['textdolar'];

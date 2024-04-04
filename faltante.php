@@ -6,7 +6,6 @@ $sucursal_nombre = datos_clientes::nombre_sucursal_ind($indsucursal, $mysqli);
 
 $primera = datos_clientes::primera_factura_no($indsucursal, $fecha1, $fecha2, $mysqli);
 $segunda = datos_clientes::ultima_factura_no($indsucursal, $fecha1, $fecha2, $mysqli);
-
 ?>
 <div class="container">
     <hr>

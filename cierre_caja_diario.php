@@ -1,4 +1,5 @@
 <?php
+
 include "BD-Connection/datos_clientes.php";
 include "BD-Connection/conection.php";
 echo "<br>";

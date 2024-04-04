@@ -15,8 +15,6 @@ if (!empty($_POST["textnombre"])) {
     $nombre ="0";
 }
 
-
-
 ?>
 <div class="container white rounded z-depth-1" style="border-radius: 6px;">
     <div style="padding: 1em">

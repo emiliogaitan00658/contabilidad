@@ -402,6 +402,7 @@ $datos_hoy_con = datos_clientes::datos_cierre_caja($indsucursal, $mysqli);
                                     <?php } ?>
 
                                 </div>
+
                                 <script>
                                     /* When the user clicks on the button,
                                     toggle between hiding and showing the dropdown content */

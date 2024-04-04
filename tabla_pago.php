@@ -4,6 +4,7 @@ if ($_SESSION) {
 } else {
     echo '<script>location.href="login.php";</script>';
 }
+
 if ($_GET) {
     $indcredito = $_GET['indcredito'];
     $indtemp = $_GET['indtemp'];

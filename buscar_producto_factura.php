@@ -3,6 +3,7 @@
 if (!$_SESSION) {
     echo '<script> location.href="login.php" </script>';
 }
+
 if ($_GET) {
     $indproducto = $_GET['codigo'];
     $precio = $_GET['precio'];

@@ -16,6 +16,7 @@ if ($_POST){
      icon: "success",
      buttons: true,
 
+
    })
    .then((willDelete) => {
      if (willDelete) {
