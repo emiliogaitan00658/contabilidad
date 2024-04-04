@@ -12,7 +12,8 @@ if($_POST){
     $precio1=$_POST["textprecio1"];
     $precio2=$_POST["textprecio2"];
     $precio3=$_POST["textprecio3"];
-    datos_clientes::cambio_dato_producto($indproducto,$producto,$precio1,$precio2,$precio3,$mysqli);
+    $codigobarra=$_POST["textbarra"];
+    datos_clientes::cambio_dato_producto($indproducto,$producto,$precio1,$precio2,$precio3,$codigobarra,$mysqli);
     echo '<script> swal({
   title: "Producto Actualizado?",
   text: "Exito Cambios!",
@@ -32,12 +33,11 @@ if($_POST){
 
 ?>
 <br>
-<div class="container white rounded z-depth-2" style="border-radius: 6px;">
+<div class="white rounded z-depth-2 center-block" style="border-radius: 6px;width: 90%">
     <div style="padding: 1em">
-        <h5>Editar los datos del producto</h5>
+        <h5 class="alert-primary" style="padding: 6px;border-radius: 6px">Editar los datos del producto</h5>
         <p><span class="red-text">*</span>El precio del producto debe de ser ingresado en dolar</p>
         <hr>
-        <br>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?producto=".$indproducto;?>" method="post">
             <section class="row">
                 <div class="control-pares col-md-2">
@@ -45,7 +45,7 @@ if($_POST){
                     <input type="text" name="textcodigo" class="form-control" placeholder="producto"
                            value="<?php echo $listadataller["codigo_producto"] ?>" readonly=readonly required>
                 </div>
-                <div class="control-pares col-md-6">
+                <div class="control-pares col-md-5">
                     <label for="">Detalle del Producto</label>
                     <input type="text" name="textproducto" class="form-control" placeholder="producto"
                            value="<?php echo $listadataller["nombre_producto"] ?>" required>
@@ -65,6 +65,11 @@ if($_POST){
                     <input type="text" name="textprecio3" class="form-control" placeholder="producto"
                            value="<?php echo $listadataller["precio3"] ?>" required>
                 </div>
+                <div class="control-pares col-md-2">
+                    <label for="">Codigo de barra</label>
+                    <input type="text" name="textbarra" class="form-control" placeholder="Codigo Barra"
+                           value="<?php echo $listadataller["fecha_vencimiento"] ?>" required>
+                </div>
                 <br>
                 <br>
                 <br>
@@ -76,10 +81,7 @@ if($_POST){
         </form>
         <a class="btn btn-dark light-blue right" href="producto_cambio_precio.php"><i class="icon-arrow-left2"></i>Regresar</a>
         <br>
-        <p>Nota: Los detalle del producto solo seran cambiado y autizado por el personal adminstrativo de la
-            plataforma.</p>
-        <p>contactar al ingeniero de la empresa</p>
-        <br>
+        <hr>
     </div>
 </div>
 <?php

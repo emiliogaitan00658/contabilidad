@@ -198,7 +198,7 @@
             </tbody>
         </table>
     </div>
-
+///cambio de modifiacion actulizada
     <script>
 
         function verficar_eliminar(codigo) {
