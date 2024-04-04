@@ -40,6 +40,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Reporte Generales de Ventas</h5>
+                    <p class="card-text">Informe generados porventa materiales o marca.</p>
+                    <a href="venta-generada.php" class="btn btn-primary">Crear Reporte</a>
+                </div>
+            </div>
+        </div>
 <!--        <div class="col-sm-3">-->
 <!--            <div class="card">-->
 <!--                <div class="card-body">-->
