@@ -1249,6 +1249,7 @@ VALUES (NULL, '$codigo', '$producto', '$precio1', '$precio2', '$precio3', '$fech
         }
     }
 
+
     public static function entregar_matariales_bandera($indfactura, $bandera, $mysqli)
     {
         $insert = "UPDATE `factura` SET `bandera` = '$bandera' WHERE `factura`.`indfactura` = '$indfactura'";
@@ -1347,6 +1348,9 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
     }
 
 
+
+
+
     public static function eliminar_credito($temp, $mysqli)
     {
         $insert1 = "DELETE FROM `creditos_pago` WHERE `creditos_pago`.`indtemp` ='$temp' ";
@@ -1372,6 +1376,8 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
         return true;
     }
 
+
+
     public static function nombre_producto_completo($codigo_producto, $mysqli)
     {
         $result = $mysqli->query("SELECT * FROM `producto` WHERE codigo_producto= '$codigo_producto'");
@@ -1394,6 +1400,8 @@ VALUES (NULL, '$indcredito', '$recibo', '$total', '$fecha', 'true', '1', '$indsu
     }
 
 
+
+
     public static function ingresar_retencion($key, $numero_recibo, $subtotal, $indtotalfactura, $sucursal, $porsentaje, $indtalonario, $mysqli)
     {
         $fecha = self::fecha_get_pc_MYSQL();
@@ -1407,3 +1415,6 @@ VALUES (NULL, '$cliente', '$sucursal', '$indtotalfactura', '$indtalonario', '$nu
         return true;
     }
 }
+
+
+
